@@ -23,7 +23,7 @@
   --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-anchor:none}
 body{
   margin:0;background:var(--bg);color:var(--ink);line-height:1.7;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
@@ -564,8 +564,14 @@ tabs.forEach(t => t.addEventListener("click", () => setTab(t.dataset.tab)));
 document.getElementById("p-pos").addEventListener("click", e => {
   const b = e.target.closest("[data-i]");
   if (!b) return;
+  const panel = document.querySelector("#levels .panel");
+  const before = panel.getBoundingClientRect().top;
   select(+b.dataset.i);
-  document.querySelector("#levels .panel").scrollIntoView({behavior:"smooth", block:"center"});
+  // 徽标就在面板标题上，切换后保持视口不动；只有当面板标题已被滚出视口上方时才轻推回位
+  if (before < 0) {
+    const delta = panel.getBoundingClientRect().top - 76;
+    if (delta < 0) window.scrollBy({ top: delta, behavior: "smooth" });
+  }
 });
 
 function setTab(name){
