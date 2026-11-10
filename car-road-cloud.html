@@ -73,9 +73,12 @@ h1{font-size:clamp(30px,4.4vw,52px);line-height:1.12;letter-spacing:-.02em;margi
 .panel-title h3{margin:6px 0 8px;font-size:26px;letter-spacing:-.01em;color:var(--navy)}
 .panel-title p{margin:0;color:var(--ink-2);font-size:14.5px;max-width:640px}
 .pos-badge{display:flex;flex-direction:column;gap:6px;align-items:flex-end;margin-left:auto}
-.pos-badge span{display:inline-flex;align-items:baseline;gap:8px;background:#f6f8fc;border:1px solid var(--line);border-radius:999px;padding:4px 12px;white-space:nowrap}
-.pos-badge em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3)}
-.pos-badge b{color:var(--navy);font-weight:600;font-size:12.5px}
+.pos-pill{display:inline-flex;align-items:baseline;gap:8px;background:#f6f8fc;border:1px solid var(--line);border-radius:999px;padding:4px 12px;white-space:nowrap;font:inherit;color:inherit;cursor:pointer;transition:background .15s,border-color .15s}
+.pos-pill:hover{background:#eef3fb;border-color:#b9c6dc}
+.pos-pill.is-static{cursor:default}
+.pos-pill.is-static:hover{background:#f6f8fc;border-color:var(--line)}
+.pos-pill em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3)}
+.pos-pill b{color:var(--navy);font-weight:600;font-size:12.5px}
 .tabs{display:flex;gap:4px;padding:22px 28px 0;border-bottom:1px solid var(--line-2);flex-wrap:wrap}
 .tab{background:none;border:0;font:inherit;font-size:13.5px;color:var(--ink-3);padding:10px 14px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
 .tab:hover{color:var(--navy)}
@@ -169,7 +172,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
   <section class="section" id="diagram">
     <h2>六层分解与车路云协同架构</h2>
-    <p class="sub">上层给出「为什么」，下层给出「怎么实现」：Mission 定义价值，SoS 组织城市级协同，Vehicles 提供载体，Systems 交付协同驾驶能力，Sub-systems 与 Modules 落到可采购、可测试的实体。</p>
     <div class="figure">
       <svg viewBox="0 0 1080 560" role="img" aria-label="车路云六层分解架构图">
         <defs>
@@ -500,6 +502,13 @@ chain.innerHTML = LEVELS.map((L,i)=>`<span data-i="${i}">${L.zh}</span>`).join('
 
 tabs.forEach(t => t.addEventListener("click", () => { tab = t.dataset.tab; render(); }));
 
+document.getElementById("p-pos").addEventListener("click", e => {
+  const b = e.target.closest("[data-i]");
+  if (!b) return;
+  select(+b.dataset.i);
+  document.querySelector("#levels .panel").scrollIntoView({behavior:"smooth", block:"center"});
+});
+
 function select(i){
   current = i;
   [...rail.children].forEach((el, k) => el.setAttribute("aria-selected", k === i ? "true" : "false"));
@@ -515,8 +524,10 @@ function render(){
   const prev = current > 0 ? LEVELS[current-1] : null;
   const next = current < LEVELS.length-1 ? LEVELS[current+1] : null;
   document.getElementById("p-pos").innerHTML =
-    `<span><em>上位</em><b>${prev ? prev.zh + " " + prev.en : "顶层目标"}</b></span>` +
-    `<span><em>下位</em><b>${next ? next.zh + " " + next.en : "最底层实体"}</b></span>`;
+    (prev ? `<button class="pos-pill" data-i="${current-1}" title="跳到 ${prev.zh} 层"><em>上位</em><b>${prev.zh} ${prev.en}</b></button>`
+          : `<span class="pos-pill is-static"><em>上位</em><b>顶层目标</b></span>`) +
+    (next ? `<button class="pos-pill" data-i="${current+1}" title="跳到 ${next.zh} 层"><em>下位</em><b>${next.zh} ${next.en}</b></button>`
+          : `<span class="pos-pill is-static"><em>下位</em><b>最底层实体</b></span>`);
   tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.tab === tab ? "true" : "false"));
 
   if (tab === "overview") {
