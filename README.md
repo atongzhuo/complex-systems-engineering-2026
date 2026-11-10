@@ -8,7 +8,7 @@
 
 | 项目 | 内容 |
 | --- | --- |
-| GitHub 账号 | atongzhuo（学生本人注册，拥有仓库管理员权限） |
+| GitHub 账号 | atongzhuo |
 | 仓库 | atongzhuo/complex-systems-engineering-2026 |
 | 可见性 | Public |
 | 默认分支 | `main` |
