@@ -21,6 +21,10 @@
 .
 ├── index.html          # 站点入口页（GitHub Pages 首页）
 ├── car-road-cloud.html # 项目页：基于车路云系统的未来城市交通规划（六层分解）
+├── 404.html            # 自定义 404 页（站点内路径找不到时展示）
+├── og-cover.png        # 1200×630 社交分享封面（og:image）
+├── robots.txt          # 爬虫规则，指向 sitemap.xml
+├── sitemap.xml         # 站点地图
 └── README.md           # 本文件
 ```
 
