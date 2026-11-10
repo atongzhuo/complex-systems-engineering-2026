@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>复杂系统工程 2026 · 课程主页</title>
 <meta name="description" content="复杂系统工程 2026 课程仓库主页，由 GitHub Pages 发布。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="复杂系统工程 2026">
+<meta property="og:title" content="复杂系统工程 2026 · 课程主页">
+<meta property="og:description" content="课程作业与项目展示主页：车路云系统的未来城市交通规划六层分解页面入口。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23132a4a'/%3E%3Ctext x='32' y='42' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ECS%3C/text%3E%3C/svg%3E">
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#f6f7fb;color:#1b2130;line-height:1.7}
@@ -28,6 +33,10 @@ li{margin:5px 0}
 .card{border:1px solid #e6e9f2;border-radius:10px;padding:16px 18px;background:#fbfcfe}
 .card h3{margin:0 0 6px;font-size:15px}
 .card p{margin:0;color:#5b6580;font-size:14px}
+a.card{display:block;color:inherit;transition:border-color .15s,box-shadow .15s,transform .15s}
+a.card:hover{text-decoration:none;border-color:#b9c6dc;box-shadow:0 8px 20px -14px rgba(19,42,74,.45);transform:translateY(-2px)}
+a.card:hover h3{color:#2563eb}
+a.card .more{display:inline-block;margin-top:8px;color:#2563eb;font-size:14px}
 footer{color:#8892ab;font-size:13px;text-align:center;margin-top:36px}
 @media(max-width:640px){.grid{grid-template-columns:1fr}h1{font-size:26px}th{width:88px}}
 </style>
@@ -66,18 +75,8 @@ footer{color:#8892ab;font-size:13px;text-align:center;margin-top:36px}
 <section>
 <h2>项目展示</h2>
 <div class="grid">
-<div class="card"><h3><a href="./car-road-cloud.html">基于车路云系统的未来城市交通规划</a></h3><p>六层分解：任务 Mission → 体系 SoS → 整机 Vehicles → 系统 Systems → 子系统 Sub-systems → 模块 Modules。<br><a href="./car-road-cloud.html">打开交互页面 →</a></p></div>
+<a class="card" href="./car-road-cloud.html"><h3>基于车路云系统的未来城市交通规划</h3><p>六层分解：任务 Mission → 体系 SoS → 整机 Vehicles → 系统 Systems → 子系统 Sub-systems → 模块 Modules。<span class="more">打开交互页面 →</span></p></a>
 <div class="card"><h3>说明</h3><p>车路云一体化定位在【系统 Systems】层级，整机层含车端、路端与云端三类整机，页面内含层级切换与协同架构图。</p></div>
-</div>
-</section>
-
-<section>
-<h2>如何更新这个页面</h2>
-<div class="grid">
-<div class="card"><h3>网页</h3><p>直接在 GitHub 上编辑 <code>index.html</code>，提交到 <code>main</code>，约一分钟后就生效。</p></div>
-<div class="card"><h3>Git</h3><p>本地克隆仓库，修改后推送到 <code>main</code>。</p></div>
-<div class="card"><h3>AI 工具</h3><p>用 AI 助手生成或改写页面内容，再提交推送。</p></div>
-<div class="card"><h3>自管范围</h3><p>GitHub Actions、Secrets、仓库设置与访问令牌均由本人管理。</p></div>
 </div>
 </section>
 
