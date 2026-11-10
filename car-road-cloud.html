@@ -49,8 +49,6 @@ h1{font-size:clamp(30px,4.4vw,52px);line-height:1.12;letter-spacing:-.02em;margi
 /* ---------- level rail ---------- */
 .rail-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin:56px 0 16px;flex-wrap:wrap}
 .rail-head h2{margin:0;font-size:15px;letter-spacing:.02em}
-.rail-head p{margin:0;font-size:13px;color:var(--ink-3)}
-.hint{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);border:1px solid var(--line);border-radius:6px;padding:2px 7px;background:#fff}
 .rail{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
 @media(max-width:980px){.rail{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:560px){.rail{grid-template-columns:repeat(2,1fr)}}
@@ -121,14 +119,6 @@ table.metrics tr:last-child td{border-bottom:0}
 .figure svg{display:block;width:100%;height:auto}
 .caption{font-size:12.5px;color:var(--ink-3);padding:10px 14px 6px;text-align:center}
 
-/* ---------- requirements table ---------- */
-.req-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:auto}
-table.req{width:100%;border-collapse:collapse;font-size:13.8px;min-width:720px}
-table.req thead th{background:#f2f4f8;text-align:left;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding:12px 16px;position:sticky;top:0}
-table.req td{padding:12px 16px;border-top:1px solid var(--line-2);vertical-align:top;color:var(--ink-2)}
-table.req td:first-child{font-family:var(--mono);font-size:12px;color:var(--teal);white-space:nowrap}
-table.req tr:hover td{background:#fbfcfe}
-
 footer{margin-top:72px;border-top:1px solid var(--line);padding:26px 0 44px;color:var(--ink-3);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .hidden{display:none}
@@ -145,7 +135,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <nav class="topnav">
       <a href="#levels">层级链</a>
       <a href="#diagram">架构图</a>
-      <a href="#requirements">需求示例</a>
       <a href="./index.html">课程仓库</a>
     </nav>
   </div>
@@ -160,6 +149,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       六个层级，逐层说明目标、边界、构成与可度量的指标。</p>
     <div class="chips">
       <span class="chip"><b>6</b> 层级</span>
+      <span class="chip"><b>3</b> 类整机</span>
       <span class="chip"><b>5</b> 体系成员</span>
       <span class="chip"><b>9</b> 子系统</span>
       <span class="chip"><b>16</b> 基础模块</span>
@@ -169,10 +159,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
   <section id="levels">
     <div class="rail-head">
-      <div>
-        <h2>点击任意层级查看内容</h2>
-        <p>标签页切换「概览 / 关键需求 / 关键指标 / 下层构成」，按 <span class="hint">←</span> <span class="hint">→</span> 可快速切换层级。</p>
-      </div>
+      <h2>六个层级</h2>
     </div>
     <div class="rail" id="rail" role="tablist" aria-label="六个层级"></div>
     <p class="chain" id="chain"></p>
@@ -241,10 +228,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <g stroke="#cfd8e6"><line x1="315" y1="95" x2="315" y2="117"/><line x1="470" y1="95" x2="470" y2="117"/><line x1="620" y1="95" x2="620" y2="117"/><line x1="790" y1="95" x2="790" y2="117"/></g>
 
         <!-- Vehicles -->
-        <rect x="150" y="140" width="430" height="44" rx="10" fill="#fff" stroke="#dbe2ec"/>
-        <text x="365" y="167" font-size="13" text-anchor="middle" fill="#132a4a">智能网联整车（C-V2X · 多传感器 · 域控）</text>
-        <rect x="620" y="140" width="430" height="44" rx="10" fill="#fff" stroke="#dbe2ec"/>
-        <text x="835" y="167" font-size="13" text-anchor="middle" fill="#132a4a">路侧一体化整机（RSU + 感知融合 · 边缘网关）</text>
+        <rect x="150" y="140" width="286" height="44" rx="10" fill="#fff" stroke="#dbe2ec"/>
+        <text x="293" y="167" font-size="11.5" text-anchor="middle" fill="#132a4a">智能网联整车（C-V2X · 多传感器）</text>
+        <rect x="457" y="140" width="286" height="44" rx="10" fill="#fff" stroke="#dbe2ec"/>
+        <text x="600" y="167" font-size="11.5" text-anchor="middle" fill="#132a4a">路侧一体化整机（RSU · 边缘网关）</text>
+        <rect x="764" y="140" width="286" height="44" rx="10" fill="#fff" stroke="#dbe2ec"/>
+        <text x="907" y="167" font-size="11.5" text-anchor="middle" fill="#132a4a">云端整机（云控服务器 · GPU 推理）</text>
 
         <!-- Systems -->
         <rect x="150" y="204" width="900" height="52" rx="10" fill="#fdf0ec" stroke="#e9b7ab"/>
@@ -309,24 +298,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </g>
       </svg>
       <div class="caption">六层分解示意：越往上偏向目标与治理，越往下偏向可交付、可测试的软硬件实体。</div>
-    </div>
-  </section>
-
-  <section class="section" id="requirements">
-    <h2>需求示例：从任务目标到模块指标</h2>
-    <p class="sub">抽取若干条贯穿层级的需求，说明上层目标如何逐级落到可验证的下层约束。</p>
-    <div class="req-wrap">
-      <table class="req">
-        <thead><tr><th>编号</th><th>需求</th><th>所属层级</th><th>验证方式</th></tr></thead>
-        <tbody>
-          <tr><td>RQ-01</td><td>目标区域内交叉口事故率较基线下降 30%</td><td>Mission 任务</td><td>年度事故统计对比</td></tr>
-          <tr><td>RQ-02</td><td>车路云系统与交管、公交、应急系统共享事件数据，跨系统响应时延 ≤ 5s</td><td>SoS 体系</td><td>跨系统演练与日志审计</td></tr>
-          <tr><td>RQ-03</td><td>路侧感知覆盖路口 150m 半径，目标检出率 ≥ 99%</td><td>Vehicles / Systems</td><td>现场标定与真值对比</td></tr>
-          <tr><td>RQ-04</td><td>感知到执行的端到端闭环时延 ≤ 100ms（车端本地闭环 ≤ 50ms）</td><td>Systems 系统</td><td>打点测试 / 硬件在环</td></tr>
-          <tr><td>RQ-05</td><td>路侧 MEC 在 8 路视频输入下稳定推理，功耗 ≤ 60W</td><td>Sub-systems 子系统</td><td>台架压测</td></tr>
-          <tr><td>RQ-06</td><td>C-V2X 消息丢包率 ≤ 1%（高负载场景），签名验签时延 ≤ 2ms</td><td>Modules 模块</td><td>外场路测 + 抓包分析</td></tr>
-        </tbody>
-      </table>
     </div>
   </section>
 </main>
@@ -400,31 +371,36 @@ const LEVELS = [
   },
   {
     id:"vehicles", num:"03", zh:"整机", en:"Vehicles", tag:"03 · Vehicles",
-    lede:"整机层是承载功能的物理载体：智能网联整车，以及路侧感知通信一体化整机与边缘网关整机。",
+    lede:"整机层是承载功能的物理载体：智能网联整车、路侧一体化整机，以及部署在区域机房或边缘数据中心的云端整机。",
     overview:{
-      text:"整机是「可交付、可安装、可验收」的硬件载体。它把子系统与模块装配成通过环境适应性、可靠性与电磁兼容测试的产品，是体系能力落地的物理基础。",
+      text:"整机是「可交付、可安装、可验收」的硬件载体。它把子系统与模块装配成通过环境适应性、可靠性与电磁兼容测试的产品，是体系能力落地的物理基础。车、路、云三侧都需要各自的整机形态。",
       points:[
         ["智能网联整车","搭载 C-V2X OBU、多传感器套件与中央/区域域控制器。"],
         ["路侧一体化整机","RSU 与感知融合一体机共杆部署，含边缘网关。"],
-        ["部署形态","路口杆件、隧道与匝道、园区与停车场等差异化形态。"],
-        ["关键约束","防护等级、供电与散热、杆件承重、安装与维护可达性。"]
+        ["云端整机","云控平台服务器、GPU 推理整机与存储阵列，部署在区域机房或边缘数据中心。"],
+        ["部署形态","路口杆件、隧道与匝道、园区与停车场、区域机房与边缘节点等差异化形态。"],
+        ["关键约束","防护等级、供电与散热、杆件承重、机房承重与配电、安装与维护可达性。"]
       ]
     },
     needs:[
       ["感知完整","360° 覆盖，夜间与雨雾条件下的可用性。"],
       ["通信可靠","双链路冗余，弱覆盖区域可降级。"],
       ["环境适应","-40℃ ~ 85℃、IP65 以上、抗振动与电磁干扰。"],
+      ["算力可扩展","云端整机按路口规模与路网增长横向扩容，推理与存储分离。"],
       ["可维护","模块化更换，现场免调试或分钟级自恢复。"]
     ],
     metrics:[
       ["整机 MTBF","≥ 50,000 h","可靠性试验"],
       ["防护等级","≥ IP65","型式试验"],
       ["单车感知覆盖","360° 无盲区","标定报告"],
-      ["路侧整机功耗","≤ 120 W（含感知与通信）","台架实测"]
+      ["路侧整机功耗","≤ 120 W（含感知与通信）","台架实测"],
+      ["云端整机推理能力","单机 ≥ 8 路视频实时推理","台架压测"],
+      ["云端整机可用性","≥ 99.95%（双机冗余）","运行监测"]
     ],
     children:[
       ["智能网联整车","乘用车、公交、物流车等不同品类。"],
-      ["路侧一体化整机","RSU + 感知融合一体机、边缘网关整机。"]
+      ["路侧一体化整机","RSU + 感知融合一体机、边缘网关整机。"],
+      ["云端整机","云控服务器、GPU 推理服务器、存储与网络设备。"]
     ]
   },
   {
