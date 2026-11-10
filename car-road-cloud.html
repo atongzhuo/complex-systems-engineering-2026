@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>基于车路云系统的未来城市交通规划 · 系统层次</title>
-<meta name="description" content="基于车路云系统的未来城市交通规划：任务 Mission → 体系 SoS → 整机 Vehicles → 系统 Systems → 子系统 Sub-systems → 模块 Modules 六层分解。">
+<meta name="description" content="基于车路云系统的未来城市交通规划：任务 Mission → 体系 SoS → 整机 Hardware → 系统 Systems → 子系统 Sub-systems → 模块 Modules 六层分解。">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="复杂系统工程 2026">
 <meta property="og:title" content="基于车路云系统的未来城市交通规划 · 系统层次">
@@ -138,6 +138,14 @@ table.metrics tr:last-child td{border-bottom:0}
 .figure-hint{display:none;margin:0;padding:8px 14px 4px;font-size:12.5px;color:var(--accent);text-align:center}
 @media(max-width:760px){.figure-hint{display:block}}
 
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
+.trace{width:100%;border-collapse:collapse;font-size:13px}
+#trace-table{min-width:720px}
+.trace th{background:#f6f8fc;color:var(--ink-3);font-weight:600;font-size:12px;letter-spacing:.02em;text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.trace td{padding:10px 12px;border-bottom:1px solid #eef1f6;color:var(--ink-2);vertical-align:top;line-height:1.55}
+.trace tr:last-child td{border-bottom:0}
+.trace td:first-child{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--navy);white-space:nowrap}
+.sub-h{font-size:15px;color:var(--navy);margin:26px 0 10px;font-weight:650}
 .note{margin:14px 0 0;font-size:12.5px;color:var(--ink-3);line-height:1.6}
 .nojs-fallback{display:none}
 html:not(.js) .nojs-fallback{display:block}
@@ -175,6 +183,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <nav class="topnav">
       <a href="#levels">层级链</a>
       <a href="#diagram">架构图</a>
+      <a href="#trace">追溯</a>
+      <a href="#degrade">降级</a>
       <a href="./index.html">课程仓库</a>
     </nav>
   </div>
@@ -185,7 +195,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <p class="kicker">Complex Systems Engineering · 系统层次展示</p>
     <h1>基于车路云系统的<br>未来城市交通规划</h1>
     <p class="lede">以「车路云一体化」为核心对象，把未来城市交通规划依次拆分为
-      <b>任务 Mission → 体系 SoS → 整机 Vehicles → 系统 Systems → 子系统 Sub-systems → 模块 Modules</b>
+      <b>任务 Mission → 体系 SoS → 整机 Hardware → 系统 Systems → 子系统 Sub-systems → 模块 Modules</b>
       六个层级，逐层说明目标、边界、构成与可度量的指标。</p>
   </section>
 
@@ -220,12 +230,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <table class="metrics">
         <thead><tr><th>层级</th><th>核心目标</th><th>代表指标</th></tr></thead>
         <tbody>
-          <tr><td>01 任务 Mission</td><td>构建安全、高效、绿色的智能网联交通体系，把城市治理诉求转写为可分解的技术目标。</td><td>万车事故率下降 ≥ 30%；路网平均行程速度提升 ≥ 15%</td></tr>
-          <tr><td>02 体系 SoS</td><td>五个大系统协同：车路云一体化、交通管控、公交调度、应急救援、基础设施运维。</td><td>协同决策覆盖率 ≥ 90%；跨系统事件响应 ≤ 5 s</td></tr>
-          <tr><td>03 整机 Vehicles</td><td>车端、路端、云端三类可交付整机：智能网联整车、路侧一体化整机、云端整机。</td><td>整机 MTBF ≥ 50 000 h；云端单机 ≥ 8 路视频实时推理</td></tr>
-          <tr><td>04 系统 Systems</td><td>车路云一体化系统：实现车、路、云之间的感知互通、信息交互与协同决策。</td><td>协同决策准确率 ≥ 99%；系统可用性 ≥ 99.95%</td></tr>
-          <tr><td>05 子系统 Sub-systems</td><td>车端 3、路端 3、云端 3，共 9 个子系统，按职责单一、接口清晰拆分。</td><td>路侧融合精度横向 ≤ 0.3 m；MEC 处理时延 ≤ 50 ms</td></tr>
-          <tr><td>06 模块 Modules</td><td>13 个基础模块，归入感知、通信、计算、控制四组，可采购、可测试。</td><td>摄像头 ≥ 8 MP / 30 FPS；C-V2X 空口时延 ≤ 10 ms</td></tr>
+          <tr><td>01 任务 Mission</td><td>构建安全、高效、绿色的智能网联交通体系，把城市治理诉求转写为可分解的技术目标，并分三阶段推进。</td><td>亿车公里事故率下降 ≥ 30%；路网平均行程速度提升 ≥ 15%</td></tr>
+          <tr><td>02 体系 SoS</td><td>7 个业务系统 + 1 个车路云使能底座协同：交通管理、公交运营、应急救援、设施运维、能源充电、停车管理、货运物流。</td><td>接口契约测试通过率 100%；跨系统事件响应 ≤ 5 s</td></tr>
+          <tr><td>03 整机 Hardware</td><td>车端、路端、云端三类可交付整机，加上杆件、供电与机房等配套设施。</td><td>车端 MTBF ≥ 50 000 h；云端单机 ≥ 8 路视频实时推理</td></tr>
+          <tr><td>04 系统 Systems</td><td>车路云一体化系统：实现车、路、云之间的感知互通、信息交互与协同决策，并定义 ODD 与降级策略。</td><td>冲突场景识别率 ≥ 99%；本地闭环 ≤ 70 ms</td></tr>
+          <tr><td>05 子系统 Sub-systems</td><td>车端 3、路端 3、云端 3、全域安全 1，共 10 个子系统，按职责单一、接口清晰拆分。</td><td>路侧融合精度横向 ≤ 0.3 m；消息验签 ≤ 2 ms</td></tr>
+          <tr><td>06 模块 Modules</td><td>16 个基础模块，归入感知、通信、计算、控制、支撑五组，可采购、可测试。</td><td>摄像头 ≥ 8 MP / 30 FPS；时钟同步 ≤ 1 μs</td></tr>
         </tbody>
       </table>
     </div>
@@ -234,7 +244,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <section class="section" id="diagram">
     <h2>六层分解与车路云协同架构</h2>
     <div class="figure">
-      <svg viewBox="0 0 1080 560" role="img" aria-label="车路云六层分解架构图">
+      <svg viewBox="0 0 1080 578" role="img" aria-label="车路云六层分解架构图">
         <defs>
           <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0 0 L10 5 L0 10 z" fill="#9aa8bd"/>
@@ -254,28 +264,32 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <g font-size="12" fill="#6b7a95" font-family="ui-monospace,Menlo,Consolas,monospace">
           <text x="28" y="52">01 MISSION</text>
           <text x="28" y="108">02 SoS</text>
-          <text x="28" y="164">03 VEHICLES</text>
+          <text x="28" y="164">03 HARDWARE</text>
           <text x="28" y="230">04 SYSTEMS</text>
           <text x="28" y="316">05 SUB-SYSTEMS</text>
-          <text x="28" y="470">06 MODULES</text>
+          <text x="28" y="466">06 MODULES</text>
         </g>
 
         <!-- Mission -->
         <rect x="150" y="28" width="900" height="44" rx="10" fill="#132a4a"/>
         <text x="600" y="56" fill="#fff" font-size="15" text-anchor="middle" font-weight="600">安全 · 高效 · 绿色的智能网联交通体系</text>
 
-        <!-- SoS -->
+        <!-- SoS: 7 business systems + 1 enabling base -->
         <rect x="150" y="84" width="900" height="44" rx="10" fill="#f2f5fa" stroke="#dbe2ec"/>
-        <g font-size="12.5" fill="#132a4a" text-anchor="middle" font-weight="500">
-          <text x="235" y="111">车路云一体化</text>
-          <text x="400" y="111">交通管控</text>
-          <text x="545" y="111">公共交通调度</text>
-          <text x="705" y="111">应急救援</text>
-          <text x="880" y="111">基础设施运维</text>
+        <rect x="937.5" y="84" width="112.5" height="44" rx="10" fill="#eef3fb" stroke="#c9d9f5"/>
+        <g font-size="11" fill="#132a4a" text-anchor="middle" font-weight="500">
+          <text x="206" y="111">交通管理</text>
+          <text x="319" y="111">公交运营</text>
+          <text x="431" y="111">应急救援</text>
+          <text x="544" y="111">设施运维</text>
+          <text x="656" y="111">能源充电</text>
+          <text x="769" y="111">停车管理</text>
+          <text x="881" y="111">货运物流</text>
         </g>
-        <g stroke="#cfd8e6"><line x1="315" y1="95" x2="315" y2="117"/><line x1="470" y1="95" x2="470" y2="117"/><line x1="620" y1="95" x2="620" y2="117"/><line x1="790" y1="95" x2="790" y2="117"/></g>
+        <text x="994" y="111" font-size="11" text-anchor="middle" fill="#1b3a63" font-weight="650">车路云底座</text>
+        <g stroke="#cfd8e6"><line x1="262" y1="95" x2="262" y2="117"/><line x1="375" y1="95" x2="375" y2="117"/><line x1="487" y1="95" x2="487" y2="117"/><line x1="600" y1="95" x2="600" y2="117"/><line x1="712" y1="95" x2="712" y2="117"/><line x1="825" y1="95" x2="825" y2="117"/><line x1="937" y1="95" x2="937" y2="117"/></g>
 
-        <!-- Vehicles -->
+        <!-- Hardware -->
         <rect x="150" y="140" width="286" height="44" rx="10" fill="#fff" stroke="#dbe2ec"/>
         <text x="293" y="167" font-size="11.5" text-anchor="middle" fill="#132a4a">智能网联整车（C-V2X · 多传感器）</text>
         <rect x="457" y="140" width="286" height="44" rx="10" fill="#fff" stroke="#dbe2ec"/>
@@ -288,7 +302,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <text x="600" y="226" font-size="14.5" text-anchor="middle" fill="#c2452c" font-weight="650">车路云一体化系统（本课题选定对象）</text>
         <text x="600" y="245" font-size="12" text-anchor="middle" fill="#8a5c50">感知互通 · 信息交互 · 协同决策</text>
 
-        <!-- Subsystems: 3 columns -->
+        <!-- Subsystems: 3 domains -->
         <rect x="150" y="286" width="286" height="96" rx="12" fill="url(#gcar)" stroke="#c9d9f5"/>
         <rect x="457" y="286" width="286" height="96" rx="12" fill="url(#groad)" stroke="#bfe4da"/>
         <rect x="764" y="286" width="286" height="96" rx="12" fill="url(#gcloud)" stroke="#f2d3b3"/>
@@ -309,31 +323,41 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <text x="445" y="325" font-size="9.5" text-anchor="middle" fill="#8b98ad">PC5</text>
         <text x="752" y="325" font-size="9.5" text-anchor="middle" fill="#8b98ad">5G</text>
 
-        <!-- Modules -->
-        <g font-size="11.5" fill="#41506b">
-          <rect x="150" y="406" width="216" height="118" rx="10" fill="#fff" stroke="#dbe2ec"/>
-          <text x="166" y="428" font-size="12" font-weight="650" fill="#132a4a">感知模块</text>
-          <text x="166" y="450">摄像头 · 毫米波雷达</text>
-          <text x="166" y="470">激光雷达 · 北斗定位</text>
-          <text x="166" y="496" font-size="10.5" fill="#8b98ad">多源融合 · 时空对齐</text>
+        <!-- cross-domain security subsystem -->
+        <rect x="150" y="390" width="900" height="34" rx="10" fill="#f6f8fc" stroke="#dbe2ec"/>
+        <text x="600" y="412" font-size="11.5" text-anchor="middle" fill="#1b3a63">全域安全 · 安全认证子系统（PKI/CA · 安全芯片 · 证书生命周期 · 消息验签）</text>
 
-          <rect x="378" y="406" width="216" height="118" rx="10" fill="#fff" stroke="#dbe2ec"/>
-          <text x="394" y="428" font-size="12" font-weight="650" fill="#132a4a">通信模块</text>
-          <text x="394" y="450">C-V2X OBU · RSU 射频</text>
-          <text x="394" y="470">5G 传输</text>
-          <text x="394" y="496" font-size="10.5" fill="#8b98ad">低时延 · 高可靠</text>
+        <!-- Modules: 5 groups -->
+        <g font-size="10.5" fill="#41506b">
+          <rect x="150" y="430" width="168" height="124" rx="10" fill="#fff" stroke="#dbe2ec"/>
+          <text x="164" y="452" font-size="11.5" font-weight="650" fill="#132a4a">感知模块</text>
+          <text x="164" y="474">摄像头 · 毫米波雷达</text>
+          <text x="164" y="494">激光雷达 · 北斗定位</text>
+          <text x="164" y="520" font-size="10" fill="#8b98ad">多源融合 · 时空对齐</text>
 
-          <rect x="606" y="406" width="216" height="118" rx="10" fill="#fff" stroke="#dbe2ec"/>
-          <text x="622" y="428" font-size="12" font-weight="650" fill="#132a4a">计算模块</text>
-          <text x="622" y="450">AI 融合计算 · 信号处理</text>
-          <text x="622" y="470">存储</text>
-          <text x="622" y="496" font-size="10.5" fill="#8b98ad">算力调度 · 实时推理</text>
+          <rect x="330" y="430" width="168" height="124" rx="10" fill="#fff" stroke="#dbe2ec"/>
+          <text x="344" y="452" font-size="11.5" font-weight="650" fill="#132a4a">通信模块</text>
+          <text x="344" y="474">C-V2X OBU · RSU</text>
+          <text x="344" y="494">5G 传输</text>
+          <text x="344" y="520" font-size="10" fill="#8b98ad">低时延 · 高可靠</text>
 
-          <rect x="834" y="406" width="216" height="118" rx="10" fill="#fff" stroke="#dbe2ec"/>
-          <text x="850" y="428" font-size="12" font-weight="650" fill="#132a4a">控制模块</text>
-          <text x="850" y="450">预警决策 · 信号灯联动</text>
-          <text x="850" y="470">数据安全加密</text>
-          <text x="850" y="496" font-size="10.5" fill="#8b98ad">闭环执行 · 安全兜底</text>
+          <rect x="510" y="430" width="168" height="124" rx="10" fill="#fff" stroke="#dbe2ec"/>
+          <text x="524" y="452" font-size="11.5" font-weight="650" fill="#132a4a">计算模块</text>
+          <text x="524" y="474">AI 融合计算</text>
+          <text x="524" y="494">信号处理 · 存储</text>
+          <text x="524" y="520" font-size="10" fill="#8b98ad">算力调度 · 实时推理</text>
+
+          <rect x="690" y="430" width="168" height="124" rx="10" fill="#fff" stroke="#dbe2ec"/>
+          <text x="704" y="452" font-size="11.5" font-weight="650" fill="#132a4a">控制模块</text>
+          <text x="704" y="474">预警决策 · 信号灯</text>
+          <text x="704" y="494">线控执行器</text>
+          <text x="704" y="520" font-size="10" fill="#8b98ad">闭环执行 · 失效回退</text>
+
+          <rect x="870" y="430" width="168" height="124" rx="10" fill="#fff" stroke="#dbe2ec"/>
+          <text x="884" y="452" font-size="11.5" font-weight="650" fill="#132a4a">支撑模块</text>
+          <text x="884" y="474">供电与电源管理</text>
+          <text x="884" y="494">时钟同步 · 密钥管理</text>
+          <text x="884" y="520" font-size="10" fill="#8b98ad">不间断 · 可溯源</text>
         </g>
 
         <!-- vertical connectors -->
@@ -342,11 +366,66 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <line x1="600" y1="128" x2="600" y2="138"/>
           <line x1="600" y1="184" x2="600" y2="200"/>
           <line x1="600" y1="256" x2="600" y2="282"/>
-          <line x1="600" y1="382" x2="600" y2="400"/>
+          <line x1="600" y1="382" x2="600" y2="388"/>
+          <line x1="600" y1="424" x2="600" y2="428"/>
         </g>
       </svg>
       <div class="caption">六层分解示意：越往上偏向目标与治理，越往下偏向可交付、可测试的软硬件实体。</div>
       <p class="figure-hint">← 左右滑动查看完整架构图 →</p>
+    </div>
+  </section>
+
+  <section class="section" id="trace">
+    <h2>需求追溯矩阵</h2>
+    <p class="sub">每一行是一条可追溯链路：任务目标 → 体系协同要求 → 系统能力 → 子系统与模块的具体约束。编号用于评审引用与变更跟踪，同一需求可在多行复用。</p>
+    <div class="table-wrap">
+      <table class="trace" id="trace-table">
+        <thead><tr><th>链路</th><th>任务需求</th><th>体系需求</th><th>系统需求</th><th>子系统 / 模块落地</th></tr></thead>
+        <tbody>
+          <tr><td>TR-01</td><td>M-01 安全：亿车公里事故率 −30%</td><td>S-02 紧急事件跨系统秒级联动</td><td>SY-01 冲突场景识别率 ≥ 99%</td><td>SS-02 路侧融合横向 ≤ 0.3 m → MD-02 毫米波雷达 ≥ 250 m</td></tr>
+          <tr><td>TR-02</td><td>M-01 安全：事故严重度下降</td><td>S-04 单系统故障不致体系失效</td><td>SY-02 四类失效可降级</td><td>SS-01 车端本地闭环 ≤ 70 ms → MD-09 线控执行 ≤ 100 ms</td></tr>
+          <tr><td>TR-03</td><td>M-02 高效：路口延误 −20%</td><td>S-02 事件响应 ≤ 5 s</td><td>SY-03 单路口并发 ≥ 200 辆</td><td>SS-06 MEC ≥ 30 FPS / 8 路 → MD-07 AI 算力 ≥ 100 TOPS</td></tr>
+          <tr><td>TR-04</td><td>M-02 高效：行程速度 +15%</td><td>S-03 数据共享覆盖率 ≥ 90%</td><td>SY-04 云端协同闭环 ≤ 300 ms</td><td>SS-07 云控下发 ≤ 150 ms → MD-06 5G 传输</td></tr>
+          <tr><td>TR-05</td><td>M-03 绿色：单位里程能耗下降</td><td>S-03 信号与流量数据共享</td><td>SY-05 ODD 内协同调度与配时优化</td><td>SS-09 全局调度（只出策略）→ MD-10 信号灯联动</td></tr>
+          <tr><td>TR-06</td><td>M-04 可运营：可复制建设与运维</td><td>S-05 接口契约测试 100%</td><td>SY-06 系统可用性 ≥ 99.95%</td><td>SS-04 路侧设备远程诊断 → MD-14 供电与电源管理</td></tr>
+          <tr><td>TR-07</td><td>M-01 安全：消息不可伪造</td><td>S-03 数据权属与审计留痕</td><td>SY-07 身份可证、消息可信</td><td>SS-10 安全认证子系统 → MD-16 安全加密与密钥管理</td></tr>
+          <tr><td>TR-08</td><td>M-01/M-02 一致性与实时性</td><td>S-01 统一时空基准</td><td>SY-08 同一时空基准与地图版本</td><td>SS-05 时间同步 ≤ 1 μs → MD-15 gPTP 时钟</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">M / S / SY / SS / MD 编号分别对应任务、体系、系统、子系统、模块五层；矩阵同时用于「向上溯源」：任一模块指标失败时，可沿链路回到它服务的任务目标，判断是否影响验收。</p>
+  </section>
+
+  <section class="section" id="degrade">
+    <h2>运行设计域与失效降级</h2>
+    <p class="sub">ODD 界定系统在什么条件下被允许工作；降级表界定条件被破坏时系统如何退回安全状态。降级不是故障，而是设计内的工作模式。</p>
+    <h3 class="sub-h">运行设计域（ODD）</h3>
+    <div class="table-wrap">
+      <table class="trace" id="odd-table">
+        <thead><tr><th>维度</th><th>适用条件</th></tr></thead>
+        <tbody>
+          <tr><td>道路</td><td>城市主干路、快速路、隧道与匝道；结构化道路，车道线可辨识</td></tr>
+          <tr><td>路侧设施</td><td>已部署 RSU 与感知设备且覆盖连续；断续覆盖按降级处理</td></tr>
+          <tr><td>天气</td><td>无雨至小雨（≤ 10 mm/h）；无积雪、结冰、沙尘</td></tr>
+          <tr><td>光照</td><td>白天至夜间，路面照度 ≥ 50 lx；强逆光场景降级</td></tr>
+          <tr><td>车速</td><td>快速路 0–80 km/h；路口 0–60 km/h</td></tr>
+          <tr><td>交通参与者</td><td>以机动车为主；非机动车与行人密集混行路段不纳入</td></tr>
+          <tr><td>排除场景</td><td>施工改道、临时交通组织变更、无路侧设施的乡村道路</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 class="sub-h">失效降级策略</h3>
+    <div class="table-wrap">
+      <table class="trace" id="degrade-table">
+        <thead><tr><th>触发条件</th><th>降级动作</th><th>通知与恢复</th></tr></thead>
+        <tbody>
+          <tr><td>RSU / 路侧感知掉线</td><td>切换车端感知为主，路口限速降至 40 km/h</td><td>运维告警；恢复后自动切回</td></tr>
+          <tr><td>5G Uu 中断</td><td>切 PC5 直连，关闭云端配时优化</td><td>车端提示；网络恢复后重新同步策略</td></tr>
+          <tr><td>高精地图过期（> 7 天）</td><td>使用车端缓存地图，禁用依赖地图的车道级功能</td><td>地图服务推送更新</td></tr>
+          <tr><td>时钟失步（> 1 μs）</td><td>退出协同决策，降为单车辅助驾驶</td><td>时间源恢复后重新授时</td></tr>
+          <tr><td>证书失效 / 验签失败</td><td>丢弃该消息并降级为本地感知</td><td>证书轮换；审计留痕</td></tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
@@ -364,43 +443,46 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 const LEVELS = [
   {
     id:"mission", num:"01", zh:"任务", en:"Mission", tag:"01 · Mission",
-    lede:"构建安全、高效、绿色的智能网联交通体系：以自动驾驶车辆协同运行为核心，打通车—路—云的全域数据与决策闭环。",
+    lede:"构建安全、高效、绿色的智能网联交通体系：以限定 ODD 内的高等级协同驾驶为核心，打通车—路—云的全域数据与决策闭环。",
     overview:{
       text:"任务是整个体系的价值起点，回答「为什么建」。它把城市治理诉求转写为可分解的技术目标，并为后续各层提供取舍依据：当子系统之间发生资源或性能冲突时，回到任务目标判断优先级。",
       points:[
         ["价值主张","以协同补足单车智能，降低事故、提升效率、减少能耗。"],
-        ["核心能力","自动驾驶车辆协同运行、全域交通调度、路网态势感知。"],
+        ["核心能力","限定 ODD 内的自动驾驶协同运行、全域交通调度、路网态势感知。"],
         ["受益对象","出行者、交通管理部门、物流与公共交通运营方。"],
-        ["边界","不承诺全场景无人驾驶，强调基础设施与云端协同的能力叠加。"]
+        ["边界","只覆盖建有路侧设施的城市道路与快速路，不承诺无设施乡村道路与全场景无人驾驶，也不替代既有交管执法权。"],
+        ["实施节奏","2026–2028 在 3 个行政区试点（重点路口与 2 条干线）；2029–2031 扩至全市主干路网；2032 起全域覆盖并进入常态运营。"]
       ]
     },
     needs:[
-      ["安全","降低事故率与事故严重度，优先保障弱势交通参与者。"],
+      ["安全","降低亿车公里事故率与伤亡严重度，优先保障弱势交通参与者。"],
       ["高效","提升路口吞吐与路网平均速度，缓解高峰拥堵。"],
       ["绿色","降低单位里程能耗与排放，支撑低碳出行结构。"],
       ["可运营","形成可复制的建设、运维与商业模式，具备持续演进能力。"]
     ],
     metrics:[
-      ["万车事故率","相对基线下降 ≥ 30%","年度统计"],
-      ["路口平均延误","下降 ≥ 20%","仿真 + 实测"],
+      ["亿车公里事故率","相对 2025 年基线下降 ≥ 30%","交警事故库 + 保险理赔数据年度对比"],
+      ["亿车公里伤亡率","相对 2025 年基线下降 ≥ 25%","同上"],
+      ["路口平均延误","下降 ≥ 20%（高峰时段）","仿真 + 实测"],
       ["路网平均行程速度","提升 ≥ 15%","浮动车数据"],
-      ["协同决策覆盖率","重点路口 100%","台账核查"]
+      ["高峰公交准点率","提升 ≥ 10%","公交调度台账"]
     ],
     children:[
-      ["体系 SoS","智慧交通体系之体系，由 5 个大系统协同构成。"],
+      ["体系 SoS","智慧交通体系之体系：7 个业务系统 + 1 个车路云使能底座。"],
       ["边界与约束","投资规模、法规合规、数据安全与隐私边界。"]
     ]
   },
   {
     id:"sos", num:"02", zh:"体系", en:"System of Systems", tag:"02 · SoS",
-    lede:"智慧交通 SoS 由多个独立运行、目标各异又彼此协同的大系统组成，通过标准接口与共享数据形成整体能力。",
+    lede:"智慧交通 SoS 由 7 个独立运行、目标各异的业务系统与 1 个车路云使能底座组成，通过标准接口与数据契约形成整体能力。",
     overview:{
-      text:"体系层的关键不是「一个大系统」，而是多个可独立演进的大系统之间如何协同。每个成员都有自己的主管方、建设节奏与考核指标，因此体系设计以接口、数据契约与治理机制为核心。",
+      text:"体系层的关键不是「一个大系统」，而是多个可独立演进的大系统之间如何协同。每个成员都有自己的主管方、建设节奏与考核指标，因此体系设计以接口、数据契约与治理机制为核心。车路云一体化是支撑各业务系统的使能底座，不与业务系统平级考核。",
       points:[
-        ["成员","车路云一体化系统、城市交通管控系统、公共交通调度系统、应急救援系统、交通基础设施运维系统。"],
+        ["业务成员（7）","交通管理、公共交通运营、应急救援、设施运维、能源与充电、停车管理、货运物流。"],
+        ["使能底座（1）","车路云一体化系统，为业务成员提供感知、通信与决策能力。"],
         ["协同方式","统一时空基准、事件总线、共享数据目录与跨系统流程编排。"],
         ["演进原则","成员可独立升级，接口保持向后兼容。"],
-        ["本课题定位","车路云一体化系统是体系中的核心成员，也是本次分解的 Systems 层对象。"]
+        ["本课题定位","车路云一体化系统是底座，也是本次分解的 Systems 层对象。"]
       ]
     },
     needs:[
@@ -411,47 +493,53 @@ const LEVELS = [
     ],
     metrics:[
       ["跨系统事件响应时延","≤ 5 s","联动演练"],
-      ["数据共享覆盖率","重点数据项 ≥ 90%","目录核查"],
+      ["数据共享覆盖率","重点数据项 ≥ 90%","数据目录核查"],
       ["体系可用性","≥ 99.9%","运行监测"],
-      ["接口兼容性","主版本内零破坏","接口评审"]
+      ["接口契约测试通过率","100%（变更需版本化与灰度）","接口评审 + 契约测试"]
     ],
     children:[
-      ["车路云一体化系统","本课题核心对象，见 Systems 层。"],
-      ["交通管控 / 公交调度 / 应急救援 / 设施运维","体系其余成员，按各自职责提供协同能力。"]
+      ["车路云一体化系统","使能底座，本课题核心对象，见 Systems 层。"],
+      ["7 个业务成员","交通管理、公交运营、应急救援、设施运维、能源与充电、停车管理、货运物流。"],
+      ["治理机制","数据权属、共享目录、审计留痕与跨系统编排。"]
     ]
   },
   {
-    id:"vehicles", num:"03", zh:"整机", en:"Vehicles", tag:"03 · Vehicles",
-    lede:"整机层是承载功能的物理载体：智能网联整车、路侧一体化整机，以及部署在区域机房或边缘数据中心的云端整机。",
+    id:"vehicles", num:"03", zh:"整机", en:"Hardware", tag:"03 · Hardware",
+    lede:"整机与设施层是承载功能的物理载体：智能网联整车、路侧一体化整机、云端整机，以及杆件、供电与机房等配套设施。",
     overview:{
-      text:"整机是「可交付、可安装、可验收」的硬件载体。它把子系统与模块装配成通过环境适应性、可靠性与电磁兼容测试的产品，是体系能力落地的物理基础。车、路、云三侧都需要各自的整机形态。",
+      text:"整机是「可交付、可安装、可验收」的硬件载体。它把子系统与模块装配成通过环境适应性、可靠性与电磁兼容测试的产品，是体系能力落地的物理基础。车、路、云三侧都需要各自的整机形态；英文层名用 Hardware 而非 Vehicles，因为云端整机与杆件设施并不属于载具。",
       points:[
         ["智能网联整车","搭载 C-V2X OBU、多传感器套件与中央/区域域控制器。"],
-        ["路侧一体化整机","RSU 与感知融合一体机共杆部署，含边缘网关。"],
-        ["云端整机","云控平台服务器、GPU 推理整机与存储阵列，部署在区域机房或边缘数据中心。"],
-        ["部署形态","路口杆件、隧道与匝道、园区与停车场、区域机房与边缘节点等差异化形态。"],
+        ["路侧一体化整机","RSU 与感知融合一体机共杆部署，含边缘网关与供电单元。"],
+        ["云端整机","云控服务器、GPU 推理整机与存储阵列，部署在区域机房或边缘数据中心。"],
+        ["配套设施","杆件、机箱、供电与接地、机房承重与配电。"],
         ["关键约束","防护等级、供电与散热、杆件承重、机房承重与配电、安装与维护可达性。"]
       ]
     },
     needs:[
       ["感知完整","360° 覆盖，夜间与雨雾条件下的可用性。"],
       ["通信可靠","双链路冗余，弱覆盖区域可降级。"],
-      ["环境适应","-40℃ ~ 85℃、IP65 以上、抗振动与电磁干扰。"],
+      ["环境适应","车端 −40℃~85℃、路侧 ≥ IP65、机房设备按机房环境验收（IP20 级）。"],
       ["算力可扩展","云端整机按路口规模与路网增长横向扩容，推理与存储分离。"],
       ["可维护","模块化更换，现场免调试或分钟级自恢复。"]
     ],
     metrics:[
-      ["整机 MTBF","≥ 50,000 h","可靠性试验"],
-      ["防护等级","≥ IP65","型式试验"],
+      ["车端整机 MTBF","≥ 50,000 h","可靠性试验"],
+      ["路端整机 MTBF","≥ 80,000 h","可靠性试验"],
+      ["云端整机 MTBF","≥ 100,000 h（机房环境）","可靠性试验"],
+      ["防护等级","车端 IP67 / 路端 ≥ IP65 / 云端 IP20","型式试验"],
+      ["电磁兼容","CISPR 25 Class 5、ISO 11452-2 通过","EMC 测试"],
+      ["振动与冲击","车端 ISO 16750-3、路端 GB/T 2423","型式试验"],
       ["单车感知覆盖","360° 无盲区","标定报告"],
-      ["路侧整机功耗","≤ 120 W（含感知与通信）","台架实测"],
-      ["云端整机推理能力","单机 ≥ 8 路视频实时推理","台架压测"],
-      ["云端整机可用性","≥ 99.95%（双机冗余）","运行监测"]
+      ["路侧整机功耗","≤ 300 W（含感知、通信与边缘计算）","台架实测"],
+      ["云端单机推理能力","≥ 8 路视频实时推理","台架压测"],
+      ["单路口建设成本","≤ 35 万元（不含土建）","概算复核"]
     ],
     children:[
       ["智能网联整车","乘用车、公交、物流车等不同品类。"],
       ["路侧一体化整机","RSU + 感知融合一体机、边缘网关整机。"],
-      ["云端整机","云控服务器、GPU 推理服务器、存储与网络设备。"]
+      ["云端整机","云控服务器、GPU 推理服务器、存储与网络设备。"],
+      ["配套设施","杆件、机箱、供电与接地、机房配电与承重。"]
     ]
   },
   {
@@ -463,84 +551,99 @@ const LEVELS = [
         ["能力输出","超视距感知、协同决策、全域调度、事件闭环处置。"],
         ["三域分工","车端实时执行、路端补盲与汇聚、云端全局优化。"],
         ["典型流程","路侧感知 → 融合与事件生成 → 云端/车端决策 → 车辆执行 → 效果回流。"],
+        ["运行设计域","城市主干路与快速路，有连续路侧覆盖；照度 ≥ 50 lx、小雨以内、无积雪结冰；车速 0–80 km/h；不含非机动车密集混行与施工改道（完整 ODD 见下文）。"],
+        ["安全目标","协同决策链路按 ASIL B 设计，并按 ISO 21448 做 SOTIF 触发条件分析（逆光、大雨、异形车辆、传感器遮挡）。"],
         ["与非系统的区别","它不是单一硬件或单一算法，而是多子系统集成的能力集合。"]
       ]
     },
     needs:[
-      ["实时性","感知到执行的端到端闭环满足时延预算。"],
+      ["实时性","感知到执行的闭环满足时延预算：车端本地 70 ms、云端协同 300 ms。"],
       ["一致性","车路云共享同一时空基准与地图版本。"],
       ["协同性","冲突消解：多车、多路口、多策略之间的优先级仲裁。"],
-      ["安全性","功能安全与信息安全双重保障，异常可降级。"]
+      ["安全性","功能安全（ASIL B）与信息安全双重保障，异常可降级。"]
     ],
     metrics:[
-      ["端到端闭环时延","≤ 100 ms","打点与硬件在环"],
-      ["协同决策准确率","≥ 99%","场景库回放"],
+      ["车端本地闭环时延","≤ 70 ms（感知 30 + 决策 20 + 执行 20）","打点与硬件在环"],
+      ["云端协同闭环时延","≤ 300 ms（含路侧融合 15、云端决策与下发 150）","端到端打点"],
+      ["冲突场景识别率","≥ 99%（分母：场景库标注冲突 1,200 例）","场景库回放"],
       ["单路口并发车辆","≥ 200 辆","压测"],
-      ["系统可用性","≥ 99.95%","运行监测"]
+      ["系统可用性","≥ 99.95%（年停机 ≤ 4.4 h）","运行监测"]
     ],
     children:[
       ["车端子系统族","车载感知、车载 V2X 通信、车载决策控制。"],
       ["路端子系统族","路侧感知、路侧 C-V2X 通信、路侧边缘计算 MEC。"],
-      ["云端子系统族","云控平台、高精度地图服务、全局交通协同调度。"]
+      ["云端子系统族","云控平台、高精度地图服务、全局交通协同调度。"],
+      ["全域安全","安全认证子系统，为三域提供统一身份与消息可信。"]
     ]
   },
   {
     id:"subsystems", num:"05", zh:"子系统", en:"Sub-systems", tag:"05 · Sub-systems",
-    lede:"按车端、路端、云端三大域拆分为 9 个子系统，每个子系统承担明确的职责并可独立测试。",
+    lede:"按车端、路端、云端三大域与全域安全拆分为 10 个子系统，每个子系统承担明确职责并可独立测试。",
     overview:{
       text:"子系统是「可独立开发、独立测试、独立交付」的功能单元。划分原则是职责单一、接口清晰：跨子系统的交互只通过已定义的接口发生，避免隐式耦合。",
       points:[
-        ["车端","车载感知子系统、车载 V2X 通信子系统、车载决策控制子系统。"],
-        ["路端","路侧感知子系统、路侧 C-V2X 通信子系统、路侧边缘计算 MEC 子系统。"],
-        ["云端","云控平台子系统、高精度地图服务子系统、全局交通协同调度子系统。"],
-        ["接口约束","V2X 消息集（BSM/MAP/SPaT/RSI）、5G Uu、时间同步与坐标系约定。"]
+        ["车端（3）","车载感知、车载 V2X 通信、车载决策控制。"],
+        ["路端（3）","路侧感知、路侧 C-V2X 通信、路侧边缘计算 MEC。"],
+        ["云端（3）","云控平台、高精度地图服务、全局交通协同调度。"],
+        ["全域安全（1）","安全认证子系统：PKI/CA、车载安全芯片、证书生命周期、消息验签，阻断伪造 BSM/SPaT。"],
+        ["职责边界","全局交通协同调度子系统只输出策略与配时建议，不直接执法；执法与业务归属体系层的交通管理系统。"],
+        ["接口约束","T/CSAE 53-2020 消息集（BSM/MAP/SPaT/RSI）、3GPP R16 PC5 与 5G Uu、时间同步 ≤ 1 μs、坐标 CGCS2000。"]
       ]
     },
     needs:[
       ["车端","本地闭环快、失效可降级、与驾驶员交互清晰。"],
       ["路端","多源融合精度高、覆盖稳定、运维可远程诊断。"],
-      ["云端","海量接入、策略可下发、地图鲜度可控。"]
+      ["云端","海量接入、策略可下发、地图鲜度可控。"],
+      ["安全","设备身份可证、消息不可伪造、证书可轮换。"]
     ],
     metrics:[
       ["车载感知时延","≤ 30 ms","台架"],
       ["路侧融合精度","横向 ≤ 0.3 m","真值对比"],
       ["MEC 推理吞吐","≥ 30 FPS / 8 路","压测"],
-      ["云控指令下发","≤ 500 ms","端到端打点"]
+      ["云控指令下发","≤ 150 ms（端到端预算内）","端到端打点"],
+      ["消息验签时延","≤ 2 ms/条","性能测试"],
+      ["证书轮换","≤ 24 h 全域生效","演练"]
     ],
     children:[
       ["车端三子系统","感知 → V2X 通信 → 决策控制，形成本地闭环。"],
       ["路端三子系统","感知 → 通信 → 边缘计算，形成路口级闭环。"],
-      ["云端三子系统","平台 → 地图 → 调度，形成城市级闭环。"]
+      ["云端三子系统","平台 → 地图 → 调度，形成城市级闭环。"],
+      ["全域安全子系统","为车、路、云三侧提供统一身份与消息可信。"]
     ]
   },
   {
     id:"modules", num:"06", zh:"模块", en:"Modules", tag:"06 · Modules",
-    lede:"子系统之下是 13 个基础模块，按感知、通信、计算、控制四类组织，是采购、集成与测试的最小单元。",
+    lede:"子系统之下是 16 个基础模块，按感知、通信、计算、控制、支撑五类组织，是采购、集成与测试的最小单元。",
     overview:{
-      text:"模块层回答「用什么实现」。模块边界由接口、尺寸、功耗与算力决定，通常对应可采购的器件或可复用的软件组件；同一模块可被多个子系统复用。",
+      text:"模块层回答「用什么实现」。模块边界由接口、尺寸、功耗与算力决定，通常对应可采购的器件或可复用的软件组件；同一模块可被多个子系统复用。数据安全加密与密钥管理归入支撑类，不再混在控制类里。",
       points:[
-        ["感知模块","摄像头、毫米波雷达、激光雷达、北斗定位。"],
-        ["通信模块","C-V2X OBU、RSU 射频通信、5G 传输。"],
-        ["计算模块","AI 融合计算、信号处理、存储。"],
-        ["控制模块","预警决策、信号灯联动控制、数据安全加密。"]
+        ["感知模块（4）","摄像头、毫米波雷达、激光雷达、北斗定位。"],
+        ["通信模块（3）","C-V2X OBU、RSU 射频通信、5G 传输。"],
+        ["计算模块（3）","AI 融合计算、信号处理、存储。"],
+        ["控制模块（3）","预警决策、信号灯联动控制、线控执行器（制动/转向）。"],
+        ["支撑模块（3）","供电与电源管理（DC-DC/UPS）、时钟同步（gPTP）、安全加密与密钥管理。"]
       ]
     },
     needs:[
       ["感知","多源冗余、时间同步精度、标定可维护。"],
       ["通信","低时延、高可靠、可证身份。"],
       ["计算","算力可扩展、实时调度、故障隔离。"],
-      ["控制","决策可解释、执行可兜底、数据可加密。"]
+      ["控制","决策可解释、执行可兜底、失效可回退机械冗余。"],
+      ["支撑","供电不间断、时钟可溯源、密钥可轮换。"]
     ],
     metrics:[
       ["摄像头分辨率","≥ 8 MP / 30 FPS","规格书"],
       ["毫米波雷达探测距离","≥ 250 m","实测"],
       ["C-V2X 空口时延","≤ 10 ms","路测"],
-      ["验签时延","≤ 2 ms","性能测试"],
-      ["AI 算力","≥ 100 TOPS（车端）","规格书"]
+      ["消息验签时延","≤ 2 ms","性能测试"],
+      ["AI 算力","≥ 100 TOPS（车端）","规格书"],
+      ["时钟同步精度","≤ 1 μs（gPTP）","仪表测试"],
+      ["线控执行响应","≤ 100 ms（制动）/ ≤ 150 ms（转向）","台架"]
     ],
     children:[
       ["复用关系","同一感知模块可同时服务车端与路端子系统。"],
-      ["选型约束","车规认证、供货周期、成本与国产化要求。"]
+      ["选型约束","车规认证、供货周期、成本与国产化要求。"],
+      ["归类原则","按功能归属，安全与供电等横切能力单列支撑类。"]
     ]
   }
 ];
@@ -695,13 +798,15 @@ document.addEventListener("keydown", (e) => {
 });
 
 function buildPrint(){
+  const appendix = [["需求追溯矩阵","trace-table"],["运行设计域（ODD）","odd-table"],["失效降级策略","degrade-table"]]
+  .map(([h,id])=>{const t=document.getElementById(id); if(!t) return ""; const c=t.cloneNode(true); c.removeAttribute("id"); return `<section><h3>${h}</h3>${c.outerHTML}</section>`;}).join("");
   document.getElementById("print-all").innerHTML = LEVELS.map(L => `
     <section>
       <h3>${L.num} · ${L.zh} ${L.en}</h3>
       <p>${L.lede}</p>
       <p><strong>核心要点：</strong>${L.overview.points.map(([k,v])=>`${k}—${v}`).join("；")}</p>
       <table><tbody>${L.metrics.map(([a,b,c])=>`<tr><th>${a}</th><td>${b}</td><td>${c}</td></tr>`).join("")}</tbody></table>
-    </section>`).join("");
+    </section>`).join("") + appendix;
 }
 
 const fromHash = () => {
