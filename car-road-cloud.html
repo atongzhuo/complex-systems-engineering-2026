@@ -862,11 +862,13 @@ function setTab(name){
   render();
 }
 
-function select(i){
+function select(i, keepHash){
   current = i;
   [...rail.children].forEach((el, k) => el.setAttribute("aria-pressed", k === i ? "true" : "false"));
   [...chain.querySelectorAll("span[data-i]")].forEach((s,k)=>{ s.style.color = k===i ? "var(--accent)" : ""; s.style.fontWeight = k===i ? "600" : ""; });
-  try { history.replaceState(null, "", "#" + LEVELS[i].id); } catch (_) { location.hash = LEVELS[i].id; }
+  if (!keepHash) {
+    try { history.replaceState(null, "", "#" + LEVELS[i].id); } catch (_) { location.hash = LEVELS[i].id; }
+  }
   render();
 }
 
@@ -965,9 +967,12 @@ const fromHash = () => {
 };
 
 const start = fromHash();
-select(start === null ? 0 : start);
+const deepId = start === null && location.hash.length > 1 ? decodeURIComponent(location.hash.slice(1)) : null;
+const deepEl = deepId ? document.getElementById(deepId) : null;
+select(start === null ? 0 : start, !!deepEl);
 setTab("overview");
 buildPrint();
+if (deepEl) deepEl.scrollIntoView({ block: "start" });
 window.addEventListener("hashchange", () => { const i = fromHash(); if (i !== null && i !== current) select(i); });
 
 </script>
