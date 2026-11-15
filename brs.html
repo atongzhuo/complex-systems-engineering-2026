@@ -63,6 +63,19 @@ h1{font-size:clamp(28px,3.6vw,44px);line-height:1.15;letter-spacing:-.02em;margi
 .toc .toc-part{font-weight:650;color:var(--navy);margin-top:12px;font-size:13px}
 .toc .toc-chapter{font-weight:600;color:var(--navy);margin-top:8px}
 .toc .toc-sec{padding-left:18px;color:var(--ink-3);font-size:12px}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:8px;margin-bottom:4px;border-bottom:1px solid var(--line)}
+.toc-head span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase}
+.toc-toggle{flex:none;width:24px;height:24px;display:flex;align-items:center;justify-content:center;padding:0;background:#fff;border:1px solid var(--line);border-radius:7px;color:var(--ink-2);cursor:pointer}
+.toc-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.chev{display:inline-block;width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg);transition:transform .18s ease;margin-top:-2px}
+[aria-expanded="false"]>.chev{transform:rotate(-45deg)}
+.toc-group{margin-top:7px}
+.toc-row{display:flex;align-items:flex-start;gap:4px}
+.toc-tw{flex:none;width:14px;display:flex;justify-content:center;padding:3px 0 0;background:none;border:0;color:var(--ink-3);cursor:pointer}
+.toc-tw:hover{color:var(--accent)}
+.toc-tw.is-empty{cursor:default}
+.toc-sub[hidden]{display:none}
+.toc-list[hidden]{display:none}
 .doc h2.chapter{font-size:22px;margin:42px 0 12px;color:var(--navy);letter-spacing:-.01em;padding-bottom:8px;border-bottom:1px solid var(--line)}
 .doc h2.chapter:first-child{margin-top:0}
 .doc h3.sec{font-size:16.5px;margin:28px 0 8px;color:var(--navy)}
@@ -174,33 +187,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
   <div class="layout">
     <aside class="toc" aria-label="目录">
-      <a class="toc-chapter" href="#brs-1">1 简介</a>
-      <a class="toc-sec" href="#brs-1.1">1.1 业务目的</a>
-      <a class="toc-sec" href="#brs-1.2">1.2 业务范围</a>
-      <a class="toc-sec" href="#brs-1.3">1.3 业务概况</a>
-      <a class="toc-sec" href="#brs-1.4">1.4 定义</a>
-      <a class="toc-sec" href="#brs-1.5">1.5 主要相关方</a>
-      <a class="toc-chapter" href="#brs-2">2 参考文献</a>
-      <a class="toc-chapter" href="#brs-3">3 业务管理需求</a>
-      <a class="toc-sec" href="#brs-3.1">3.1 业务环境</a>
-      <a class="toc-sec" href="#brs-3.2">3.2 使命、目的与目标【重点：业务/任务需求】</a>
-      <a class="toc-sec" href="#brs-3.3">3.3 业务模型</a>
-      <a class="toc-sec" href="#brs-3.4">3.4 信息环境</a>
-      <a class="toc-chapter" href="#brs-4">4 业务运行需求</a>
-      <a class="toc-sec" href="#brs-4.1">4.1 业务过程</a>
-      <a class="toc-sec" href="#brs-4.2">4.2 业务运营策略与规则</a>
-      <a class="toc-sec" href="#brs-4.3">4.3 业务运行约束</a>
-      <a class="toc-sec" href="#brs-4.4">4.4 业务运行质量</a>
-      <a class="toc-sec" href="#brs-4.5">4.5 业务结构</a>
-      <a class="toc-chapter" href="#brs-5">5 提案系统初步运行概念【重点：运营概念 ConOps】</a>
-      <a class="toc-sec" href="#brs-5.1">5.1 初步运行概念</a>
-      <a class="toc-sec" href="#brs-5.2">5.2 初步运行场景（组织层面）</a>
-      <a class="toc-chapter" href="#brs-6">6 其他初步生存周期概念</a>
-      <a class="toc-chapter" href="#brs-7">7 项目约束</a>
-      <a class="toc-chapter" href="#brs-8">8 附录</a>
-      <a class="toc-sec" href="#brs-8.1">8.1 缩写与缩略语</a>
-      <a class="toc-sec" href="#brs-8.2">8.2 追溯矩阵（业务目标 → 任务需求）</a>
-      <a class="toc-sec" href="#brs-8.3">8.3 待确认事项</a>
+      <div class="toc-head"><span>目录</span><button class="toc-toggle" type="button" aria-expanded="true" aria-controls="toc-list" aria-label="折叠整个目录" title="折叠 / 展开整个目录"><span class="chev"></span></button></div>
+      <div class="toc-list" id="toc-list">
+      <div class="toc-group"><div class="toc-row"><button class="toc-tw" type="button" aria-expanded="true" aria-controls="ts-brs-1" aria-label="折叠本章小节" title="折叠 / 展开本章小节"><span class="chev"></span></button><a class="toc-chapter" href="#brs-1">1 简介</a></div><div class="toc-sub" id="ts-brs-1"><a class="toc-sec" href="#brs-1.1">1.1 业务目的</a><a class="toc-sec" href="#brs-1.2">1.2 业务范围</a><a class="toc-sec" href="#brs-1.3">1.3 业务概况</a><a class="toc-sec" href="#brs-1.4">1.4 定义</a><a class="toc-sec" href="#brs-1.5">1.5 主要相关方</a></div></div>
+      <div class="toc-group"><div class="toc-row"><span class="toc-tw is-empty"></span><a class="toc-chapter" href="#brs-2">2 参考文献</a></div></div>
+      <div class="toc-group"><div class="toc-row"><button class="toc-tw" type="button" aria-expanded="true" aria-controls="ts-brs-3" aria-label="折叠本章小节" title="折叠 / 展开本章小节"><span class="chev"></span></button><a class="toc-chapter" href="#brs-3">3 业务管理需求</a></div><div class="toc-sub" id="ts-brs-3"><a class="toc-sec" href="#brs-3.1">3.1 业务环境</a><a class="toc-sec" href="#brs-3.2">3.2 使命、目的与目标【重点：业务/任务需求】</a><a class="toc-sec" href="#brs-3.3">3.3 业务模型</a><a class="toc-sec" href="#brs-3.4">3.4 信息环境</a></div></div>
+      <div class="toc-group"><div class="toc-row"><button class="toc-tw" type="button" aria-expanded="true" aria-controls="ts-brs-4" aria-label="折叠本章小节" title="折叠 / 展开本章小节"><span class="chev"></span></button><a class="toc-chapter" href="#brs-4">4 业务运行需求</a></div><div class="toc-sub" id="ts-brs-4"><a class="toc-sec" href="#brs-4.1">4.1 业务过程</a><a class="toc-sec" href="#brs-4.2">4.2 业务运营策略与规则</a><a class="toc-sec" href="#brs-4.3">4.3 业务运行约束</a><a class="toc-sec" href="#brs-4.4">4.4 业务运行质量</a><a class="toc-sec" href="#brs-4.5">4.5 业务结构</a></div></div>
+      <div class="toc-group"><div class="toc-row"><button class="toc-tw" type="button" aria-expanded="true" aria-controls="ts-brs-5" aria-label="折叠本章小节" title="折叠 / 展开本章小节"><span class="chev"></span></button><a class="toc-chapter" href="#brs-5">5 提案系统初步运行概念【重点：运营概念 ConOps】</a></div><div class="toc-sub" id="ts-brs-5"><a class="toc-sec" href="#brs-5.1">5.1 初步运行概念</a><a class="toc-sec" href="#brs-5.2">5.2 初步运行场景（组织层面）</a></div></div>
+      <div class="toc-group"><div class="toc-row"><span class="toc-tw is-empty"></span><a class="toc-chapter" href="#brs-6">6 其他初步生存周期概念</a></div></div>
+      <div class="toc-group"><div class="toc-row"><span class="toc-tw is-empty"></span><a class="toc-chapter" href="#brs-7">7 项目约束</a></div></div>
+      <div class="toc-group"><div class="toc-row"><button class="toc-tw" type="button" aria-expanded="true" aria-controls="ts-brs-8" aria-label="折叠本章小节" title="折叠 / 展开本章小节"><span class="chev"></span></button><a class="toc-chapter" href="#brs-8">8 附录</a></div><div class="toc-sub" id="ts-brs-8"><a class="toc-sec" href="#brs-8.1">8.1 缩写与缩略语</a><a class="toc-sec" href="#brs-8.2">8.2 追溯矩阵（业务目标 → 任务需求）</a><a class="toc-sec" href="#brs-8.3">8.3 待确认事项</a></div></div>
+      </div>
     </aside>
     <article class="doc" id="doc-start">
       <p><strong>阅读说明</strong>：本文件为业务需求规格说明分册，采用 ISO/IEC/IEEE 29148:2018 表 4-1 的八章轮廓组织，站在业务一侧界定预期结果：业务为什么存在、由哪些任务需求支撑、业务过程如何运转、对提案系统提出什么初步运行概念。文中的目标值与指标为立项阶段的示例量级，需在可行性研究阶段按实际基线重新标定。</p>
@@ -377,6 +374,43 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     if (LEG[k]) { history.replaceState(null, "", "#" + LEG[k]); }
   }
   var links = [].slice.call(document.querySelectorAll(".toc a"));
+  var tocList = document.getElementById("toc-list");
+  var tocToggle = document.querySelector(".toc-toggle");
+  var STORE = "tocstate:" + location.pathname;
+  try {
+    if (sessionStorage.getItem(STORE + ":all") === "closed") {
+      tocList.hidden = true; tocToggle.setAttribute("aria-expanded", "false");
+    }
+  } catch (e) {}
+  if (tocToggle) tocToggle.addEventListener("click", function () {
+    var open = tocToggle.getAttribute("aria-expanded") !== "false";
+    tocToggle.setAttribute("aria-expanded", String(!open));
+    tocList.hidden = open;
+    try { sessionStorage.setItem(STORE + ":all", open ? "closed" : "open"); } catch (e) {}
+  });
+  [].forEach.call(document.querySelectorAll(".toc-tw"), function (btn) {
+    if (btn.classList.contains("is-empty")) return;
+    var sub = document.getElementById(btn.getAttribute("aria-controls"));
+    try {
+      if (sessionStorage.getItem(STORE + ":" + sub.id) === "closed") {
+        sub.hidden = true; btn.setAttribute("aria-expanded", "false");
+      }
+    } catch (e) {}
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") !== "false";
+      btn.setAttribute("aria-expanded", String(!open));
+      sub.hidden = open;
+      try { sessionStorage.setItem(STORE + ":" + sub.id, open ? "closed" : "open"); } catch (e) {}
+    });
+  });
+  function revealFor(id) {
+    if (!id) return;
+    if (tocList && tocList.hidden) { tocList.hidden = false; if (tocToggle) tocToggle.setAttribute("aria-expanded", "true"); }
+    var a = document.querySelector('.toc a[href="#' + id + '"]');
+    if (!a) return;
+    var grp = a.closest(".toc-group"), sub = grp && grp.querySelector(".toc-sub"), btn = grp && grp.querySelector(".toc-tw");
+    if (sub && sub.hidden) { sub.hidden = false; if (btn) btn.setAttribute("aria-expanded", "true"); }
+  }
   function setActive(id){
     links.forEach(function(a){
       if (a.getAttribute("href") === "#" + id) a.setAttribute("aria-current", "true");
@@ -414,8 +448,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     if (top) top.classList.toggle("show", window.scrollY > 700);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("hashchange", onScroll);
+  window.addEventListener("hashchange", function(){ onScroll(); revealFor(decodeURIComponent(location.hash.slice(1))); });
   onScroll();
+  revealFor(decodeURIComponent((location.hash || "").slice(1)));
   if (top) top.addEventListener("click", function(){ window.scrollTo({ top: 0, behavior: "smooth" }); });
 })();
 </script>
