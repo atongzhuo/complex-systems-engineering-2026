@@ -27,6 +27,8 @@
 ├── BRS.docx            # BRS 分册 DOCX
 ├── StRS.docx           # StRS 分册 DOCX
 ├── BRS-StRS.md         # 两册合并的 Markdown 源文（生成本页与 DOCX 的底稿）
+├── brs-cover.png       # BRS 分册分享封面（1200×630）
+├── strs-cover.png      # StRS 分册分享封面（1200×630）
 ├── 404.html            # 自定义 404 页（站点内路径找不到时展示）
 ├── og-cover.png        # 1200×630 社交分享封面（og:image）
 ├── robots.txt          # 爬虫规则，指向 sitemap.xml

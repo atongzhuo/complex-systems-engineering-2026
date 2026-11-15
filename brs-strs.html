@@ -63,10 +63,44 @@ h1{font-size:clamp(28px,3.6vw,44px);line-height:1.15;letter-spacing:-.02em;margi
 .toc .toc-part{font-weight:650;color:var(--navy);margin-top:12px;font-size:13px}
 .toc .toc-chapter{font-weight:600;color:var(--navy);margin-top:8px}
 .toc .toc-sec{padding-left:18px;color:var(--ink-3);font-size:12px}
-.doc h3.chapter{font-size:20px;margin:36px 0 10px;color:var(--navy);letter-spacing:-.01em}
-.doc h3.chapter:first-child{margin-top:0}
-.doc h4.sec{font-size:16px;margin:26px 0 8px;color:var(--navy)}
-.doc h5.sub{font-size:14.5px;margin:18px 0 6px;color:var(--ink)}
+.doc h2.chapter{font-size:22px;margin:42px 0 12px;color:var(--navy);letter-spacing:-.01em;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.doc h2.chapter:first-child{margin-top:0}
+.doc h3.sec{font-size:16.5px;margin:28px 0 8px;color:var(--navy)}
+.doc h4.sub{font-size:14.5px;margin:20px 0 6px;color:var(--ink)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:10px 14px;border-radius:0 0 10px 0;z-index:99;font-size:13px}
+.skip:focus{left:0}
+.docinfo{margin:26px 0 0}
+.docinfo h2{font-size:11.5px;font-family:var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 10px}
+.docinfo .table-wrap{margin:0;max-width:860px}
+.docinfo table{font-size:12.5px}
+.docinfo th{width:110px;white-space:nowrap;background:#f7f9fc}
+.toc a[aria-current="true"]{color:var(--accent);font-weight:650}
+.pager{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:46px 0 0;padding-top:22px;border-top:1px solid var(--line);font-size:13px}
+.pager a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--line);border-radius:10px;color:var(--navy);background:#fff;max-width:42%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pager a:hover{border-color:#b9c6dc;background:#eef3fb;text-decoration:none}
+.pager .cur{color:var(--ink-3);font-family:var(--mono);font-size:11.5px;text-align:center;flex:1 1 auto}
+.pager a[aria-disabled="true"]{opacity:.42;pointer-events:none}
+.to-top{position:fixed;right:22px;bottom:26px;z-index:60;display:none;align-items:center;gap:6px;padding:10px 15px;border-radius:999px;
+  border:1px solid var(--line);background:#fff;color:var(--navy);font-size:13px;cursor:pointer;box-shadow:0 12px 30px -20px rgba(19,42,74,.8)}
+.to-top.show{display:inline-flex}
+@media print{
+ .topbar,.top-actions,.toc,.pager,.to-top,.dl-row,footer,.skip,.docinfo h2{display:none!important}
+ body{background:#fff;color:#000}
+ .wrap{max-width:none;padding:0}
+ .layout{display:block;padding:0}
+ .hero{padding:0 0 10px;border-bottom:1px solid #ccc}
+ .doc p,.doc li,.doc td,.doc th{font-size:10pt;line-height:1.55}
+ .doc h2.chapter{page-break-before:always;font-size:15pt;border-bottom:1px solid #ccc}
+ .doc h2.chapter:first-of-type{page-break-before:auto}
+ .doc h3.sec{font-size:12pt}
+ .table-wrap{overflow:visible;border:1px solid #ccc;border-radius:0}
+ .doc table{font-size:8.8pt;width:100%}
+ .doc th,.doc td{padding:5px 6px}
+ tr,.table-wrap{page-break-inside:avoid}
+ .doc p,.doc li{orphans:2;widows:2}
+ a{color:#000;text-decoration:none}
+ [id]{scroll-margin-top:0}
+}
 .doc p{margin:10px 0;color:var(--ink-2);font-size:14px;text-align:justify}
 .doc strong{color:var(--ink)}
 .doc ul,.doc ol{margin:10px 0;padding-left:22px;color:var(--ink-2);font-size:14px}
@@ -158,8 +192,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <a href="./strs.html">
       <span class="tag">VOLUME 02 · StRS</span>
       <h3>相关方需求规格说明</h3>
-      <p>相关方清单与分析矩阵（24 类）、四组相关方需求（24 条 SR）与冲突权衡、系统运行模式与场景、详细生存周期概念（OpsCon）。</p>
-      <span class="stat">8 章 · 14 表 · 24 条相关方需求</span>
+      <p>相关方清单与分析矩阵（24 类）、四组相关方需求（25 条 SR）与冲突权衡、系统运行模式与场景、详细生存周期概念（OpsCon）。</p>
+      <span class="stat">8 章 · 14 表 · 25 条相关方需求</span>
       <span class="go">阅读 StRS 全文 →</span>
     </a>
   </section>
@@ -183,6 +217,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <tr><td>SR</td><td>相关方需求</td><td>StRS</td><td>SR-07 事件处置工单</td></tr>
           <tr><td>SP / SM</td><td>系统过程 / 运行模式</td><td>StRS</td><td>SM-3 降级运行</td></tr>
           <tr><td>IF</td><td>外部接口</td><td>StRS</td><td>IF-04 信号机接口</td></tr>
+          <tr><td>BR-R / SR-R</td><td>业务规则 / 系统规则（不可协商的约束，优先级高于功能需求）</td><td>BRS / StRS</td><td>BR-R-01 安全优先于效率</td></tr>
         </tbody>
       </table>
     </div>
