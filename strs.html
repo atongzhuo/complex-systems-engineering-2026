@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>相关方需求规格说明（StRS）· 基于车路云系统的未来城市交通规划</title>
+<meta name="description" content="基于车路云系统的未来城市交通规划 · 相关方视角的使用条件与需求">
+<meta property="og:type" content="article">
+<meta property="og:title" content="相关方需求规格说明（StRS）· 基于车路云系统的未来城市交通规划">
+<meta property="og:description" content="基于车路云系统的未来城市交通规划 · 相关方视角的使用条件与需求">
+<meta property="og:image" content="https://atongzhuo.github.io/complex-systems-engineering-2026/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://atongzhuo.github.io/complex-systems-engineering-2026/strs.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23132a4a'/%3E%3Ctext x='32' y='42' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ECS%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--navy:#132a4a;--accent:#c2452c;--ink:#1b2330;
+  --ink-2:#41506b;--ink-3:#5b6880;--line:#e3e7ee;--mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-anchor:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.8;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#2563eb;text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1220px;margin:0 auto;padding:0 28px}
+[id]{scroll-margin-top:84px}
+.topbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.86);backdrop-filter:blur(10px);position:sticky;top:0;z-index:50}
+.topbar .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;color:var(--navy);font-size:15px}
+.brand .mark{width:32px;height:32px;border-radius:9px;background:var(--navy);color:#fff;display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:700}
+.brand small{display:block;font-weight:400;font-size:11.5px;color:var(--ink-3)}
+.topnav{margin-left:auto;display:flex;gap:18px;font-size:13.5px;color:var(--ink-2)}
+.topnav a{color:var(--ink-2);display:inline-block;padding:6px 2px}
+.topnav a:hover{color:var(--accent);text-decoration:none}
+@media(max-width:760px){
+ .topbar .wrap{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:8px;gap:8px}
+ .topnav{width:100%;margin-left:0;gap:16px;font-size:13px;overflow-x:auto;white-space:nowrap;padding-bottom:2px}
+ .topnav a{flex:0 0 auto}}
+.top-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:22px 0 0}
+@media(max-width:680px){.top-actions{grid-template-columns:1fr}}
+.qj{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--card);
+  border:1px solid var(--line);border-radius:14px;text-decoration:none;color:inherit;transition:.18s ease}
+.qj:hover{transform:translateY(-2px);border-color:#b9c6dc;box-shadow:0 12px 26px -20px rgba(19,42,74,.55);text-decoration:none}
+.qj .no{flex:0 0 auto;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:#fff;background:var(--navy);border-radius:7px;padding:4px 8px}
+.qj:nth-child(2) .no{background:var(--accent)}
+.qj .tx{min-width:0;flex:1 1 auto}
+.qj .t{display:block;font-size:15.5px;font-weight:650;color:var(--navy);line-height:1.3}
+.qj:nth-child(2) .t{color:var(--accent)}
+.qj .d{display:block;font-size:12.5px;color:var(--ink-3);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qj .go{flex:0 0 auto;color:var(--ink-3);font-size:16px}
+.hero{padding:44px 0 6px;border-bottom:1px solid var(--line)}
+.kicker{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.kicker::before{content:"";width:26px;height:2px;background:var(--accent);display:block}
+h1{font-size:clamp(28px,3.6vw,44px);line-height:1.15;letter-spacing:-.02em;margin:16px 0 10px;font-weight:700;color:var(--navy)}
+.hero .sub{color:var(--ink-2);font-size:16px;margin:0 0 6px;max-width:860px}
+.hero .meta{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin:14px 0 22px}
+.hero .meta span{margin-right:18px;white-space:nowrap}
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:44px;align-items:start;padding:32px 0 0}
+@media(max-width:980px){.layout{grid-template-columns:1fr;gap:20px}}
+.toc{position:sticky;top:88px;max-height:calc(100vh - 110px);overflow:auto;font-size:12.5px;border-right:1px solid var(--line);padding-right:14px}
+@media(max-width:980px){.toc{position:static;max-height:none;border-right:0;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}}
+.toc a{display:block;color:var(--ink-2);padding:3px 0;line-height:1.5}
+.toc a:hover{color:var(--accent);text-decoration:none}
+.toc .toc-part{font-weight:650;color:var(--navy);margin-top:12px;font-size:13px}
+.toc .toc-chapter{font-weight:600;color:var(--navy);margin-top:8px}
+.toc .toc-sec{padding-left:18px;color:var(--ink-3);font-size:12px}
+.doc h3.chapter{font-size:20px;margin:36px 0 10px;color:var(--navy);letter-spacing:-.01em}
+.doc h3.chapter:first-child{margin-top:0}
+.doc h4.sec{font-size:16px;margin:26px 0 8px;color:var(--navy)}
+.doc h5.sub{font-size:14.5px;margin:18px 0 6px;color:var(--ink)}
+.doc p{margin:10px 0;color:var(--ink-2);font-size:14px;text-align:justify}
+.doc strong{color:var(--ink)}
+.doc ul,.doc ol{margin:10px 0;padding-left:22px;color:var(--ink-2);font-size:14px}
+.doc li{margin:4px 0}
+.doc blockquote{margin:14px 0;padding:10px 16px;border-left:3px solid var(--accent);background:#fff;border-radius:0 8px 8px 0;color:var(--ink-2);font-size:13.5px}
+.doc code{font-family:var(--mono);font-size:12px;background:#f2f5fa;border-radius:4px;padding:1px 5px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);margin:14px 0}
+.doc table{width:100%;border-collapse:collapse;font-size:12.5px}
+.doc th,.doc td{padding:9px 12px;text-align:left;border-bottom:1px solid #edf0f5;vertical-align:top}
+.doc td:first-child{white-space:nowrap;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.doc th{background:#f7f9fc;color:var(--ink-2);font-weight:600;font-size:12px;white-space:nowrap}
+.doc tr:last-child td{border-bottom:0}
+.dl-row{display:flex;flex-wrap:wrap;gap:10px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.dl-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid var(--navy);background:var(--navy);color:#fff;font-size:13.5px}
+.dl-btn:hover{background:#0e2140;color:#fff;text-decoration:none}
+.dl-btn.ghost{background:transparent;color:var(--navy)}
+.dl-btn.ghost:hover{background:#eef3fb}
+.dl-btn .sz{font-family:var(--mono);font-size:11px;opacity:.7}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0 0}
+@media(max-width:760px){.pick{grid-template-columns:1fr}}
+.pick a{display:block;padding:22px 24px;background:var(--card);border:1px solid var(--line);
+  border-radius:16px;color:inherit;transition:.2s ease}
+.pick a:hover{transform:translateY(-3px);border-color:#b9c6dc;box-shadow:0 18px 40px -28px rgba(19,42,74,.6);text-decoration:none}
+.pick .tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--accent)}
+.pick h3{margin:8px 0 6px;font-size:19px;color:var(--navy)}
+.pick p{margin:0 0 12px;color:var(--ink-2);font-size:13.5px;line-height:1.75}
+.pick .stat{display:block;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.pick .go{display:block;margin-top:10px;font-size:13px;color:var(--accent);font-weight:600}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:26px 0 44px;color:var(--ink-3);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="mark">CS</span><span>Complex Systems<small>BRS / StRS 分析</small></span></div>
+    <nav class="topnav">
+      <a href="./car-road-cloud.html">项目页</a>
+      <a href="./brs-strs.html">BRS / StRS 分析</a>
+      <a href="./brs.html">BRS 全文</a>
+      <a href="./index.html">课程仓库</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+  <div class="top-actions">
+    <a class="qj" href="./car-road-cloud.html#levels">
+      <span class="no">01</span>
+      <span class="tx"><span class="t">项目层级概述</span>
+      <span class="d">六层分解：任务 → 体系 → 整机 → 系统 → 子系统 → 模块</span></span>
+      <span class="go" aria-hidden="true">→</span>
+    </a>
+    <a class="qj" href="./brs.html">
+      <span class="no">02</span>
+      <span class="tx"><span class="t">业务需求规格说明（BRS）</span>
+      <span class="d">业务视角的预期结果、8 条业务目标与 24 条任务与业务需求</span></span>
+      <span class="go" aria-hidden="true">→</span>
+    </a>
+  </div>
+
+  <section class="hero">
+    <p class="kicker">Complex Systems Engineering · 相关方需求规格说明</p>
+    <h1>相关方需求规格说明（StRS）</h1>
+    <p class="sub">基于车路云系统的未来城市交通规划 · 相关方视角的使用条件与需求</p>
+    <p class="meta"><span>V1.0</span><span>2026-11-15</span><span>ISO/IEC/IEEE 29148:2018 表 4-5</span></p>
+  </section>
+
+  <div class="layout">
+    <aside class="toc" aria-label="目录">
+      <a class="toc-chapter" href="#h1">1 简介</a>
+<a class="toc-sec" href="#h2">1.1 相关方目的</a>
+<a class="toc-sec" href="#h3">1.2 相关方范围</a>
+<a class="toc-sec" href="#h4">1.3 概况</a>
+<a class="toc-sec" href="#h5">1.4 定义</a>
+<a class="toc-sec" href="#h6">1.5 相关方列表【重点】</a>
+<a class="toc-chapter" href="#h10">2 参考</a>
+<a class="toc-chapter" href="#h11">3 业务管理需求</a>
+<a class="toc-chapter" href="#h12">4 系统运行需求</a>
+<a class="toc-sec" href="#h13">4.1 系统过程</a>
+<a class="toc-sec" href="#h14">4.2 系统运行策略与规则</a>
+<a class="toc-sec" href="#h15">4.3 系统运行约束</a>
+<a class="toc-sec" href="#h16">4.4 系统运行模式与状态</a>
+<a class="toc-chapter" href="#h17">5 用户需求【重点：相关方需求】</a>
+<a class="toc-sec" href="#h18">5.1 指挥与交管类</a>
+<a class="toc-sec" href="#h19">5.2 运营与运维类</a>
+<a class="toc-sec" href="#h20">5.3 出行者类</a>
+<a class="toc-sec" href="#h21">5.4 监管与受影响类</a>
+<a class="toc-sec" href="#h22">5.5 需求冲突与权衡</a>
+<a class="toc-chapter" href="#h23">6 详细生存周期概念</a>
+<a class="toc-sec" href="#h24">6.1 运行概念（OpsCon）【重点】</a>
+<a class="toc-sec" href="#h30">6.2 运行场景（系统层面）</a>
+<a class="toc-sec" href="#h31">6.3 采办概念</a>
+<a class="toc-sec" href="#h32">6.4 部署概念</a>
+<a class="toc-sec" href="#h33">6.5 支持概念</a>
+<a class="toc-sec" href="#h34">6.6 弃置概念</a>
+<a class="toc-chapter" href="#h35">7 项目约束</a>
+<a class="toc-chapter" href="#h36">8 附录</a>
+<a class="toc-sec" href="#h37">8.1 缩写与缩略语</a>
+<a class="toc-sec" href="#h38">8.2 追溯矩阵（节选）</a>
+<a class="toc-sec" href="#h39">8.3 待确认事项</a>
+    </aside>
+    <article class="doc">
+      <div class="table-wrap"><table>
+      <thead><tr><th>项目</th><th>内容</th></tr></thead><tbody>
+      <tr><td>文档名称</td><td>车路云一体化未来城市交通规划 · 相关方需求规格说明（StRS）</td></tr>
+      <tr><td>版本</td><td>V1.0</td></tr>
+      <tr><td>日期</td><td>2026-11-15</td></tr>
+      <tr><td>编制依据</td><td>ISO/IEC/IEEE 29148:2018 表 4-5（StRS 范例轮廓）</td></tr>
+      <tr><td>过程依据</td><td>ISO/IEC/IEEE 15288:2023 相关方需要与需求定义过程</td></tr>
+      <tr><td>适用阶段</td><td>概念定义阶段（相关方需要与需求定义）</td></tr>
+      <tr><td>上游文档</td><td>业务需求规格说明（BRS）</td></tr>
+      </tbody></table></div>
+      <p><strong>阅读说明</strong>：本文件为相关方需求规格说明分册，采用 ISO/IEC/IEEE 29148:2018 表 4-5 的八章轮廓组织，站在相关方一侧界定使用条件与判断依据：谁受影响、各方的需要如何转写为可验证需求、系统在什么场景与模式下运行。相关方需求与业务需求之间通过编号建立追溯关系，避免出现无业务依据的需求或无落地路径的目标。</p>
+      <h3 class="chapter" id="h1">1 简介</h3>
+      <h4 class="sec" id="h2">1.1 相关方目的</h4>
+      <p>本文件的目的，是把&quot;城市要什么&quot;（BRS）翻译成&quot;各相关方各自要什么&quot;，并说明这些需要之间如何冲突、如何排序、如何在系统的运行概念中被满足。StRS 是采办方、使用者、供应商之间的沟通基线：采办方据此确认需求被完整捕获，供应商据此判断可行性与代价，最终用户据此确认自己的诉求没有被&quot;技术方案&quot;绑架。</p>
+      <h4 class="sec" id="h3">1.2 相关方范围</h4>
+      <ul>
+      <li><strong>范围内</strong>：直接使用系统的人员与组织、被系统运行影响的群体、对系统施加约束的组织、提供使能条件的供应方。</li>
+      <li><strong>范围外</strong>：与本市交通治理无直接关系的全国性机构；仅提供一次性土建施工且不参与运营的单位（其诉求由施工合同约束，不进入本规格说明）。</li>
+      </ul>
+      <h4 class="sec" id="h4">1.3 概况</h4>
+      <p>本系统是典型的&quot;多相关方、强监管、弱直接用户&quot;的系统：真正的使用者是少数值守人员，而被影响者是全体出行公众。这决定了 StRS 的重心不是功能罗列，而是<strong>利益冲突的显性化与优先级裁定</strong>。</p>
+      <h4 class="sec" id="h5">1.4 定义</h4>
+      <p>见 BRS 1.4。本部分额外使用：<strong>相关方（Stakeholder）</strong>指对系统有权利、责任、利益或受其影响的个人或组织；<strong>需要（Need）</strong>指相关方主观的意图与期望；<strong>需求（Requirement）</strong>指经分析、可验证、达成一致的表达。</p>
+      <h4 class="sec" id="h6">1.5 相关方列表【重点】</h4>
+      <h5 class="sub" id="h7">1.5.1 识别方法</h5>
+      <p>按&quot;五类交互要素&quot;系统识别：①与系统直接交互（使用、操作、维护）；②系统对其施加影响（被影响）；③对系统施加影响（约束、审批、监督）；④为系统提供使能条件（供应、支撑）；⑤与系统存在替代或竞争关系（如既有单车道诱导系统、私营导航）。</p>
+      <h5 class="sub" id="h8">1.5.2 相关方清单与分析矩阵</h5>
+      <p>态度取值：+2 强烈支持、+1 支持、0 中立、−1 保留、−2 反对；影响力：强/中/弱；重要性：高/中/低；优先级 P1（必须满足）、P2（应满足）、P3（可协商）。</p>
+      <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>分组</th><th>相关方</th><th>与系统的交互要素</th><th>核心利益点</th><th>态度</th><th>影响力</th><th>重要性</th><th>优先级</th></tr></thead><tbody>
+      <tr><td>SH-01</td><td>政府与监管</td><td>市政府/交通委（采办与主管）</td><td>施加影响：预算、考核、规则</td><td>安全与效率可量化、投资可见效、舆情可控</td><td>+2</td><td>强</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-02</td><td>政府与监管</td><td>公安交管部门</td><td>直接交互 + 施加影响：交通组织、执法</td><td>事件处置效率、执法证据可用、不越权</td><td>+1</td><td>强</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-03</td><td>政府与监管</td><td>财政局/发改</td><td>施加影响：投资审批与绩效评价</td><td>成本可控、按效付费可核</td><td>+1</td><td>强</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-04</td><td>政府与监管</td><td>网信/数据安全监管</td><td>施加影响：合规审查</td><td>数据最小化、可追溯、不泄露</td><td>0</td><td>强</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-05</td><td>政府与监管</td><td>标准化与检测认证机构</td><td>施加影响：标准符合性</td><td>标准可落地、测试可复现</td><td>0</td><td>中</td><td>中</td><td>P2</td></tr>
+      <tr><td>SH-06</td><td>运营方</td><td>交通指挥中心（TOCC）</td><td>直接使用</td><td>看得全、报得准、操作快、少误报</td><td>+2</td><td>中</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-07</td><td>运营方</td><td>公交运营企业</td><td>直接使用 + 被影响</td><td>准点率、优先通行、调度可视</td><td>+1</td><td>中</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-08</td><td>运营方</td><td>应急救援（消防/急救/事故）</td><td>直接使用</td><td>到场快、路径通、现场态势清</td><td>+2</td><td>中</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-09</td><td>运营方</td><td>路侧设施运维单位</td><td>直接维护</td><td>故障可定位、备件可得、上杆作业安全</td><td>0</td><td>中</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-10</td><td>运营方</td><td>云控平台运营方</td><td>直接运维</td><td>平台稳定、变更可控、数据可管</td><td>+1</td><td>中</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-11</td><td>运营方</td><td>停车运营企业</td><td>接口协同</td><td>车位信息互通、诱导引流</td><td>+1</td><td>弱</td><td>中</td><td>P3</td></tr>
+      <tr><td>SH-12</td><td>运营方</td><td>能源充电运营</td><td>接口协同</td><td>充电需求预测、排队信息</td><td>0</td><td>弱</td><td>低</td><td>P3</td></tr>
+      <tr><td>SH-13</td><td>运营方</td><td>货运物流企业</td><td>接口协同 + 被影响</td><td>通行证、预约通行、装卸停靠</td><td>−1</td><td>中</td><td>中</td><td>P2</td></tr>
+      <tr><td>SH-14</td><td>使用者</td><td>驾驶员（私家车）</td><td>直接使用（间接）</td><td>少堵、少险、提示可信不干扰</td><td>+1</td><td>弱</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-15</td><td>使用者</td><td>出行者（乘客/骑行者/行人）</td><td>被影响</td><td>安全、信息准、隐私不被侵犯</td><td>0</td><td>弱</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-16</td><td>使用者</td><td>车队管理者（公交/物流/出租）</td><td>直接使用</td><td>车队可视、考核有据</td><td>+1</td><td>中</td><td>中</td><td>P2</td></tr>
+      <tr><td>SH-17</td><td>使能与供应</td><td>通信运营商（5G/专网）</td><td>提供使能</td><td>流量与切片收入、网络质量可承诺</td><td>+1</td><td>强</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-18</td><td>使能与供应</td><td>高精地图与定位服务商</td><td>提供使能</td><td>数据合规、更新及时、接口稳定</td><td>+1</td><td>中</td><td>高</td><td>P1</td></tr>
+      <tr><td>SH-19</td><td>使能与供应</td><td>设备供应商（RSU/OBU/MEC/整车）</td><td>提供使能</td><td>标准接口、批量订单、可维护</td><td>+1</td><td>中</td><td>高</td><td>P2</td></tr>
+      <tr><td>SH-20</td><td>使能与供应</td><td>云服务与集成商</td><td>提供使能</td><td>资源可用、交付可控</td><td>+1</td><td>中</td><td>中</td><td>P2</td></tr>
+      <tr><td>SH-21</td><td>使能与供应</td><td>电力供应</td><td>提供使能</td><td>负荷可预期、接入合规</td><td>0</td><td>中</td><td>中</td><td>P2</td></tr>
+      <tr><td>SH-22</td><td>受影响</td><td>沿线居民与商户</td><td>被影响</td><td>噪声光污染、施工扰民、隐私</td><td>−1</td><td>中</td><td>中</td><td>P2</td></tr>
+      <tr><td>SH-23</td><td>受影响</td><td>道路施工与养护单位</td><td>被影响 + 直接交互</td><td>作业区安全、施工期交通组织</td><td>0</td><td>中</td><td>中</td><td>P2</td></tr>
+      <tr><td>SH-24</td><td>受影响</td><td>保险与事故鉴定机构</td><td>被影响</td><td>事故数据可信、责任可界定</td><td>+1</td><td>弱</td><td>低</td><td>P3</td></tr>
+      </tbody></table></div>
+      <h5 class="sub" id="h9">1.5.3 分析结论</h5>
+      <ul>
+      <li><strong>权利—利益</strong>：SH-01、SH-02、SH-03 权利高、利益直接，必须&quot;早介入、常汇报&quot;；SH-15、SH-22 权利低但利益受影响大，需要&quot;告知与补偿&quot;机制，否则会转化为舆情风险。</li>
+      <li><strong>影响力—重要性</strong>：SH-17、SH-18 影响力强（网络与地图一旦不配合，系统无法运行）但自身利益中性，必须用合同 SLA 锁定；SH-04 影响力强且可否决，合规必须前置设计而非事后补丁。</li>
+      <li><strong>态度管理</strong>：SH-13（货运）与 SH-22（沿线居民）为负向态度，需在方案中给出明确补偿或替代路径（预约通行、夜间限行豁免、施工期绕行），否则会成为实施阻力。</li>
+      <li><strong>被忽略的风险点</strong>：SH-23（施工养护）常被漏掉，但施工区的 ODD 变化会直接导致系统误判，必须纳入 ODD 管理与事件流程。</li>
+      </ul>
+      <h3 class="chapter" id="h10">2 参考</h3>
+      <p>同 BRS 第 2 章；补充：ISO 9241-210（以人为中心的交互设计）、GB/T 22239-2019（网络安全等级保护基本要求）。</p>
+      <h3 class="chapter" id="h11">3 业务管理需求</h3>
+      <p>本章与 BRS 第 3 章一致，不重复展开。差异在于视角：BRS 从组织出发陈述&quot;业务要什么&quot;，本章从相关方出发确认&quot;这些业务要求是否被各方接受&quot;。确认结论：</p>
+      <ul>
+      <li>目标 O-01～O-08 经 SH-01、SH-03 确认可作为考核基线；</li>
+      <li>治理结构 BR-01 经 SH-06、SH-07、SH-08、SH-10 确认，底座责任主体单列；</li>
+      <li>数据规则 BR-03 经 SH-04 确认，需在设计中体现&quot;采集前告知、共享前评估、到期即销毁&quot;；</li>
+      <li>分期建设 BR-04 经 SH-03 确认，与财政中期规划对齐。</li>
+      </ul>
+      <h3 class="chapter" id="h12">4 系统运行需求</h3>
+      <h4 class="sec" id="h13">4.1 系统过程</h4>
+      <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>系统过程</th><th>输入</th><th>输出</th><th>主要相关方</th></tr></thead><tbody>
+      <tr><td>SP-01</td><td>路侧感知与融合</td><td>视频、雷达、RSU 消息</td><td>目标列表、交通事件、路况</td><td>SH-06、SH-09</td></tr>
+      <tr><td>SP-02</td><td>车路协同消息服务</td><td>车辆状态、路侧融合结果</td><td>BSM/SPaT/MAP/RSI 消息</td><td>SH-14、SH-19</td></tr>
+      <tr><td>SP-03</td><td>协同决策与风险分级</td><td>融合目标、地图、ODD 状态</td><td>风险等级、协同建议</td><td>SH-14、SH-06</td></tr>
+      <tr><td>SP-04</td><td>信号协调与优先</td><td>交通需求、优先请求</td><td>配时方案、优先指令</td><td>SH-02、SH-07、SH-08</td></tr>
+      <tr><td>SP-05</td><td>事件检测与工单</td><td>感知结果、人工上报</td><td>结构化事件、工单</td><td>SH-06、SH-08、SH-23</td></tr>
+      <tr><td>SP-06</td><td>出行信息发布</td><td>路况、事件、诱导策略</td><td>App 推送、情报板内容</td><td>SH-15、SH-14</td></tr>
+      <tr><td>SP-07</td><td>身份与信任服务</td><td>证书申请、消息签名</td><td>证书、验签结果</td><td>SH-04、SH-19</td></tr>
+      <tr><td>SP-08</td><td>运维与诊断</td><td>设备心跳、日志、告警</td><td>工单、健康度、备件建议</td><td>SH-09、SH-10</td></tr>
+      <tr><td>SP-09</td><td>数据治理与共享</td><td>原始数据、目录、授权</td><td>脱敏数据、共享接口</td><td>SH-04、SH-11～SH-13</td></tr>
+      <tr><td>SP-10</td><td>评价与结算</td><td>运行数据、指标口径</td><td>评价报告、结算依据</td><td>SH-01、SH-03</td></tr>
+      </tbody></table></div>
+      <h4 class="sec" id="h14">4.2 系统运行策略与规则</h4>
+      <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>规则</th><th>说明</th></tr></thead><tbody>
+      <tr><td>SR-R-01</td><td>安全相关动作必须&quot;建议—确认—执行&quot;三段式</td><td>系统不得直接下发可能引发风险的强制控制</td></tr>
+      <tr><td>SR-R-02</td><td>ODD 判定优先于协同决策</td><td>ODD 不满足时，一律降级并告知</td></tr>
+      <tr><td>SR-R-03</td><td>单一数据源原则</td><td>时空基准、路网、事件状态各只有一处权威来源</td></tr>
+      <tr><td>SR-R-04</td><td>接口版本兼容</td><td>主版本内保持向后兼容，破坏性变更需提前 6 个月公告</td></tr>
+      <tr><td>SR-R-05</td><td>降级可预期</td><td>每类失效都有预设的降级动作与告知对象</td></tr>
+      <tr><td>SR-R-06</td><td>全链路留痕</td><td>消息、决策、人工操作均可追溯到时间、来源、版本</td></tr>
+      </tbody></table></div>
+      <h4 class="sec" id="h15">4.3 系统运行约束</h4>
+      <ul>
+      <li>时延：车端本地闭环 ≤ 70 ms（感知 30 + 决策 20 + 执行 20）；云端协同闭环 ≤ 300 ms（含路侧融合 15、云端决策与下发 150）。</li>
+      <li>时间同步：车—路—云 ≤ 1 μs；坐标基准 CGCS2000。</li>
+      <li>通信：PC5 直连用于低时延本地协同；5G Uu 用于广域与云端交互。</li>
+      <li>供电与防护：车端 IP67、路端 ≥ IP65、云端 IP20；路端整机功耗 ≤ 300 W。</li>
+      <li>成本：单路口 ≤ 35 万元；年度运维 ≤ 建设投资 8%。</li>
+      </ul>
+      <h4 class="sec" id="h16">4.4 系统运行模式与状态</h4>
+      <div class="table-wrap"><table>
+      <thead><tr><th>模式</th><th>标识</th><th>进入条件</th><th>系统行为</th><th>退出条件</th></tr></thead><tbody>
+      <tr><td>初始化/自检</td><td>SM-0</td><td>上电、重启、升级后</td><td>设备自检、时钟同步、证书校验</td><td>自检通过</td></tr>
+      <tr><td>正常协同</td><td>SM-1</td><td>ODD 满足、设施在线、时延达标</td><td>全功能协同驾驶服务与信号优化</td><td>ODD 越界或设施失效</td></tr>
+      <tr><td>受限运行</td><td>SM-2</td><td>ODD 部分不满足（如降雨、光照不足）</td><td>收缩功能、降低建议等级、加强提示</td><td>条件恢复</td></tr>
+      <tr><td>降级运行</td><td>SM-3</td><td>单侧失效（RSU 掉线、5G 中断、地图过期、时钟失步、验签失败）</td><td>按失效清单执行降级动作</td><td>失效恢复并通过校验</td></tr>
+      <tr><td>维护模式</td><td>SM-4</td><td>计划检修、版本升级</td><td>分区隔离、灰度发布、可回滚</td><td>升级验证通过</td></tr>
+      <tr><td>故障隔离</td><td>SM-5</td><td>检测到不可信状态（数据冲突、算法异常）</td><td>停止对外建议，仅保留监测与告警</td><td>人工确认修复</td></tr>
+      </tbody></table></div>
+      <h3 class="chapter" id="h17">5 用户需求【重点：相关方需求】</h3>
+      <p>需求陈述采用&quot;相关方 + 应 + 行为/结果 + 条件 + 判据&quot;的句式；优先级：M（必须）、S（应该）、C（可以）。</p>
+      <h4 class="sec" id="h18">5.1 指挥与交管类</h4>
+      <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>相关方</th><th>相关方需求</th><th>优先级</th><th>确认方法</th><th>追溯</th></tr></thead><tbody>
+      <tr><td>SR-01</td><td>SH-06</td><td>指挥中心应在一张图上看到路口、路段、事件的实时状态，刷新周期 ≤ 5 s</td><td>M</td><td>现场演示 + 计时</td><td>MR-01、BP-01</td></tr>
+      <tr><td>SR-02</td><td>SH-06</td><td>系统应把同一事件的多次告警合并为一个事件，误报率 ≤ 5%</td><td>M</td><td>30 天运行统计</td><td>MR-02</td></tr>
+      <tr><td>SR-03</td><td>SH-06</td><td>事件从告警到派单应在 3 次点击内完成，且支持预案模板</td><td>S</td><td>可用性测试</td><td>BP-02</td></tr>
+      <tr><td>SR-04</td><td>SH-02</td><td>系统应提供可用于事后定责的证据包（原始数据 + 算法版本 + 时间戳）</td><td>M</td><td>抽样审计</td><td>MR-06、BR-09</td></tr>
+      <tr><td>SR-05</td><td>SH-02</td><td>系统不得直接改变信号配时，须经交管平台确认后执行</td><td>M</td><td>接口审查</td><td>BR-09、SR-R-01</td></tr>
+      <tr><td>SR-06</td><td>SH-08</td><td>应急车辆优先请求应在 10 s 内得到响应，并在沿途路口形成绿波</td><td>M</td><td>演练计时</td><td>MR-03</td></tr>
+      <tr><td>SR-07</td><td>SH-23</td><td>施工占道信息变更后，系统应在 30 min 内更新 ODD 并通知受影响的协同车辆</td><td>S</td><td>变更演练</td><td>MR-05、SH-23</td></tr>
+      </tbody></table></div>
+      <h4 class="sec" id="h19">5.2 运营与运维类</h4>
+      <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>相关方</th><th>相关方需求</th><th>优先级</th><th>确认方法</th><th>追溯</th></tr></thead><tbody>
+      <tr><td>SR-08</td><td>SH-07</td><td>公交优先请求应支持按线路、班次、准点偏差自动触发</td><td>M</td><td>联调测试</td><td>MR-04</td></tr>
+      <tr><td>SR-09</td><td>SH-07</td><td>系统应提供到站预测，误差 ≤ 90 s（置信度 80%）</td><td>S</td><td>30 天对比</td><td>MR-04</td></tr>
+      <tr><td>SR-10</td><td>SH-09</td><td>设备故障应自动生成工单，包含位置、现象、备件建议与影响范围</td><td>M</td><td>故障注入</td><td>MR-08、BP-07</td></tr>
+      <tr><td>SR-11</td><td>SH-09</td><td>系统应支持远程诊断与重启，减少上杆次数 ≥ 50%</td><td>S</td><td>运维统计</td><td>O-07</td></tr>
+      <tr><td>SR-12</td><td>SH-10</td><td>平台升级应支持灰度与一键回滚，回滚时间 ≤ 10 min</td><td>M</td><td>升级演练</td><td>BR-R-05</td></tr>
+      <tr><td>SR-13</td><td>SH-10</td><td>系统应提供容量与健康度看板，提前 7 天预警容量不足</td><td>S</td><td>看板核验</td><td>O-07</td></tr>
+      <tr><td>SR-14</td><td>SH-13</td><td>货运预约通行应支持时段与路线约束，违规提示 ≤ 1 min</td><td>C</td><td>试点评估</td><td>SC-04</td></tr>
+      <tr><td>SR-15</td><td>SH-11/12</td><td>停车与充电信息应通过标准接口接入，不在本系统内重建业务</td><td>C</td><td>接口测试</td><td>BR-08</td></tr>
+      </tbody></table></div>
+      <h4 class="sec" id="h20">5.3 出行者类</h4>
+      <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>相关方</th><th>相关方需求</th><th>优先级</th><th>确认方法</th><th>追溯</th></tr></thead><tbody>
+      <tr><td>SR-16</td><td>SH-14</td><td>车载提示应&quot;少而准&quot;：单次行程有效提示 ≤ 5 条，且不遮挡导航主视图</td><td>S</td><td>用户测试</td><td>MR-05</td></tr>
+      <tr><td>SR-17</td><td>SH-14</td><td>系统应在 ODD 越界前 ≥ 2 s 告知驾驶员接管，并说明原因</td><td>M</td><td>场景测试</td><td>MR-05、SM-3</td></tr>
+      <tr><td>SR-18</td><td>SH-15</td><td>出行信息应覆盖 App、情报板、广播三种渠道，且口径一致</td><td>S</td><td>一致性核验</td><td>SC-01、SC-05</td></tr>
+      <tr><td>SR-19</td><td>SH-15</td><td>系统不得采集与业务无关的个人信息；采集区域应有明确告知</td><td>M</td><td>合规审计</td><td>BR-03</td></tr>
+      <tr><td>SR-20</td><td>SH-16</td><td>车队管理者应能按车辆、线路查看协同服务使用情况与安全事件</td><td>S</td><td>报表核验</td><td>MR-07</td></tr>
+      </tbody></table></div>
+      <h4 class="sec" id="h21">5.4 监管与受影响类</h4>
+      <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>相关方</th><th>相关方需求</th><th>优先级</th><th>确认方法</th><th>追溯</th></tr></thead><tbody>
+      <tr><td>SR-21</td><td>SH-04</td><td>敏感数据应脱敏后共享，且共享行为全程留痕可审计</td><td>M</td><td>渗透与审计</td><td>BR-03、SP-09</td></tr>
+      <tr><td>SR-22</td><td>SH-01/03</td><td>评价报告应按统一口径出具，指标可被第三方复算</td><td>M</td><td>第三方复算</td><td>MR-07、SP-10</td></tr>
+      <tr><td>SR-23</td><td>SH-22</td><td>路侧设备建设应减少噪声与光污染，夜间补光不得直射住户</td><td>S</td><td>现场核查</td><td>3.1、SH-22</td></tr>
+      <tr><td>SR-24</td><td>SH-24</td><td>事故相关数据应可导出为标准格式，供保险与鉴定使用</td><td>C</td><td>导出测试</td><td>SR-04</td></tr>
+      </tbody></table></div>
+      <h4 class="sec" id="h22">5.5 需求冲突与权衡</h4>
+      <div class="table-wrap"><table>
+      <thead><tr><th>冲突</th><th>双方</th><th>权衡结论</th></tr></thead><tbody>
+      <tr><td>效率 vs 安全</td><td>SH-06（通行效率） / SH-01、SH-15（安全）</td><td>安全优先（BR-R-01）；效率优化不得压缩安全裕度</td></tr>
+      <tr><td>追溯 vs 隐私</td><td>SH-02、SH-24（证据） / SH-04、SH-19（隐私）</td><td>分级留存、脱敏共享、用途限定；原始数据不出区</td></tr>
+      <tr><td>覆盖 vs 成本</td><td>SH-01（全域覆盖） / SH-03（投资约束）</td><td>分期建设，优先高事故与高拥堵路口（BR-04、O-08）</td></tr>
+      <tr><td>体验 vs 提示量</td><td>SH-14（少打扰） / SH-01（安全提示到位）</td><td>以&quot;有效提示率&quot;考核，而非提示条数（SR-16）</td></tr>
+      <tr><td>标准化 vs 创新</td><td>SH-05（标准符合） / SH-19（技术演进）</td><td>接口标准化、算法可替换（SR-R-04）</td></tr>
+      </tbody></table></div>
+      <h3 class="chapter" id="h23">6 详细生存周期概念</h3>
+      <h4 class="sec" id="h24">6.1 运行概念（OpsCon）【重点】</h4>
+      <blockquote>OpsCon 是系统层面的文件：以本系统为对象，描述它&quot;将做什么、为什么这样做&quot;，并从用户视角说明系统在上下文中的位置。它不规定内部设计。</blockquote>
+      <h5 class="sub" id="h25">6.1.1 系统上下文与边界</h5>
+      <p>系统在交通治理环境中处于&quot;承上启下&quot;的位置：</p>
+      <ul>
+      <li><strong>向上</strong>：向指挥中心（SH-06）、交管（SH-02）、应急（SH-08）提供态势、事件与建议；</li>
+      <li><strong>向下</strong>：向车端（SH-14）、路侧设备、信号机（经交管平台）提供协同消息与控制建议；</li>
+      <li><strong>向外</strong>：与公交调度、停车、充电、货运平台交换接口数据；与图商同步地图；与通信运营商协同网络切片；</li>
+      <li><strong>边界</strong>：系统<strong>不包含</strong>车辆执行器、信号机硬件、执法系统、地图采集；这些均以接口方式交互。</li>
+      </ul>
+      <p>外部接口清单（概要）：</p>
+      <div class="table-wrap"><table>
+      <thead><tr><th>接口</th><th>对端</th><th>方向</th><th>内容</th><th>关键约束</th></tr></thead><tbody>
+      <tr><td>IF-01</td><td>车辆 OBU/域控</td><td>双向</td><td>BSM、协同建议、ODD 状态</td><td>PC5 时延 ≤ 10 ms；验签 ≤ 2 ms</td></tr>
+      <tr><td>IF-02</td><td>交管信号平台</td><td>双向</td><td>配时方案、优先请求、状态回执</td><td>只建议不直控（SR-05）</td></tr>
+      <tr><td>IF-03</td><td>公交调度系统</td><td>双向</td><td>车辆位置、班次、优先结果</td><td>5 s 级同步</td></tr>
+      <tr><td>IF-04</td><td>应急指挥系统</td><td>双向</td><td>事件、车辆位置、路径</td><td>优先通道</td></tr>
+      <tr><td>IF-05</td><td>高精地图服务</td><td>单向（订阅）</td><td>地图差分、路网拓扑</td><td>版本可追溯</td></tr>
+      <tr><td>IF-06</td><td>通信运营商</td><td>管理面</td><td>切片参数、网络质量</td><td>SLA 与告警</td></tr>
+      <tr><td>IF-07</td><td>停车/充电/货运平台</td><td>双向</td><td>泊位、充电、预约</td><td>标准 API，不重建业务</td></tr>
+      <tr><td>IF-08</td><td>数据共享平台</td><td>单向（受控）</td><td>脱敏统计与事件</td><td>授权与留痕</td></tr>
+      </tbody></table></div>
+      <h5 class="sub" id="h26">6.1.2 系统将做什么</h5>
+      <p>1. <strong>感知</strong>：用路侧视频与雷达补足车辆视距外与遮挡区域，形成连续目标与事件； 2. <strong>判定</strong>：判断 ODD 是否满足、风险等级如何、是否需要干预（提示或建议）； 3. <strong>协同</strong>：把路侧与云端的判断以标准消息下发给车辆与路口设备； 4. <strong>调度</strong>：在交管授权下优化信号、提供公交与应急优先； 5. <strong>留痕</strong>：把数据、决策、操作记录为可审计的证据链； 6. <strong>降级</strong>：任一侧失效时，按预案收缩功能并明确告知。</p>
+      <h5 class="sub" id="h27">6.1.3 为什么这样做</h5>
+      <ul>
+      <li>单车智能在遮挡与长尾场景的边际成本高，路侧视角可低成本补盲；</li>
+      <li>城市级拥堵是网络效应问题，只有云端全局优化才能缓解（局部最优≠全局最优）；</li>
+      <li>交通治理的权威在政府，系统必须&quot;建议而非替代&quot;，才能被制度接纳；</li>
+      <li>分期建设与标准接口，使技术演进时&quot;换算法不换底座&quot;。</li>
+      </ul>
+      <h5 class="sub" id="h28">6.1.4 正常、退化与异常场景</h5>
+      <div class="table-wrap"><table>
+      <thead><tr><th>类别</th><th>场景</th><th>系统行为</th></tr></thead><tbody>
+      <tr><td>正常</td><td>早晚高峰干线协调</td><td>生成绿波方案，经交管确认后执行；向车辆提示车速引导</td></tr>
+      <tr><td>正常</td><td>路口冲突预警</td><td>识别潜在冲突，向相关车辆下发预警；记录事件</td></tr>
+      <tr><td>退化</td><td>RSU 掉线</td><td>切换车端感知为主，路口限速降至 40 km/h，通知运维</td></tr>
+      <tr><td>退化</td><td>5G Uu 中断</td><td>关闭云端时延敏感功能，保持 PC5 直连协同</td></tr>
+      <tr><td>退化</td><td>高精地图过期（&gt; 7 天）</td><td>使用车端缓存地图，禁用依赖地图的车道级功能</td></tr>
+      <tr><td>退化</td><td>时钟失步（&gt; 1 μs）</td><td>退出协同决策，降为单车辅助驾驶</td></tr>
+      <tr><td>退化</td><td>验签失败</td><td>隔离该消息源，告警，不采信其数据</td></tr>
+      <tr><td>异常</td><td>传感器遮挡/污损</td><td>降低该设备置信度，标记影响范围，派单清洁</td></tr>
+      <tr><td>异常</td><td>算法输出冲突（路侧与车端判断不一致）</td><td>进入故障隔离（SM-5），仅告警不建议</td></tr>
+      <tr><td>异常</td><td>网络攻击/重放</td><td>拒绝并上报，记录攻击特征，触发安全预案</td></tr>
+      </tbody></table></div>
+      <h5 class="sub" id="h29">6.1.5 运行模式</h5>
+      <p>见 4.4 的 SM-0～SM-5。OpsCon 层面强调：<strong>模式切换必须是显式的、可观测的、可告知的</strong>——指挥员能看到当前模式，驾驶员能收到降级提示，审计能追溯切换原因。</p>
+      <h4 class="sec" id="h30">6.2 运行场景（系统层面）</h4>
+      <div class="table-wrap"><table>
+      <thead><tr><th>编号</th><th>场景</th><th>触发</th><th>系统时序（概要）</th><th>关联相关方需求</th></tr></thead><tbody>
+      <tr><td>SC-01</td><td>干线绿波</td><td>高峰时段</td><td>采集流量 → 生成方案 → 交管确认 → 下发 → 车速引导 → 效果评估</td><td>SR-01、SR-05</td></tr>
+      <tr><td>SC-02</td><td>事故处置</td><td>检测到碰撞/停车</td><td>生成事件 → 推送指挥中心 → 派单 → 现场态势 → 恢复 → 复盘</td><td>SR-02、SR-06</td></tr>
+      <tr><td>SC-03</td><td>公交优先</td><td>班次晚点</td><td>优先请求 → 路口放行 → 结果回传 → 准点评估</td><td>SR-08、SR-09</td></tr>
+      <tr><td>SC-04</td><td>货运预约</td><td>预约时段</td><td>校验通行资格 → 路径引导 → 违停识别 → 提示</td><td>SR-14</td></tr>
+      <tr><td>SC-05</td><td>恶劣天气</td><td>气象预警</td><td>收缩 ODD → 限速诱导 → 加强提示 → 恢复评估</td><td>SR-17、SR-18</td></tr>
+      <tr><td>SC-06</td><td>重大活动</td><td>活动计划</td><td>分级管控 → 特勤优先 → 舆情信息发布 → 复盘</td><td>SR-06、SR-18</td></tr>
+      </tbody></table></div>
+      <h4 class="sec" id="h31">6.3 采办概念</h4>
+      <p>分期采办、按包招标：路口标准包（感知 + RSU + MEC + 杆件）、云底座包（平台 + 地图 + 安全）、运营服务包（运维 + 值守支持）。合同以&quot;可用性 + 效果指标&quot;双考核，避免只考可用性导致&quot;设备在线但没人用&quot;。</p>
+      <h4 class="sec" id="h32">6.4 部署概念</h4>
+      <ul>
+      <li>空间：先试点三区的高事故、高拥堵路口，再沿主干路成线，最后成网；</li>
+      <li>时间：夜间施工、分区割接，单路口割接窗口 ≤ 4 h；</li>
+      <li>灰度：新版本先在 10% 路口灰度 2 周，指标不回退再全量。</li>
+      </ul>
+      <h4 class="sec" id="h33">6.5 支持概念</h4>
+      <p>三级运维：现场（4 h 到场）、区域（备件库、8 h 修复）、中心（7×24 远程诊断）。备件按&quot;关键件 5%、易损件 10%&quot;配置。软件按月迭代、按季度基线，重大变更走变更评审。</p>
+      <h4 class="sec" id="h34">6.6 弃置概念</h4>
+      <p>设备按资产类别回收：杆件与机房优先复用，RSU/MEC 降级用于次干路或教学，电池与线缆按环保要求处置；数据按留存期限销毁并出具销毁记录；算法模型与配置归档，保证历史事件可复算。</p>
+      <h3 class="chapter" id="h35">7 项目约束</h3>
+      <p>同 BRS 第 7 章，并补充 StRS 特有约束：</p>
+      <ul>
+      <li>相关方确认：每条 SR 必须有明确的相关方确认人，未确认的需求不得进入基线；</li>
+      <li>可追溯：SR 必须能追溯到至少一条 MR/BR，否则视为&quot;无业务理由的需求&quot;；</li>
+      <li>可验证：每条 SR 必须有确认方法，无法验证的需求必须改写或删除；</li>
+      <li>变更：SR 基线后变更需走变更控制委员会，评估对进度、成本、其他相关方的影响。</li>
+      </ul>
+      <h3 class="chapter" id="h36">8 附录</h3>
+      <h4 class="sec" id="h37">8.1 缩写与缩略语</h4>
+      <p>见 BRS 8.1。</p>
+      <h4 class="sec" id="h38">8.2 追溯矩阵（节选）</h4>
+      <div class="table-wrap"><table>
+      <thead><tr><th>任务需求</th><th>业务需求</th><th>相关方需求</th></tr></thead><tbody>
+      <tr><td>MR-01</td><td>BR-02、BR-09</td><td>SR-01、SR-04</td></tr>
+      <tr><td>MR-02</td><td>BR-07</td><td>SR-02、SR-03</td></tr>
+      <tr><td>MR-03</td><td>BR-05</td><td>SR-05、SR-06</td></tr>
+      <tr><td>MR-04</td><td>BR-02</td><td>SR-08、SR-09</td></tr>
+      <tr><td>MR-05</td><td>BR-09</td><td>SR-16、SR-17</td></tr>
+      <tr><td>MR-06</td><td>BR-05、BR-09</td><td>SR-04、SR-22</td></tr>
+      <tr><td>MR-07</td><td>BR-04、BR-07</td><td>SR-20、SR-22</td></tr>
+      <tr><td>MR-08</td><td>BR-06</td><td>SR-10、SR-11、SR-12</td></tr>
+      </tbody></table></div>
+      <h4 class="sec" id="h39">8.3 待确认事项</h4>
+      <p>1. O-01～O-08 的基线值需由 SH-01、SH-03 在可行性研究阶段确认； 2. 单路口 35 万元的投资上限需经 SH-03 复核（含杆件改造与电力增容）； 3. 货运预约（SR-14）是否纳入本期，需 SH-13 与 SH-01 共同决定； 4. 停车/充电接口（SR-15）的对接优先级，需 SH-11、SH-12 确认； 5. 数据留存期限需 SH-04 出具正式意见。</p>
+
+      <div class="dl-row">
+        <a class="dl-btn" href="./StRS.docx" download>下载 StRS DOCX <span class="sz">8 章 · 14 表</span></a>
+        <a class="dl-btn ghost" href="./brs-strs.html">← 返回分析首页</a>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>相关方需求规格说明（StRS） · 基于车路云系统的未来城市交通规划</span>
+    <span>atongzhuo · 复杂系统工程 2026</span>
+  </div>
+</footer>
+</body>
+</html>

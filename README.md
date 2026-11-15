@@ -21,9 +21,12 @@
 .
 ├── index.html          # 站点入口页（GitHub Pages 首页）
 ├── car-road-cloud.html # 项目页：基于车路云系统的未来城市交通规划（六层分解 + 追溯矩阵 + ODD/降级表）
-├── brs-strs.html       # BRS / StRS 分析页：目标、ConOps、相关方、相关方需求、OpsCon
-├── BRS-StRS.docx       # BRS（业务需求规格）与 StRS（相关方需求规格）合订本，32 表 / 78 节
-├── BRS-StRS.md         # 同上，Markdown 源文
+├── brs-strs.html       # BRS / StRS 分析首页：两册入口、编号约定、下载
+├── brs.html            # 业务需求规格说明（BRS）全文，8 章 19 表
+├── strs.html           # 相关方需求规格说明（StRS）全文，8 章 14 表
+├── BRS.docx            # BRS 分册 DOCX
+├── StRS.docx           # StRS 分册 DOCX
+├── BRS-StRS.md         # 两册合并的 Markdown 源文（生成本页与 DOCX 的底稿）
 ├── 404.html            # 自定义 404 页（站点内路径找不到时展示）
 ├── og-cover.png        # 1200×630 社交分享封面（og:image）
 ├── robots.txt          # 爬虫规则，指向 sitemap.xml
