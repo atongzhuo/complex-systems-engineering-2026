@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRS / StRS 分析 · 基于车路云系统的未来城市交通规划</title>
+<meta name="description" content="BRS 业务需求规格与 StRS 相关方需求规格的分析页：业务目标、ConOps 运营场景、24 类相关方、24 条相关方需求、OpsCon 运行模式与失效降级。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BRS / StRS 分析 · 车路云系统">
+<meta property="og:description" content="把 BRS 与 StRS 的关键结论抽出来：目标怎么定、相关方怎么找全、需求怎么被验证。">
+<meta property="og:image" content="https://atongzhuo.github.io/complex-systems-engineering-2026/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://atongzhuo.github.io/complex-systems-engineering-2026/brs-strs.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23132a4a'/%3E%3Ctext x='32' y='42' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ECS%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f5f6f8;--card:#fff;--navy:#132a4a;--accent:#c2452c;--accent-soft:#fdf1ee;
+  --ink:#1b2330;--ink-2:#41506b;--ink-3:#5b6880;--line:#e3e7ee;--radius:14px;
+  --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-anchor:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.75;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased}
+a{color:#2563eb;text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+[id]{scroll-margin-top:78px}
+
+.topbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.86);backdrop-filter:blur(10px);position:sticky;top:0;z-index:50}
+.topbar .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;color:var(--navy);font-size:15px;letter-spacing:-.01em}
+.brand .mark{width:32px;height:32px;border-radius:9px;background:var(--navy);color:#fff;display:grid;place-items:center;
+  font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.02em}
+.brand small{display:block;font-weight:400;font-size:11.5px;color:var(--ink-3);letter-spacing:.02em}
+.topnav{margin-left:auto;display:flex;gap:20px;font-size:13.5px;color:var(--ink-2)}
+.topnav a{color:var(--ink-2);display:inline-block;padding:6px 2px}
+.topnav a:hover{color:var(--accent);text-decoration:none}
+@media(max-width:760px){
+  .topbar .wrap{height:auto;flex-wrap:wrap;padding-top:10px;padding-bottom:8px;gap:8px}
+  .topnav{width:100%;margin-left:0;gap:16px;font-size:13px;overflow-x:auto;white-space:nowrap;padding-bottom:2px}
+  .topnav a{flex:0 0 auto}
+}
+
+.hero{padding:56px 0 8px}
+.kicker{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.kicker::before{content:"";width:26px;height:2px;background:var(--accent);display:block}
+h1{font-size:clamp(30px,4.2vw,50px);line-height:1.12;letter-spacing:-.02em;margin:18px 0 14px;font-weight:700;color:var(--navy)}
+.lede{max-width:780px;color:var(--ink-2);font-size:16.5px;margin:0}
+
+.stat-row{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0}
+.stat{display:inline-flex;align-items:baseline;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12.5px;color:var(--ink-2)}
+.stat b{font-family:var(--mono);font-size:14px;color:var(--navy)}
+
+.section{margin-top:56px}
+.section > h2{font-size:24px;letter-spacing:-.01em;margin:0 0 8px;color:var(--navy)}
+.section > p.sub{margin:0 0 20px;color:var(--ink-2);font-size:14.5px;max-width:820px}
+.sub-h{font-size:15px;margin:26px 0 10px;color:var(--navy)}
+.note{margin:14px 0 0;font-size:12.5px;color:var(--ink-3);line-height:1.65}
+
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.doc-grid{grid-template-columns:1fr}}
+.doc-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.doc-card h3{margin:0 0 4px;font-size:16px;color:var(--navy)}
+.doc-card .meta{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase}
+.doc-card ol{margin:12px 0 0;padding-left:20px;color:var(--ink-2);font-size:13.5px;line-height:1.85}
+.doc-card li b{color:var(--ink)}
+
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid #edf0f5;vertical-align:top}
+th{background:#f7f9fc;color:var(--ink-2);font-weight:600;font-size:12px;letter-spacing:.02em;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td b{color:var(--navy)}
+td code,.mono{font-family:var(--mono);font-size:12px;background:#f2f5fa;border-radius:4px;padding:1px 5px}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;padding:1px 7px;border-radius:999px;background:#eef3fb;color:var(--navy)}
+.tag.m{background:var(--accent-soft);color:var(--accent)}
+
+.callout{background:#fff;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:14px 18px;margin:16px 0 0;color:var(--ink-2);font-size:13.5px}
+.callout b{color:var(--ink)}
+
+.dl-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.dl-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid var(--navy);background:var(--navy);color:#fff;font-size:13.5px}
+.dl-btn:hover{background:#0e2140;color:#fff;text-decoration:none}
+.dl-btn.ghost{background:transparent;color:var(--navy)}
+.dl-btn.ghost:hover{background:#eef3fb}
+.dl-btn .sz{font-family:var(--mono);font-size:11px;opacity:.7}
+
+footer{margin-top:72px;border-top:1px solid var(--line);padding:26px 0 44px;color:var(--ink-3);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <span class="mark">CS</span>
+      <span>Complex Systems<small>BRS / StRS 分析</small></span>
+    </div>
+    <nav class="topnav">
+      <a href="#structure">文档结构</a>
+      <a href="#goals">业务目标</a>
+      <a href="#conops">ConOps</a>
+      <a href="#stakeholders">相关方</a>
+      <a href="#sr">相关方需求</a>
+      <a href="#opscon">OpsCon</a>
+      <a href="./car-road-cloud.html">项目页</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">Complex Systems Engineering · 需求分析</p>
+    <h1>BRS / StRS 分析</h1>
+    <p class="lede">六层分解回答「系统怎么拆」，需求文档回答「为什么建、谁被影响」。这一页把两份文档里真正影响设计判断的部分抽出来：目标怎么定得可测、相关方怎么找得全、需求怎么被验证，以及 ConOps 与 OpsCon 到底差在哪。</p>
+
+    <div class="stat-row">
+      <span class="stat"><b>8</b> 条 SMART 业务目标</span>
+      <span class="stat"><b>8</b> 条任务需求 MR</span>
+      <span class="stat"><b>6</b> 个运营场景</span>
+      <span class="stat"><b>24</b> 类相关方</span>
+      <span class="stat"><b>24</b> 条相关方需求 SR</span>
+      <span class="stat"><b>6</b> 种运行模式</span>
+    </div>
+  </section>
+
+  <section class="section" id="structure">
+    <h2>两份文档各自负责什么</h2>
+    <p class="sub">框架取自郭宝柱《系统工程——基于国际标准过程的研究与实践》第 4 章：BRS 用表 4-1 的八章结构，StRS 用表 4-5 的八章结构。两者不是"上游写要求、下游抄一遍"，而是视角不同——BRS 站在业务一侧问"要什么结果"，StRS 站在相关方一侧问"谁、在什么条件下、凭什么判据"。四个章节在两份文档里同名不同义，是最容易写重的地方。</p>
+
+    <div class="doc-grid">
+      <div class="doc-card">
+        <div class="meta">Part 1 · Table 4-1</div>
+        <h3>业务需求规格说明 BRS</h3>
+        <ol>
+          <li>简介：业务目的 / 范围 / 概况 / 定义 / 主要相关方</li>
+          <li>参考文献</li>
+          <li>业务管理需求：业务环境 / <b>使命·目的·目标</b> / 业务模型 / 信息环境</li>
+          <li>业务运行需求：业务过程 / 策略与规则 / 约束 / 质量 / 结构</li>
+          <li>提案系统初步运行概念（<b>ConOps</b>）：运行模式、用户类型、支持环境、运营场景</li>
+          <li>其他初步生存周期概念</li>
+          <li>项目约束</li>
+          <li>附录：缩写</li>
+        </ol>
+      </div>
+      <div class="doc-card">
+        <div class="meta">Part 2 · Table 4-5</div>
+        <h3>相关方需求规格说明 StRS</h3>
+        <ol>
+          <li>简介：相关方目的 / 范围 / 概况 / 定义 / <b>24 类相关方清单</b></li>
+          <li>参考</li>
+          <li>业务管理需求</li>
+          <li>系统运行需求：系统过程 / 策略与规则 / 约束 / <b>运行模式与状态</b></li>
+          <li>用户需求：<b>24 条 SR</b>，分四组，带优先级、确认方法与追溯</li>
+          <li>详细生存周期概念（<b>OpsCon</b> / 场景 / 采办 / 部署 / 支持 / 弃置）</li>
+          <li>项目约束</li>
+          <li>附录：缩写、追溯矩阵、待确认事项</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="callout"><b>同名不同义：</b>BRS 的「业务管理需求」问的是组织要不要建、凭什么建；StRS 的同名章节问的是相关方对系统管理的诉求（谁运维、谁变更、谁审计）。BRS 的「业务运行需求」是业务流程怎么走；StRS 的同名章节是系统在流程里的动作与状态。写文档时若不区分，两份文件会互相抄。</div>
+  </section>
+
+  <section class="section" id="goals">
+    <h2>业务目标：从口号到可验收</h2>
+    <p class="sub">使命是"在限定 ODD 内提供车路云协同能力"，但使命不能验收。往下必须拆成带基线、目标值、时点的 SMART 目标（O-01~O-08），再往下才是任务需求 MR。这里最容易犯错的是把"提升""优化"当目标——没有基线与口径，运营阶段就无法判断是否达标。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>编号</th><th>业务目标</th><th>度量口径</th><th>基线 / 目标值</th><th>时点</th></tr></thead>
+        <tbody>
+          <tr><td>O-01</td><td>试点区域交通事故率下降</td><td>亿车公里事故率</td><td>2025 年交警统计 → <b>−30%</b></td><td>2031</td></tr>
+          <tr><td>O-02</td><td>事故伤亡率下降</td><td>亿车公里伤亡人数</td><td>同上 → <b>−25%</b></td><td>2031</td></tr>
+          <tr><td>O-03</td><td>主干路平均行程时间下降</td><td>工作日高峰浮动车行程时间</td><td>2025 年同路段均值 → <b>−15%</b></td><td>2030</td></tr>
+          <tr><td>O-04</td><td>公交准点率提升</td><td>到站准点率（±3 min）</td><td>2025 年运营统计 → <b>+10 个百分点</b></td><td>2030</td></tr>
+          <tr><td>O-05</td><td>路口通行能力提升</td><td>单路口饱和流率</td><td>现状渠化与信号方案 → <b>+20%</b></td><td>2029</td></tr>
+          <tr><td>O-06</td><td>事件发现时延缩短</td><td>事件发生到系统告警</td><td>人工巡查（分钟级）→ <b>≤ 30 s</b></td><td>2029</td></tr>
+          <tr><td>O-07</td><td>系统可用性</td><td>月度可用时长 / 应有时长</td><td>— → <b>≥ 99.95%</b>（年停机 ≤ 4.4 h）</td><td>全周期</td></tr>
+          <tr><td>O-08</td><td>单路口建设成本可控</td><td>含感知、RSU、MEC、杆件改造</td><td>同类项目均价 → <b>≤ 35 万元</b></td><td>全周期</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">这些是立项阶段的示例量级（工程经验值），需在可行性研究阶段按实际基线标定，不作为验收判据；正式验收应另立"基线—目标—核验数据源"三件套。</p>
+  </section>
+
+  <section class="section" id="conops">
+    <h2>ConOps：组织层面怎么把这些系统用起来</h2>
+    <p class="sub">ConOps 是<b>多对多</b>的：一个业务目标由多个系统共同支撑，一个系统又服务于多个业务目标。所以它的写法是"场景 + 参与系统 + 组织目标"，而不是"本系统应具备什么功能"。六个运营场景覆盖了常态、应急、优先、货运、恶劣天气与重大活动——这六类正好把 ODD、优先级与人工介入的边界都逼出来。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>编号</th><th>运营场景</th><th>参与系统</th><th>组织目标</th></tr></thead>
+        <tbody>
+          <tr><td>SC-01</td><td>早高峰主干路干线协调</td><td>本系统、信号机、公交</td><td>行程时间下降、绿波带宽提升</td></tr>
+          <tr><td>SC-02</td><td>交叉口事故应急处置</td><td>本系统、应急、交管、养护</td><td>5 min 内到场、30 min 内恢复</td></tr>
+          <tr><td>SC-03</td><td>公交优先与准点保障</td><td>本系统、公交调度</td><td>准点率提升、优先请求可执行</td></tr>
+          <tr><td>SC-04</td><td>货运通道预约与引导</td><td>本系统、物流平台</td><td>减少货车穿城与违停装卸</td></tr>
+          <tr><td>SC-05</td><td>恶劣天气（降雨 / 团雾）降级运行</td><td>本系统、气象、交管</td><td>限速与诱导，避免二次事故</td></tr>
+          <tr><td>SC-06</td><td>重大活动交通保障</td><td>本系统、应急、公安</td><td>分级管控、特勤优先、舆情可控</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="stakeholders">
+    <h2>相关方：用五类交互要素找全 24 类</h2>
+    <p class="sub">按"直接交互 / 被影响 / 施加影响 / 提供使能 / 替代竞争"五类要素逐条扫，比拍脑袋列名单更不容易漏。扫完按利益点、态度、影响力、重要性打分，才能分辨"谁必须早介入""谁需要用合同锁定""谁会成为实施阻力"。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>分组</th><th>数量</th><th>代表相关方</th><th>首要诉求</th><th>管理策略</th></tr></thead>
+        <tbody>
+          <tr><td>政府与监管</td><td>5</td><td>市政府 / 交通委、公安交管、财政发改、网信与数据安全、标准化检测</td><td>安全与效率可量化、投资可见效、合规不越权</td><td>早介入、常汇报；合规前置设计</td></tr>
+          <tr><td>运营方</td><td>8</td><td>指挥中心 TOCC、公交运营、应急救援、路侧运维、云控平台、停车、充电、货运</td><td>少误报、故障可定位、责任边界清楚</td><td>联合值守 + 三级运维 + 考核到使用率</td></tr>
+          <tr><td>使用者</td><td>3</td><td>驾驶员、出行者（乘客 / 骑行者 / 行人）、车队管理者</td><td>提示可信不干扰、隐私不被侵犯</td><td>有效提示率考核；告知与最小必要采集</td></tr>
+          <tr><td>使能与供应</td><td>5</td><td>通信运营商、高精地图与定位、设备供应商、云服务与集成商、电力供应</td><td>接口稳定、订单与流量可预期</td><td>用 SLA 锁定网络与地图</td></tr>
+          <tr><td>受影响</td><td>3</td><td>沿线居民与商户、道路施工养护、保险与事故鉴定</td><td>噪声光污染与隐私、作业区安全、事故数据可信</td><td>告知与补偿；施工纳入 ODD 变更流程</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout"><b>两个容易漏的：</b>施工养护单位（SH-23）常被忽略，但施工区会直接改变 ODD，不纳入流程就会导致系统误判；通信运营商与地图服务商（SH-17、SH-18）自身利益中性却影响力极强，一旦不配合系统直接不可用，必须合同化而非口头协调。</div>
+  </section>
+
+  <section class="section" id="sr">
+    <h2>相关方需求：四组 24 条，全部可验证</h2>
+    <p class="sub">句式统一为"相关方 + 应 + 行为/结果 + 条件 + 判据"，优先级 M（必须）/ S（应该）/ C（可以），每条都要有确认方法（演示、统计、审计、演练）和上游追溯。四组的数量分布本身就说明了利益格局：指挥与交管 7 条、运营与运维 8 条、出行者 5 条、监管与受影响 4 条——运营侧诉求最多，因为系统最终是靠他们天天用。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>分组</th><th>条数</th><th>编号</th><th>典型需求</th></tr></thead>
+        <tbody>
+          <tr><td>指挥与交管类</td><td>7</td><td>SR-01 ~ SR-07</td><td>一张图刷新 ≤ 5 s；事件合并误报 ≤ 5%；证据包可用于事后定责；不得直接改配时</td></tr>
+          <tr><td>运营与运维类</td><td>8</td><td>SR-08 ~ SR-15</td><td>公交优先自动触发；故障自动开工单；灰度回滚 ≤ 10 min；容量提前 7 天预警</td></tr>
+          <tr><td>出行者类</td><td>5</td><td>SR-16 ~ SR-20</td><td>单次行程有效提示 ≤ 5 条；ODD 越界前 ≥ 2 s 提示接管；三渠道口径一致</td></tr>
+          <tr><td>监管与受影响类</td><td>4</td><td>SR-21 ~ SR-24</td><td>敏感数据脱敏共享且留痕；评价指标可第三方复算；夜间补光不直射住户</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub-h">需求之间必然冲突，写清楚权衡比假装没有更好</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>冲突</th><th>双方</th><th>权衡结论</th></tr></thead>
+        <tbody>
+          <tr><td>效率 vs 安全</td><td>TOCC（通行效率）/ 政府、公众（安全）</td><td>安全优先；效率优化不得压缩安全裕度</td></tr>
+          <tr><td>追溯 vs 隐私</td><td>交管、保险（证据）/ 网信、隐私（最小必要）</td><td>分级留存、脱敏共享、用途限定；原始数据不出区</td></tr>
+          <tr><td>覆盖 vs 成本</td><td>政府（全域覆盖）/ 财政（投资约束）</td><td>分期建设，优先高事故与高拥堵路口</td></tr>
+          <tr><td>体验 vs 提示量</td><td>驾驶员（少打扰）/ 政府（提示到位）</td><td>以"有效提示率"考核，而非提示条数</td></tr>
+          <tr><td>标准化 vs 创新</td><td>标准检测机构 / 设备商</td><td>接口标准化、算法可替换</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" id="opscon">
+    <h2>OpsCon：系统自己的运行模式与降级</h2>
+    <p class="sub">OpsCon 是<b>一对多</b>的：一个系统，对多类用户、多种场景提供能力，所以必须讲清"什么条件下进入什么模式、系统此时还做什么、靠什么退出"。六个模式里最重要的是 SM-3：它把 RSU 掉线、5G 中断、地图过期、时钟失步、验签失败这五类失效接到具体动作上，而不是笼统写"应降级运行"。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>模式</th><th>标识</th><th>进入条件</th><th>系统行为</th><th>退出条件</th></tr></thead>
+        <tbody>
+          <tr><td>初始化 / 自检</td><td><code>SM-0</code></td><td>上电、重启、升级后</td><td>设备自检、时钟同步、证书校验</td><td>自检通过</td></tr>
+          <tr><td>正常协同</td><td><code>SM-1</code></td><td>ODD 满足、设施在线、时延达标</td><td>全功能协同驾驶服务与信号优化</td><td>ODD 越界或设施失效</td></tr>
+          <tr><td>受限运行</td><td><code>SM-2</code></td><td>ODD 部分不满足（降雨、光照不足）</td><td>收缩功能、降低建议等级、加强提示</td><td>条件恢复</td></tr>
+          <tr><td>降级运行</td><td><code>SM-3</code></td><td>单侧失效（RSU 掉线、5G 中断、地图过期、时钟失步、验签失败）</td><td>按失效清单执行降级动作</td><td>失效恢复并通过校验</td></tr>
+          <tr><td>维护模式</td><td><code>SM-4</code></td><td>计划检修、版本升级</td><td>分区隔离、灰度发布、可回滚</td><td>升级验证通过</td></tr>
+          <tr><td>故障隔离</td><td><code>SM-5</code></td><td>检测到不可信状态（数据冲突、算法异常）</td><td>停止对外建议，仅保留监测与告警</td><td>人工确认修复</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">五类失效与降级动作的对应关系，见项目页的<a href="./car-road-cloud.html#degrade">失效降级表</a>；系统与外部世界的 8 个接口（IF-01~IF-08）见 StRS 6.1。</p>
+  </section>
+
+  <section class="section" id="download">
+    <h2>完整文档</h2>
+    <p class="sub">本页只做分析摘要，评审与交付请用完整版：BRS 与 StRS 合订，32 张表、78 节，含相关方分析矩阵、24 条 SR 全文、需求冲突表、追溯矩阵与 5 条待确认事项。</p>
+    <div class="dl-row">
+      <a class="dl-btn" href="./BRS-StRS.docx" download>下载 BRS / StRS 完整版 DOCX <span class="sz">32 表 · 78 节</span></a>
+      <a class="dl-btn ghost" href="./BRS-StRS.md" target="_blank" rel="noopener">查看 Markdown 源文</a>
+      <a class="dl-btn ghost" href="./car-road-cloud.html">回到六层分解 →</a>
+    </div>
+    <p class="note">待确认事项：指标体系基线、单路口 35 万元上限、货运是否纳入本期、停车与充电的数据对接优先级、原始数据留存期限。这五条需要相关方拍板，不宜由编制方单方面确定。</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>基于车路云系统的未来城市交通规划 · BRS / StRS 分析</span>
+    <span>atongzhuo · 复杂系统工程 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -20,7 +20,8 @@
 ```text
 .
 ├── index.html          # 站点入口页（GitHub Pages 首页）
-├── car-road-cloud.html # 项目页：基于车路云系统的未来城市交通规划（六层分解 + 追溯矩阵 + ODD/降级表 + BRS/StRS 摘要）
+├── car-road-cloud.html # 项目页：基于车路云系统的未来城市交通规划（六层分解 + 追溯矩阵 + ODD/降级表）
+├── brs-strs.html       # BRS / StRS 分析页：目标、ConOps、相关方、相关方需求、OpsCon
 ├── BRS-StRS.docx       # BRS（业务需求规格）与 StRS（相关方需求规格）合订本，32 表 / 78 节
 ├── BRS-StRS.md         # 同上，Markdown 源文
 ├── 404.html            # 自定义 404 页（站点内路径找不到时展示）
