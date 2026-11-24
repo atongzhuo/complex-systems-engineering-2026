@@ -144,6 +144,14 @@ h1{font-size:clamp(28px,3.6vw,44px);line-height:1.15;letter-spacing:-.02em;margi
 .pick .go{display:block;margin-top:10px;font-size:13px;color:var(--accent);font-weight:600}
 footer{margin-top:64px;border-top:1px solid var(--line);padding:26px 0 44px;color:var(--ink-3);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+.top-actions{grid-template-columns:repeat(3,minmax(0,1fr))}
+.qj{min-width:0}
+.qj .d{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.qj.cur{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.qj.cur .go{color:var(--accent)}
+@media(max-width:980px){.top-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.top-actions{grid-template-columns:1fr}}
 .fig{margin:24px 0}.fig img{display:block;max-width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:#fff}.fig figcaption{margin-top:8px;text-align:center;font-size:12.5px;color:var(--ink-3)}.fig a{display:block}</style>
 </head>
 <body>
@@ -165,13 +173,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <span class="d">六层分解：任务 → 体系 → 整机 → 系统 → 子系统 → 模块</span></span>
       <span class="go" aria-hidden="true">→</span>
     </a>
-    <a class="qj" href="./syrs.html">
+    <a class="qj" href="./brs-strs.html">
       <span class="no">02</span>
+      <span class="tx"><span class="t">BRS / StRS 分析</span>
+      <span class="d">两册需求文档：业务视角与相关方视角各一册</span></span>
+      <span class="go" aria-hidden="true">→</span>
+    </a>
+    <a class="qj cur" href="./syrs.html" aria-current="page">
+      <span class="no">03</span>
       <span class="tx"><span class="t">系统需求与安全分析</span>
-      <span class="d">SyRS 与架构/安全两册的入口</span></span>
+      <span class="d">SyRS、初始架构、控制框图、STPA 与 18 条安全需求</span></span>
       <span class="go" aria-hidden="true">→</span>
     </a>
   </div>
+
 
   <section class="hero">
     <p class="kicker">Complex Systems Engineering · 系统需求</p>
@@ -194,7 +209,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
     </aside>
     <article class="doc" id="doc-start">
-<hr class="thin">
 <h2 class="chapter" id="syrs-1">1 简介</h2>
 <h3 class="sec" id="syrs-1.1">1.1 系统目的</h3>
 <p>本系统（下称&quot;车路云一体化系统&quot;或 SOI）的目的是在限定的运行设计域（ODD）内，把路侧感知、边缘计算与云端调度组织成一张可运营的城市交通基础设施网：向车辆提供超视距感知与协同驾驶建议，向交管提供信号优化与事件处置支撑，向公众提供一致的出行信息，并在设施部分失效时保持可预期的降级运行。</p>
@@ -284,7 +298,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <script>
 (function(){
-  var LEG = {};
+  var LEG = {"h1": "brs-1", "h2": "brs-1.1", "h3": "brs-1.2", "h4": "brs-1.3", "h5": "brs-1.4", "h6": "brs-1.5", "h7": "brs-2", "h8": "brs-3", "h9": "brs-3.1", "h10": "brs-3.2", "h11": "brs-3.2.1", "h12": "brs-3.2.2", "h13": "brs-3.2.3", "h14": "brs-3.2.4", "h15": "brs-3.2.5", "h16": "brs-3.3", "h17": "brs-3.4", "h18": "brs-4", "h19": "brs-4.1", "h20": "brs-4.2", "h21": "brs-4.3", "h22": "brs-4.4", "h23": "brs-4.5", "h24": "brs-5", "h25": "brs-5.1", "h26": "brs-p26", "h27": "brs-p27", "h28": "brs-p28", "h29": "brs-p29", "h30": "brs-p30", "h31": "brs-p31", "h32": "brs-5.2", "h33": "brs-6", "h34": "brs-7", "h35": "brs-8", "h36": "brs-8.1", "h37": "brs-8.2", "h38": "brs-8.3"};
   if (location.hash) {
     var k = location.hash.slice(1);
     if (LEG[k]) { history.replaceState(null, "", "#" + LEG[k]); }
@@ -339,7 +353,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     allHeads.forEach(function(h){ if (h.offsetTop <= y) id = h.id; });
     return id;
   }
-  var CH = [{"id": "syrs-1", "t": "1 简介"}, {"id": "syrs-2", "t": "2 参考"}, {"id": "syrs-3", "t": "3 系统需求"}, {"id": "syrs-4", "t": "4 验证"}, {"id": "syrs-5", "t": "5 附录"}];
+  var CH = [{"id": "brs-1", "t": "1 简介"}, {"id": "brs-2", "t": "2 参考文献"}, {"id": "brs-3", "t": "3 业务管理需求"}, {"id": "brs-4", "t": "4 业务运行需求"}, {"id": "brs-5", "t": "5 提案系统初步运行概念【重点：运营概念 ConOps】"}, {"id": "brs-6", "t": "6 其他初步生存周期概念"}, {"id": "brs-7", "t": "7 项目约束"}, {"id": "brs-8", "t": "8 附录"}];
   var pv = document.querySelector('.pager a[data-nav="prev"]');
   var nx = document.querySelector('.pager a[data-nav="next"]');
   var cur = document.querySelector(".pager .cur");
