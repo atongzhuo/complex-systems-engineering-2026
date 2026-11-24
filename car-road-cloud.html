@@ -62,8 +62,9 @@ h1{font-size:clamp(30px,4.4vw,52px);line-height:1.12;letter-spacing:-.02em;margi
 .lede{max-width:760px;color:var(--ink-2);font-size:16.5px;margin:0}
 
 /* ---------- 顶部两个跳转徽标 ---------- */
-.top-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:22px 0 0}
+.top-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:22px 0 0}
 [id]{scroll-margin-top:78px}
+@media(max-width:980px){.top-actions{grid-template-columns:1fr 1fr}}
 @media(max-width:680px){.top-actions{grid-template-columns:1fr}}
 .qj{display:flex;align-items:center;gap:14px;padding:15px 18px;background:var(--card);border:1px solid var(--line);border-radius:14px;text-decoration:none;color:inherit;transition:.18s ease}
 .qj:hover{transform:translateY(-2px);border-color:#b9c6dc;box-shadow:0 12px 26px -20px rgba(19,42,74,.55);text-decoration:none}
@@ -202,6 +203,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <a href="#trace">追溯</a>
       <a href="#degrade">降级</a>
       <a href="./brs-strs.html">BRS/StRS</a>
+      <a href="./syrs.html">需求与安全</a>
       <a href="./index.html">课程仓库</a>
     </nav>
   </div>
@@ -222,6 +224,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <span class="tx">
         <span class="t">BRS / StRS 分析</span>
         <span class="d">两册需求文档的分册阅读入口 · 业务视角与相关方视角各一册</span>
+      </span>
+      <span class="go" aria-hidden="true">→</span>
+    </a>
+    <a class="qj" href="./syrs.html">
+      <span class="no">03</span>
+      <span class="tx">
+        <span class="t">系统需求与安全分析</span>
+        <span class="d">SyRS · 初始架构 · 控制框图 · STPA 与 18 条安全需求</span>
       </span>
       <span class="go" aria-hidden="true">→</span>
     </a>

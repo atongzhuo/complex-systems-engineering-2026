@@ -26,6 +26,10 @@
 ├── strs.html           # 相关方需求规格说明（StRS）全文，8 章 14 表
 ├── BRS.docx            # BRS 分册 DOCX
 ├── StRS.docx           # StRS 分册 DOCX
+├── syrs.html           # 系统需求与安全分析：SyRS 全文 + 初始架构 + 控制框图 + STPA 安全需求
+├── SyRS.docx           # 系统需求规格说明 DOCX（按 29148 表 5-1）
+├── Architecture-Safety.docx # 初始架构、控制框图与 STPA 安全分析 DOCX
+├── fig-architecture.png / fig-control-structure.png / fig-safety-arch.png # 三张图源文件
 ├── BRS-StRS.md         # 两册合并的 Markdown 源文（生成本页与 DOCX 的底稿）
 ├── brs-cover.png       # BRS 分册分享封面（1200×630）
 ├── strs-cover.png      # StRS 分册分享封面（1200×630）
