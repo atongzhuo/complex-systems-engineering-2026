@@ -32,7 +32,9 @@ th{width:120px;color:#6b7793;font-weight:500}
 code{background:#f1f3f9;border-radius:5px;padding:1px 6px;font-size:13px}
 ul{margin:0;padding-left:20px}
 li{margin:5px 0}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+.intro{max-width:860px}
+.intro p{text-align:justify}
 .card{border:1px solid #e6e9f2;border-radius:10px;padding:16px 18px;background:#fbfcfe}
 .card h3{margin:0 0 6px;font-size:15px}
 .card p{margin:0;color:#5b6580;font-size:14px}
@@ -81,8 +83,13 @@ footer{color:#8892ab;font-size:13px;text-align:center;margin-top:36px}
 <a class="card" href="./car-road-cloud.html"><h3>基于车路云系统的未来城市交通规划</h3><p>六层分解：任务 Mission → 体系 SoS → 整机 Hardware → 系统 Systems → 子系统 Sub-systems → 模块 Modules。<span class="more">打开交互页面 →</span></p></a>
 <a class="card" href="./syrs.html"><h3>系统需求与安全分析</h3><p>SyRS（ISO/IEC/IEEE 29148 表 5-1，109 条需求）、初始系统架构、系统控制框图、STPA 安全需求与安全架构，附 DOCX 下载。<span class="more">阅读全文 →</span></p></a>
 <a class="card" href="./brs-strs.html"><h3>BRS / StRS 分析</h3><p>业务需求规格说明与相关方需求规格说明分两册阅读：BRS 8 章 19 表、StRS 8 章 14 表，覆盖 24 类相关方与 25 条相关方需求，附 DOCX 下载。<span class="more">进入分析首页 →</span></p></a>
-<div class="card"><h3>说明</h3><p>车路云一体化定位在【系统 Systems】层级，整机层含车端、路端与云端三类整机；页面含层级切换、协同架构图、需求追溯矩阵、运行设计域/失效降级表，以及 BRS/StRS 需求文档摘要与下载。</p></div>
 </div>
+
+<section class="intro">
+<h2>简介</h2>
+<p>本仓库是「基于车路云系统的未来城市交通规划」这门复杂系统工程课程作业的完整交付集，按概念定义阶段的国际标准过程组织成三层：最底层是<b>需求</b>——业务需求规格说明（BRS）与相关方需求规格说明（StRS），回答「为什么建、为谁建、建成后业务怎么运转」以及「谁受影响、各自要什么、凭什么判断达成」；中间层是<b>系统定义</b>——系统需求规格说明（SyRS）按 ISO/IEC/IEEE 29148:2018 表 5-1 的八章轮廓，把业务与相关方诉求翻译成可测试的系统输入输出、性能、接口与约束；最上层是<b>架构与安全</b>——初始系统架构、系统控制框图与 STPA 分析，回答「由哪些组件承载、谁控谁、控制动作在什么条件下会危险」，并据此导出 18 条安全需求与四层安全架构。</p>
+<p>三份文档共用一套编号：业务目标 O-01~O-08、任务需求 MR-01~MR-08、相关方 SH/SR、系统需求 SY-*、安全需求 SAF-*，每条需求都带优先级、验证方法与上游追溯，可以逐层下钻、也可以反向追问「这条需求是谁提的、落到哪个组件、怎么验证」。页面本身是静态站点（GitHub Pages 从 main 分支根目录发布），六层分解页可交互切换层级，需求与架构页支持目录折叠、锚点分享与打印。</p>
+</section>
 </section>
 
 <footer>复杂系统工程 2026 · atongzhuo · 由 GitHub Pages 发布</footer>
