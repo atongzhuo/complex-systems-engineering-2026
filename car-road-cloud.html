@@ -430,14 +430,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <table class="trace" id="trace-table">
         <thead><tr><th>链路</th><th>任务需求</th><th>体系需求</th><th>系统需求</th><th>子系统 / 模块落地</th></tr></thead>
         <tbody>
-          <tr><td>TR-01</td><td>M-01 安全：亿车公里事故率 −30%</td><td>S-02 紧急事件跨系统秒级联动</td><td>SY-01 冲突场景识别率 ≥ 99%</td><td>SS-04 路侧感知横向 ≤ 0.3 m → MD-02 毫米波雷达 ≥ 250 m</td></tr>
-          <tr><td>TR-02</td><td>M-01 安全：事故严重度下降</td><td>S-04 单系统故障不致体系失效</td><td>SY-02 四类失效可降级</td><td>SS-03 车端闭环 ≤ 70 ms（端到端本地 ≤ 100 ms）→ MD-13 线控执行 ≤ 100 ms（台架）</td></tr>
-          <tr><td>TR-03</td><td>M-02 高效：路口延误 −20%</td><td>S-02 事件响应 ≤ 5 s</td><td>SY-03 单路口并发 ≥ 200 辆</td><td>SS-06 MEC ≥ 30 FPS / 8 路 → MD-08 AI 融合算力 ≥ 100 TOPS</td></tr>
-          <tr><td>TR-04</td><td>M-02 高效：行程速度 +15%</td><td>S-03 数据共享覆盖率 ≥ 90%</td><td>SY-04 云端协同闭环 ≤ 300 ms</td><td>SS-07 云控下发 ≤ 150 ms → MD-07 5G 传输</td></tr>
-          <tr><td>TR-05</td><td>M-03 绿色：单位里程能耗下降</td><td>S-03 信号与流量数据共享</td><td>SY-05 ODD 内协同调度与配时优化</td><td>SS-09 全局调度（只出策略）→ MD-12 信号灯联动控制</td></tr>
-          <tr><td>TR-06</td><td>M-04 可运营：可复制建设与运维</td><td>S-05 接口契约测试 100%</td><td>SY-06 系统可用性 ≥ 99.95%</td><td>SS-07 运维远程诊断 → MD-14 供电与电源管理</td></tr>
-          <tr><td>TR-07</td><td>M-01 安全：消息不可伪造</td><td>S-03 数据权属与审计留痕</td><td>SY-07 身份可证、消息可信</td><td>SS-10 安全认证子系统 → MD-16 安全加密与密钥管理</td></tr>
-          <tr><td>TR-08</td><td>M-01/M-02 一致性与实时性</td><td>S-01 统一时空基准</td><td>SY-08 同一时空基准与地图版本</td><td>SS-01/SS-04 统一时基 ≤ 1 μs → MD-15 gPTP 时钟</td></tr>
+          <tr><td>TR-01</td><td>M-01 安全：亿车公里事故率 −30%</td><td>S-02 紧急事件跨系统秒级联动</td><td>SY-P-06 冲突场景识别率 ≥ 99%</td><td>SS-04 路侧感知横向 ≤ 0.3 m → MD-02 毫米波雷达 ≥ 250 m</td></tr>
+          <tr><td>TR-02</td><td>M-01 安全：事故严重度下降</td><td>S-04 单系统故障不致体系失效</td><td>SY-M-03 降级后给出统一 MRM 引导</td><td>SS-03 车端闭环 ≤ 70 ms（端到端本地 ≤ 100 ms）→ MD-13 线控执行 ≤ 100 ms（台架）</td></tr>
+          <tr><td>TR-03</td><td>M-02 高效：路口延误 −20%</td><td>S-02 事件响应 ≤ 5 s</td><td>SY-P-08 单路口并发 ≥ 200 辆</td><td>SS-06 MEC ≥ 30 FPS / 8 路 → MD-08 AI 融合算力 ≥ 100 TOPS</td></tr>
+          <tr><td>TR-04</td><td>M-02 高效：行程速度 +15%</td><td>S-03 数据共享覆盖率 ≥ 90%</td><td>SY-P-02 云端协同闭环 ≤ 300 ms</td><td>SS-07 云控下发 ≤ 150 ms → MD-07 5G 传输</td></tr>
+          <tr><td>TR-05</td><td>M-03 绿色：单位里程能耗下降</td><td>S-03 信号与流量数据共享</td><td>SY-F-06 干线协调与优先方案（人工确认后生效）</td><td>SS-09 全局调度（只出策略）→ MD-12 信号灯联动控制</td></tr>
+          <tr><td>TR-06</td><td>M-04 可运营：可复制建设与运维</td><td>S-05 接口契约测试 100%</td><td>SY-P-07 系统可用性 ≥ 99.95%</td><td>SS-07 运维远程诊断 → MD-14 供电与电源管理</td></tr>
+          <tr><td>TR-07</td><td>M-01 安全：消息不可伪造</td><td>S-03 数据权属与审计留痕</td><td>SEC-01 双向认证与消息完整性</td><td>SS-10 安全认证子系统 → MD-16 安全加密与密钥管理</td></tr>
+          <tr><td>TR-08</td><td>M-01/M-02 一致性与实时性</td><td>S-01 统一时空基准</td><td>SY-P-09 统一时基 ≤ 1 μs；SY-I-05 地图版本可追溯</td><td>SS-01/SS-04 统一时基 ≤ 1 μs → MD-15 gPTP 时钟</td></tr>
         </tbody>
       </table>
     </div>

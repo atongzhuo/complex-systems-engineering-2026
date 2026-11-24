@@ -203,21 +203,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <p class="meta"><span>V1.0</span><span>2026-11-24</span><span>ISO/IEC/IEEE 29148:2018 表 5-1 · ISO 15288 · STPA</span></p>
   </section>
 
-  <p class="hub-intro">本入口把两份文档拆成两册：一册回答「系统该做什么」，按 ISO/IEC/IEEE 29148:2018 表 5-1 的八章轮廓写出系统需求规格说明；另一册回答「系统怎么搭、哪里会出事」，给出初始系统架构（三层一底座与部署视图）、STPA 的控制结构与不安全控制动作，并由此导出安全需求与安全架构。两册共用 SY / SAF 编号，可双向追溯。</p>
+  <p class="hub-intro">本入口把两份文档拆成两册：一册回答「系统该做什么」，按 ISO/IEC/IEEE 29148:2018 表 5-1 的五章结构（简介 / 参考 / 系统需求 / 验证 / 附录）写出系统需求规格说明；另一册回答「系统怎么搭、哪里会出事」，给出初始系统架构（三层一底座与部署视图）、STPA 的控制结构与不安全控制动作，并由此导出安全需求与安全架构。两册共用 SY / SAF 编号，可双向追溯。</p>
 
   <div class="picks">
     <a class="pick" href="./sys-req.html">
       <span class="vol">VOLUME 01 · SyRS</span>
       <h3>系统需求规格说明</h3>
       <p>1 简介（系统目的 / 范围 / 概况 / 定义）、2 参考、3 系统需求（功能、可用性与性能、接口、运行、模式与状态、物理、环境、安全、信息安全、法规、生存周期、包装运输）、4 验证、5 附录。</p>
-      <span class="stat">8 章 · 正文 20 表 · 109 条需求</span>
+      <span class="stat">5 章 · 正文 23 表 · 121 条需求</span>
       <span class="go">阅读 SyRS 全文 →</span>
     </a>
     <a class="pick" href="./sys-arch.html">
       <span class="vol">VOLUME 02 · Architecture &amp; STPA</span>
       <h3>初始架构、控制框图与 STPA 安全分析</h3>
       <p>初始架构（组件、部署、ADR、接口）、系统控制框图（C1–C5 控制器与 P1–P3 受控过程）、STPA（损失、危险、UCA、因果场景、安全约束）、18 条安全需求与四层安全架构。</p>
-      <span class="stat">6 章 · 正文 16 表 · 3 图 · 18 条安全需求</span>
+      <span class="stat">6 章 · 正文 17 表 · 3 图 · 18 条安全需求</span>
       <span class="go">阅读架构与安全全文 →</span>
     </a>
   </div>
@@ -225,7 +225,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="note-box"><strong>两册的分工</strong>：SyRS 写「输入什么、输出什么、指标多少、接口怎么定」，判定标准是每条需求都能被测试；架构与安全册写「由哪些组件承载、谁控谁、控制动作在什么条件下会危险」，判定标准是每条安全需求都能追到一个 UCA 或一条安全约束。编号上 SY-* 只在 SyRS 出现，SAF-* 只在安全册出现，二者通过章节号互引。</div>
 
   <div class="dl-row" style="margin-top:34px">
-    <a class="dl-btn" href="./SyRS.docx" download>下载 SyRS DOCX <span class="sz">八章 · 109 条需求</span></a>
+    <a class="dl-btn" href="./SyRS.docx" download>下载 SyRS DOCX <span class="sz">5 章 · 121 条需求</span></a>
     <a class="dl-btn" href="./Architecture-Safety.docx" download>下载架构与安全 DOCX <span class="sz">三图 · STPA</span></a>
     <a class="dl-btn ghost" href="./car-road-cloud.html">← 返回项目页</a>
   </div>
