@@ -199,7 +199,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <a href="./brs.html">
       <span class="tag">VOLUME 01 · BRS</span>
       <h3>业务需求规格说明</h3>
-      <p>业务目的与范围、使命目的与目标（O-01~O-08）、业务模型与信息环境、业务过程与运行质量、初步运行概念（ConOps 与 6 个运营场景）。</p>
+      <p>业务目的与范围、使命目的与目标（OBJ-01~OBJ-08）、业务模型与信息环境、业务过程与运行质量、初步运行概念（ConOps 与 6 个运营场景）。</p>
       <span class="stat">8 章 · 正文 19 表 · 8 条任务需求 + 10 条业务需求</span>
       <span class="go">阅读 BRS 全文 →</span>
     </a>
@@ -223,14 +223,15 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <table>
         <thead><tr><th>前缀</th><th>含义</th><th>所在分册</th><th>示例</th></tr></thead>
         <tbody>
-          <tr><td>O</td><td>业务目标</td><td>BRS</td><td>O-01 事故率下降</td></tr>
+          <tr><td>OBJ</td><td>业务目标</td><td>BRS</td><td>OBJ-01 事故率下降</td></tr>
           <tr><td>MR</td><td>任务（使命）需求</td><td>BRS</td><td>MR-02 30 s 事件告警</td></tr>
           <tr><td>BR / BP / BC</td><td>业务需求 / 业务过程 / 业务能力</td><td>BRS</td><td>BR-04 分期建设</td></tr>
           <tr><td>SC</td><td>运营场景</td><td>BRS</td><td>SC-03 早晚高峰干线</td></tr>
           <tr><td>SH</td><td>相关方</td><td>StRS</td><td>SH-06 交通指挥中心</td></tr>
           <tr><td>SR</td><td>相关方需求</td><td>StRS</td><td>SR-07 事件处置工单</td></tr>
-          <tr><td>SP / SM</td><td>系统过程 / 运行模式</td><td>StRS</td><td>SM-3 降级运行</td></tr>
+          <tr><td>SP / MODE</td><td>系统过程 / 运行模式</td><td>StRS</td><td>MODE-3 降级运行</td></tr>
           <tr><td>IF</td><td>外部接口</td><td>StRS</td><td>IF-04 信号机接口</td></tr>
+          <tr><td>SAF / SEC / SAC / UCA / CSC / LOS / HAZ</td><td>安全需求 / 信息安全需求 / 安全约束 / 不安全控制动作 / 因果场景 / 损失 / 危险（架构册与 SyRS 共用同一 ID 空间）</td><td>架构册 · SyRS</td><td>SAC-01 · UCA-03 · CSC-02 · HAZ-01</td></tr>
           <tr><td>BR-R / SR-R</td><td>业务规则 / 系统规则（不可协商的约束，优先级高于功能需求）</td><td>BRS / StRS</td><td>BR-R-01 安全优先于效率</td></tr>
         </tbody>
       </table>
