@@ -105,6 +105,8 @@
   .stp b{display:block;font-size:21px;color:var(--navy);margin-bottom:8px}
   .stp p{font-size:19px;color:var(--ink2);line-height:1.45}
   .stp .ex{font-size:var(--e);color:var(--ink3);margin-top:8px;line-height:1.4}
+  .stp.mini{height:auto;min-height:0;padding:12px 14px;justify-content:flex-start}
+  .stp.mini b{font-size:20px;margin-bottom:6px}
   .stp .out{margin-top:auto;padding-top:10px;font-size:var(--e);color:#8f9aa8;border-top:1px dashed #dfe5ee}
   .arw{width:18px;height:2px;background:#c3ccda;position:relative;flex:none;align-self:center}
   .arw::after{content:"";position:absolute;right:-1px;top:-5px;border-left:9px solid #c3ccda;
@@ -669,14 +671,14 @@
         <tr><td>气象与光照</td><td>无雨或小雨、照度充足</td><td class="ex">中雨、低照度限速</td><td class="hot">能见度低于 30 米</td></tr>
         <tr><td>通信与时间</td><td>往返时延不高于 150 毫秒</td><td class="ex">150–300 毫秒只读建议</td><td class="hot">超 300 毫秒持续 5 秒</td></tr>
       </table>
-      <div class="flow" style="flex:none;gap:8px;margin-top:4px">
-        <div class="stp" style="min-height:0;padding:12px 14px;display:flex;flex-direction:column;justify-content:center"><b>越界识别</b><p>1 秒内识别，2 秒内告知驾驶员</p></div>
+      <div class="flow" style="flex:none;gap:8px;margin-top:4px;align-items:center;padding-top:0">
+        <div class="stp mini"><b>越界识别</b><p>1 秒内识别，2 秒内告知驾驶员</p></div>
         <div class="arw"></div>
-        <div class="stp" style="min-height:0;padding:12px 14px;display:flex;flex-direction:column;justify-content:center"><b>触发降级</b><p>进受限或禁止档，停发新建议</p></div>
+        <div class="stp mini"><b>触发降级</b><p>进受限或禁止档，停发新建议</p></div>
         <div class="arw"></div>
-        <div class="stp" style="min-height:0;padding:12px 14px;display:flex;flex-direction:column;justify-content:center"><b>车端接管</b><p>切本地闭环，必要时进入最小风险</p></div>
+        <div class="stp mini"><b>车端接管</b><p>切本地闭环，必要时进入最小风险</p></div>
         <div class="arw"></div>
-        <div class="stp" style="min-height:0;padding:12px 14px;display:flex;flex-direction:column;justify-content:center"><b>恢复</b><p>条件恢复后逐级回归，不跳档</p></div>
+        <div class="stp mini"><b>恢复</b><p>条件恢复后逐级回归，不跳档</p></div>
       </div>
     </div>
     <p class="sum">禁止档下只保留减速提示，不参与协同决策。</p>
@@ -824,9 +826,7 @@
   });
   function chapterOf(i){
     for(let k=i;k>=0;k--){ if(slides[k].classList.contains('chapter')) {
-      const n=slides[k].querySelector('.num')?.textContent.trim()||'';
-      const t=slides[k].querySelector('h1')?.textContent.trim()||'';
-      return (n?n+' ':'')+t;
+      return slides[k].querySelector('.num')?.textContent.trim()||'';
     }}
     return '';
   }
