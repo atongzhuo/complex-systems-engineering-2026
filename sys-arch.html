@@ -159,7 +159,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <div class="wrap">
     <div class="brand"><span class="mark">CS</span><span>Complex Systems<small>系统需求与安全</small></span></div>
     <nav class="topnav">
-      <a href="./car-road-cloud.html">项目页</a><a href="./brs-strs.html">BRS / StRS 分析</a><a href="./sys-req.html">SyRS</a><a href="./sys-arch.html" aria-current="page">架构与安全</a><a href="./index.html">课程仓库</a>
+      <a href="./car-road-cloud.html">项目页</a><a href="./brs-strs.html">BRS / StRS 分析</a><a href="./sys-req.html">SyRS</a><a href="./sys-arch.html" aria-current="page">架构与安全</a><a href="./scenario.html">场景与 ODD</a><a href="./index.html">课程仓库</a>
     </nav>
   </div>
 </div>
@@ -209,8 +209,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
     </aside>
     <article class="doc" id="doc-start">
-<p><strong>上游文档</strong>：BRS V1.0、StRS V1.0、SyRS V1.0（CSE-2026-SyRS-001）</p>
-<hr class="thin">
 <h2 class="chapter" id="arch-1">1 初始系统架构</h2>
 <h3 class="sec" id="arch-1.1">1.1 架构视角</h3>
 <p>初始架构采用&quot;三层一底座&quot;的组织方式，与 StRS 的系统层定位一致：车路云一体化系统是一个由车端、路端、云端三类子系统集成而成的、可独立交付与验收的系统，而不是单一硬件或单一算法。</p>
@@ -373,7 +371,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     allHeads.forEach(function(h){ if (h.offsetTop <= y) id = h.id; });
     return id;
   }
-  var CH = [{"id": "brs-1", "t": "1 简介"}, {"id": "brs-2", "t": "2 参考文献"}, {"id": "brs-3", "t": "3 业务管理需求"}, {"id": "brs-4", "t": "4 业务运行需求"}, {"id": "brs-5", "t": "5 提案系统初步运行概念【重点：运营概念 ConOps】"}, {"id": "brs-6", "t": "6 其他初步生存周期概念"}, {"id": "brs-7", "t": "7 项目约束"}, {"id": "brs-8", "t": "8 附录"}];
+  var CH = [{"id": "arch-1", "t": "1 初始系统架构"}, {"id": "arch-2", "t": "2 系统控制框图"}, {"id": "arch-3", "t": "3 系统理论过程分析（STPA）"}, {"id": "arch-4", "t": "4 安全需求（SAF）"}, {"id": "arch-5", "t": "5 安全架构"}, {"id": "arch-6", "t": "6 追溯"}];
   var pv = document.querySelector('.pager a[data-nav="prev"]');
   var nx = document.querySelector('.pager a[data-nav="next"]');
   var cur = document.querySelector(".pager .cur");
