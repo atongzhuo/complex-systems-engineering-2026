@@ -19,6 +19,57 @@
   .kicker{font-size:var(--d);color:var(--ink3);letter-spacing:.02em}
   h1{font-size:var(--t);line-height:1.32;font-weight:700;margin:8px 0 14px;color:var(--navy)}
   .body{flex:1;display:flex;flex-direction:column;gap:12px;min-height:0;margin-top:4px}
+  .note{font-size:19px;color:#4b5666;background:#eef2f8;border-left:3px solid #b9c4d4;
+    padding:9px 13px;border-radius:0 6px 6px 0;line-height:1.5;margin-bottom:4px}
+  td.pri{text-align:center;font-weight:700;color:var(--navy);font-size:19px}
+  .hit{display:inline-block;margin-left:10px;padding:2px 8px;border-radius:5px;
+    background:rgba(255,255,255,.18);font-size:16px;color:#fff}
+  /* 瀑布图 */
+  .wf-wrap{flex:1;display:flex;align-items:center;padding:0;min-height:0}
+  .wf{position:relative;flex:1;height:270px;margin-left:56px}
+  .wf .wbar{position:absolute;width:86px;border-radius:3px 3px 0 0}
+  .wf .wtop{position:absolute;width:86px;text-align:center;font-size:18px;color:var(--ink)}
+  .wf .wlab{position:absolute;top:274px;width:114px;text-align:center;font-size:18px;color:var(--ink2);line-height:1.25}
+  .wf .tick{position:absolute;left:-52px;width:44px;text-align:right;font-size:17px;color:var(--ink3)}
+  .wf .hline{position:absolute;left:0;right:0;border-top:1.5px dashed #d0684f}
+  .wf .hlabel{position:absolute;right:0;font-size:17px;color:#b2452c;background:#fff;padding:0 6px}
+  /* 泳道 */
+  .lane{display:grid;grid-template-columns:96px repeat(6,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:10px;overflow:hidden;flex:none;margin-top:4px}
+  .lane .lh{background:#eef2f8;color:var(--navy);font-weight:600;font-size:19px;
+    display:flex;align-items:center;justify-content:center;padding:10px 6px}
+  .lane .lh.hd{font-weight:700}
+  .lane .c{background:#fff;font-size:17px;line-height:1.35;color:var(--ink);
+    padding:9px 10px;display:flex;align-items:center;justify-content:center;text-align:center}
+  .lane .c.hd{background:#eef2f8;color:var(--navy);font-weight:600;font-size:18px}
+  .lane .c.ev{background:#fff}
+  .lane .c.ac{background:#f7f9fc}
+  .lane .c.rk{background:#fdf3f0;color:#8a3a28}
+  .lane .c.fx{background:#f4f7fb;color:var(--ink2)}
+  /* 风险矩阵 */
+  .mxl{display:flex;flex-direction:column;gap:5px;margin-top:6px;width:100%}
+  .mxl > div{display:grid;grid-template-columns:40px repeat(3,1fr);gap:5px}
+  .mxl .mhead{font-size:16px;color:var(--ink3);text-align:center;align-items:end}
+  .mxl .srow{display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--ink3)}
+  .mxl .cell{border-radius:7px;height:62px;display:flex;align-items:center;justify-content:center;
+    font-size:16px;font-weight:600;text-align:center;line-height:1.28;border:1px solid transparent}
+  .mxl .cell.r4{background:#FBEDEA;color:#a8341b;border-color:#e0a695}
+  .mxl .cell.r3{background:#fdf3e6;color:#8a5a1f}
+  .mxl .cell.r2{background:#eef2f8;color:#4a5a72}
+  .mxl .cell.r1{background:#f7f8fa;color:#8794a6}
+  .mxl .cell.dim{background:#f7f8fa;color:#cdd5e0;font-weight:400}
+  .mxl .mnote{display:block;font-size:15px;color:var(--ink3);line-height:1.4;margin-top:2px}
+  /* 纵向追溯 */
+  .vtr{display:flex;gap:26px;flex:1;padding-top:6px}
+  .vtr .vcol{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:430px;flex:none}
+  .vtr .vnode{width:100%;border:1px solid var(--line);border-radius:9px;background:#fff;
+    padding:9px 14px;display:flex;align-items:baseline;gap:12px}
+  .vtr .vnode b{font-size:20px;color:var(--navy);white-space:nowrap}
+  .vtr .vnode span{font-size:20px;color:var(--ink2)}
+  .vtr .vnode.risk{display:flex;gap:18px;flex:1;padding-top:4px}
+  .vtr .vnode.risk b{color:#a8341b}
+  .vtr .varw{color:#c3ccda;font-size:20px;line-height:1.1}
+  .vtr .vside{display:flex;flex-direction:column;gap:10px;justify-content:center;flex:1}
   .sum{margin-top:8px;padding-top:9px;border-top:1px solid var(--line);font-size:var(--d);color:var(--ink2);line-height:1.45}
   .pageno{position:absolute;right:60px;bottom:10px;font-size:var(--d);color:#7a8798;font-variant-numeric:tabular-nums}
   #tag{position:absolute;right:64px;top:52px;font-size:var(--d);color:#9aa6b6}
@@ -52,6 +103,9 @@
   .card h3{font-size:var(--c);color:var(--navy);margin-bottom:10px}
   .card p{font-size:21px;line-height:1.55;color:var(--ink2)}
   .card .ex{margin-top:8px;font-size:var(--d);color:var(--ink3)}
+  .tbl td.no{color:var(--accent);font-weight:700}
+  .tbl td.r3{color:#b06a2c}
+  .tbl td.r2{color:#4a627f}
   .card.hot{background:#fff;border-left:4px solid var(--accent);padding-left:18px}
   .card.hot h3{color:#8f2f1d}
   .big{font-size:28px;line-height:1.5;color:var(--ink)}
@@ -91,7 +145,7 @@
   .split .rgt{flex:.85;display:flex;align-items:center}
   .split .rgt img{width:100%;max-height:372px;object-fit:cover;border-radius:10px}
 
-  table.tbl{width:100%;border-collapse:collapse;border:1px solid var(--line);font-size:var(--d);background:#fff}
+  table.tbl{width:100%;table-layout:fixed;border-collapse:collapse;border:1px solid var(--line);font-size:var(--d);background:#fff}
   table.tbl th{background:#EEF2F8;color:var(--navy);font-size:21px;font-weight:600;text-align:left;
     padding:13px 14px;border-bottom:2px solid var(--navy)}
   table.tbl td{padding:13px 14px;border-top:1px solid var(--line);line-height:1.4;vertical-align:middle}
@@ -164,8 +218,8 @@
   .tp p{font-size:var(--e);color:var(--ink2);line-height:1.4;margin-top:4px}
 
   .risk{flex:1;display:flex;gap:16px;min-height:0}
-  .risk .t{flex:1.62;display:flex;flex-direction:column;gap:8px}
-  .risk .m{flex:1;display:flex;flex-direction:column;gap:10px}
+  .risk .t{flex:0 0 57%;min-width:0;display:flex;flex-direction:column;gap:8px}
+  .risk .m{flex:1;min-width:0;display:flex;flex-direction:column}
   .mx{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:6px;flex:1}
   .mx div{border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:var(--e);color:#fff;text-align:center;padding:6px}
   .mx .r1{background:#b9c4d4}.mx .r2{background:#8fa6c4}.mx .r3{background:#6f8fb8}
@@ -248,7 +302,25 @@
     <div class="pageno"></div>
   </section>
 
-  <!-- 3 路口 -->
+  <!-- 3 目录 -->
+  <section class="slide">
+    <p class="kicker">导览 · 全篇五段</p>
+    <h1>五段讲完：每段都有一份可交付的产出</h1>
+    <div class="body">
+      <table class="tbl">
+        <tr><th style="width:8%">段</th><th style="width:22%">主题</th><th style="width:44%">这一段回答什么</th><th>产出</th></tr>
+        <tr><td class="num">01</td><td>为什么做</td><td>一个晚高峰路口的 45 秒，暴露了哪些判断难点</td><td class="ex">痛点与目标</td></tr>
+        <tr><td class="num">02</td><td>系统怎么拆</td><td>任务到模块六层，每层交付什么、谁对它负责</td><td class="ex">六层分解表</td></tr>
+        <tr><td class="num">03</td><td>需求怎么定</td><td>业务、相关方、系统三册需求，121 条都可验证</td><td class="ex">需求册三本</td></tr>
+        <tr><td class="num">04</td><td>架构与安全</td><td>谁给谁下命令，什么条件下会出事，怎么兜底</td><td class="ex">架构册与安全分析</td></tr>
+        <tr><td class="num">05</td><td>场景与风险</td><td>什么条件下能用，45 秒实况，12 条风险怎么处置</td><td class="ex">场景册与风险清单</td></tr>
+      </table>
+    </div>
+    <p class="sum">五个问题一条线：为什么做 → 怎么拆 → 怎么定 → 怎么搭 → 什么条件下用。</p>
+    <div class="pageno"></div>
+  </section>
+
+  <!-- 4 路口 -->
   <section class="slide">
     <p class="kicker">为什么做 · 一个真实的路口</p>
     <h1>一个路口的 45 秒，暴露了系统的全部难点</h1>
@@ -256,6 +328,7 @@
       <div class="split">
         <div class="lft">
           <p class="big">晚高峰主干路交叉口，公交晚点 90 秒；右转电动自行车越过停止线，与公交的冲突时间约 2 秒。</p>
+          <p class="note">现状基线：晚高峰主干路平均延误约 90 秒，公交到站偏差约 90 秒（立项估值，基线待标定 TBD-1）。治理诉求是把「事后处置」前移到「事前预警」。</p>
           <p class="big">此时通信往返时延由 40 毫秒升到 320 毫秒（这 0.32 秒里，一辆 40 公里时速的车已前进约 3.5 米）。</p>
           <p class="big">系统要在 15 秒内完成提示、降级与撤销三类动作，任何一步迟疑都会放大风险。</p>
         </div>
@@ -271,11 +344,11 @@
     <p class="kicker">为什么做 · 方法</p>
     <h1>六步推进，每一步都有标准兜底</h1>
     <div class="body">
-      <p style="font-size:var(--b);color:var(--ink);line-height:1.5">从业务到验证，一条链路六步走完；每一步的产出都能被下一步直接引用。</p>
+      <p style="font-size:var(--b);color:var(--ink);line-height:1.5">从业务到验证，一条链路六步走完，每一步的产出都能被下一步直接引用。车路云是多主体、强实时、高安全等级的系统，仅靠经验式设计会出现责任模糊与风险漏判，因此每一步都要有标准与可交付产出。</p>
       <div class="flow">
         <div class="stp" style="height:252px"><b>① 业务需求</b><p>业务为何存在</p><div class="ex">需求工程标准</div><div class="out">产出：业务册</div></div>
         <div class="arw"></div>
-        <div class="stp" style="height:252px"><b>② 相关方需求</b><p>谁受影响、凭什么判断</p><div class="ex">需求工程标准</div><div class="out">产出：相关方册</div></div>
+        <div class="stp" style="height:252px"><b>② 相关方需求</b><p>谁受影响、诉求依据</p><div class="ex">需求工程标准</div><div class="out">产出：相关方册</div></div>
         <div class="arw"></div>
         <div class="stp" style="height:252px"><b>③ 系统需求</b><p>输出什么、多少、怎么验</p><div class="ex">系统需求规格</div><div class="out">产出：系统册</div></div>
         <div class="arw"></div>
@@ -286,7 +359,7 @@
         <div class="stp" style="height:252px"><b>⑥ 场景与验证</b><p>什么条件下才算能用</p><div class="ex">场景标准</div><div class="out">产出：场景册</div></div>
       </div>
     </div>
-    <p class="sum">六步各有标准，结论可逐条回溯，不靠经验拍板。</p>
+    <p class="sum">六步各有标准，结论可逐条回溯，避免经验式决策。</p>
     <div class="pageno"></div>
   </section>
 
@@ -366,9 +439,9 @@
     <div class="body">
       <div class="split">
         <div class="lft" style="gap:9px">
-          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">车端 · 实时执行</h3><p style="font-size:20px;line-height:1.45">本地校验云端建议，必要时拒绝；接管提示与最小风险由车端落实。</p><div class="ex">例：建议过期即丢弃。</div></div>
-          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">路端 · 补盲与汇聚</h3><p style="font-size:20px;line-height:1.45">融合多源感知输出目标与事件；断网时维持区域自治。</p><div class="ex">例：单杆覆盖 150 米，断网自治 5 分钟。</div></div>
-          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">云端 · 全局优化</h3><p style="font-size:20px;line-height:1.45">跨路口协调、事件闭环与策略下发，只出建议不直接控制。</p><div class="ex">例：相邻路口绿灯延长 6 秒。</div></div>
+          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">车端 · 实时执行</h3><p style="font-size:20px;line-height:1.45">本地校验云端建议，必要时拒绝；接管提示与最小风险由车端落实。</p><div class="ex">例：前车急刹、近距离冲突——70 毫秒内本地闭环。</div></div>
+          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">路端 · 补盲与汇聚</h3><p style="font-size:20px;line-height:1.45">融合多源感知输出目标与事件；断网时维持区域自治。</p><div class="ex">例：路口冲突预警、越线识别——100 毫秒内完成。</div></div>
+          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">云端 · 全局优化</h3><p style="font-size:20px;line-height:1.45">跨路口协调、事件闭环与策略下发，只出建议不直接控制。</p><div class="ex">例：干线绿波、公交优先、车速引导——300 毫秒级。</div></div>
         </div>
         <div class="rgt"><img src="deck-pole.jpg" alt="路侧杆件"></div>
       </div>
@@ -453,8 +526,15 @@
         <tr><td>使能与供应</td><td class="num">5</td><td>接口稳定、订单与流量可预期</td><td class="ex">地图更新周期不超过 7 天</td></tr>
         <tr><td>受影响方</td><td class="num">3</td><td>噪声光污染、作业区安全、数据可信</td><td class="ex">施工路段纳入运行条件变更</td></tr>
       </table>
+      <div class="flow" style="flex:none;gap:8px;margin-top:10px;align-items:center;padding-top:0">
+        <div class="stp mini"><b>安全优先</b><p>安全类要求高于效率与绿色类</p></div>
+        <div class="arw"></div>
+        <div class="stp mini"><b>同层裁定</b><p>运营方牵头，监管方裁定</p></div>
+        <div class="arw"></div>
+        <div class="stp mini"><b>回写留痕</b><p>结论更新进需求册并留追溯</p></div>
+      </div>
     </div>
-    <p class="sum">共 24 类、25 条要求，冲突按优先级与授权层级裁定。</p>
+    <p class="sum">共 24 类、25 条要求；冲突按「安全优先 → 同层裁定 → 回写留痕」处理。</p>
     <div class="pageno"></div>
   </section>
 
@@ -464,16 +544,16 @@
     <h1>系统需求：一百二十一条，分十三类</h1>
     <div class="body">
       <table class="tbl">
-        <tr><th style="width:19%">类别</th><th style="width:9%">条目</th><th style="width:24%">关注点</th><th style="width:30%">具体实例</th><th>验证方式</th></tr>
-        <tr><td>功能需求</td><td class="num">20</td><td>输入、输出与行为边界</td><td class="ex">识别交叉口冲突并给出建议</td><td>场景回放</td></tr>
-        <tr><td>性能需求</td><td class="num">14</td><td>时延、识别率、可用性</td><td class="ex">端到端本地不超过 100 毫秒</td><td>打点测试</td></tr>
-        <tr><td>接口需求</td><td class="num">15</td><td>与外部系统的契约</td><td class="ex">向交管平台提交配时建议</td><td>外场路测</td></tr>
-        <tr><td>安全需求</td><td class="num">18</td><td>前置条件与降级路径</td><td class="ex">建议时效不足即丢弃</td><td>故障注入</td></tr>
-        <tr><td>信息安全需求</td><td class="num">8</td><td>身份、签名、时效、审计</td><td class="ex">消息验签与证书轮换</td><td>渗透测试</td></tr>
-        <tr><td>运行与环境等八类</td><td class="num">46</td><td>运行模式、场景与物理条件</td><td class="ex">断网后 5 分钟内保持本地自治</td><td>演练与试验</td></tr>
+        <tr><th style="width:17%">类别</th><th style="width:8%">条目</th><th style="width:10%">优先级</th><th style="width:21%">关注点</th><th style="width:26%">具体实例</th><th>验证方式</th></tr>
+        <tr><td>功能需求</td><td class="num">20</td><td class="pri">M</td><td>输入、输出与行为边界</td><td class="ex">识别交叉口冲突并给出建议</td><td>场景回放</td></tr>
+        <tr><td>性能需求</td><td class="num">14</td><td class="pri">M</td><td>时延、识别率、可用性</td><td class="ex">端到端本地不超过 100 毫秒</td><td>打点测试</td></tr>
+        <tr><td>接口需求</td><td class="num">15</td><td class="pri">M</td><td>与外部系统的契约</td><td class="ex">向交管平台提交配时建议</td><td>外场路测</td></tr>
+        <tr><td>安全需求</td><td class="num">18</td><td class="pri">M</td><td>前置条件与降级路径</td><td class="ex">建议时效不足即丢弃</td><td>故障注入</td></tr>
+        <tr><td>信息安全需求</td><td class="num">8</td><td class="pri">M</td><td>身份、签名、时效、审计</td><td class="ex">消息验签与证书轮换</td><td>渗透测试</td></tr>
+        <tr><td>运行与环境等八类</td><td class="num">46</td><td class="pri">S</td><td>运行模式、场景与物理条件</td><td class="ex">断网后 5 分钟内保持本地自治</td><td>演练与试验</td></tr>
       </table>
     </div>
-    <p class="sum">分类的意义在于验证方式不同，不能一律用演示代替。</p>
+    <p class="sum">优先级 M＝必须（对应 P0/P1），S＝应该（P2）；分类的意义在于验证方式不同，不能一律用演示代替。</p>
     <div class="pageno"></div>
   </section>
 
@@ -482,38 +562,9 @@
     <p class="kicker">需求怎么定 · 指标口径</p>
     <h1>三段时延共同构成端到端预算</h1>
     <div class="body">
-      <div class="chart">
-        <div class="grid"></div>
-        <div class="bars">
-          <div class="bar-row"><div class="bar-lab">车端闭环</div>
-            <div class="bar-wrap"><div class="bar">
-              <div class="seg" style="width:81px;background:var(--navy)">30</div>
-              <div class="seg" style="width:54px;background:var(--navy2)">20</div>
-              <div class="seg" style="width:54px;background:var(--navy3)">20</div>
-            </div><p class="legend" style="color:var(--ink3)">感知 · 决策 · 执行，全部在车端完成，不依赖网络</p></div>
-            <div class="total">70 毫秒</div></div>
-          <div class="bar-row"><div class="bar-lab">端到端本地</div>
-            <div class="bar-wrap"><div class="bar">
-              <div class="seg" style="width:189px;background:var(--navy)">车端 70</div>
-              <div class="seg" style="width:54px;background:var(--navy2)">20</div>
-              <div class="seg" style="width:27px;background:#8fa6c4"></div>
-            </div><p class="legend" style="color:var(--ink3)">车端 + 路侧融合 + 余量，用于吸收传感器抖动</p></div>
-            <div class="total">100 毫秒</div></div>
-          <div class="bar-row"><div class="bar-lab">云端协同</div>
-            <div class="bar-wrap"><div class="bar">
-              <div class="seg" style="width:41px;background:var(--navy)">15</div>
-              <div class="seg" style="width:108px;background:var(--navy2)">40</div>
-              <div class="seg" style="width:216px;background:var(--navy3)">80</div>
-              <div class="seg" style="width:81px;background:var(--navy4)">30</div>
-              <div class="seg" style="width:81px;background:#6f8fb8">30</div>
-              <div class="seg" style="width:284px;background:#8fa6c4">105</div>
-            </div><p class="legend"><b>路侧融合 15</b> · 上行 40 · 决策 80 · 下发 30 · 车端执行 30 · 余量 105</p></div>
-            <div class="total">300 毫秒</div></div>
-        </div>
-        <div class="xaxis">
-          <span style="left:0">0</span><span style="left:135px">50</span><span style="left:270px">100</span>
-          <span style="left:405px">150</span><span style="left:540px">200</span>
-          <span style="left:675px">250</span><span style="left:810px">300</span>
+      <div class="wf-wrap">
+        <div class="wf">
+          <div class="hline" style="bottom:90px"></div><div class="hlabel" style="bottom:94px">端到端本地 100 毫秒</div><div class="tick" style="bottom:0px">0</div><div class="tick" style="bottom:45px">50</div><div class="tick" style="bottom:90px">100</div><div class="tick" style="bottom:135px">150</div><div class="tick" style="bottom:180px">200</div><div class="tick" style="bottom:225px">250</div><div class="tick" style="bottom:270px">300</div><div class="wbar" style="left:110px;bottom:0px;height:14px;background:var(--navy)"></div><div class="wtop" style="left:110px;bottom:20px">+15</div><div class="wlab" style="left:96px">路侧融合</div><div class="wbar" style="left:228px;bottom:14px;height:36px;background:var(--navy2)"></div><div class="wtop" style="left:228px;bottom:56px">+40</div><div class="wlab" style="left:214px">上行</div><div class="wbar" style="left:346px;bottom:50px;height:72px;background:var(--navy3)"></div><div class="wtop" style="left:346px;bottom:128px">+80</div><div class="wlab" style="left:332px">云端决策</div><div class="wbar" style="left:464px;bottom:122px;height:27px;background:var(--navy4)"></div><div class="wtop" style="left:464px;bottom:155px">+30</div><div class="wlab" style="left:450px">下发</div><div class="wbar" style="left:582px;bottom:148px;height:27px;background:#6f8fb8"></div><div class="wtop" style="left:582px;bottom:181px">+30</div><div class="wlab" style="left:568px">车端执行</div><div class="wbar" style="left:700px;bottom:176px;height:94px;background:#9db2cd"></div><div class="wtop" style="left:700px;bottom:276px">+105</div><div class="wlab" style="left:686px">余量</div>
         </div>
       </div>
     </div>
@@ -549,7 +600,7 @@
     <div class="body">
       <table class="tbl">
         <tr><th style="width:31%">决策</th><th style="width:15%">备选方案</th><th style="width:26%">取舍理由</th><th>具体实例</th></tr>
-        <tr><td>云只出建议，不直控车辆与信号</td><td class="ex">云端直控</td><td class="ex">责任与法规；通信中断时不失控</td><td class="ex">配时方案须经交管确认后生效</td></tr>
+        <tr><td>云只出建议，不直控车辆与信号</td><td class="ex">云端直控</td><td class="ex">事故责任边界清晰，云端不成为责任主体（合规要求）；通信中断时不失控</td><td class="ex">配时方案须经交管确认后生效</td></tr>
         <tr><td>车端保留本地校验与安全监控</td><td class="ex">完全信任云端</td><td class="ex">端到端时延不可控</td><td class="ex">建议剩余有效期不足即丢弃</td></tr>
         <tr><td>路侧承担断网自治与降级</td><td class="ex">全部依赖云</td><td class="ex">通信中断场景必须可运行</td><td class="ex">断网 5 分钟内维持本地决策</td></tr>
       </table>
@@ -610,15 +661,16 @@
     <div class="body">
       <div class="defs">
         <div class="lft">
-          <div class="layer" style="background:var(--navy)"><b>预防</b><p>先查运行条件再发建议；签名、时效、地理范围缺一即弃。</p></div>
-          <div class="layer" style="background:var(--navy2)"><b>检测</b><p>双传感器交叉校验；检测到数据冲突或验签失败即停止对外建议。</p></div>
-          <div class="layer" style="background:var(--navy3)"><b>缓解</b><p>越界即接管并进入最小风险状态；降级须车、路、云协同执行。</p></div>
-          <div class="layer" style="background:var(--navy4)"><b>恢复</b><p>原始帧、决策输入与人工操作留存并防篡改；灰度变更可一键回滚。</p></div>
+          <div class="layer" style="background:var(--navy)"><b>预防</b><p>先查运行条件再发建议；签名、时效、地理范围缺一即弃。<span class="hit">拦：RS-03 过期建议</span></p></div>
+          <div class="layer" style="background:var(--navy2)"><b>检测</b><p>双传感器交叉校验；检测到数据冲突或验签失败即停止对外建议。<span class="hit">拦：RS-05 漏检</span></p></div>
+          <div class="layer" style="background:var(--navy3)"><b>缓解</b><p>越界即接管并进入最小风险状态；降级须车、路、云协同执行。<span class="hit">拦：RS-08 未接管</span></p></div>
+          <div class="layer" style="background:var(--navy4)"><b>恢复</b><p>原始帧、决策输入与人工操作留存并防篡改；灰度变更可一键回滚。<span class="hit">拦：RS-11 证据缺失</span></p></div>
         </div>
         <div class="rgt">
           <div class="mini callout"><h3 style="color:#8f2f1d">独立安全通道</h3><p>安全监控单元用独立单片机、独立电源与独立时钟，与协同域控物理隔离。</p></div>
-          <div class="mini"><h3>为什么必须独立</h3><p>共因失效时，主链路越「智能」，越需要一条只会喊停的旁路。</p></div>
-          <div class="mini"><h3>等级与依据</h3><p>关键安全需求按高安全等级设计，单点失效不得直接导致伤亡。</p></div>
+          <div class="mini"><h3>什么时候接管</h3><p>主域控失效、指令超出运行条件、时延超阈值、验签连续失败——任一触发即接管。</p></div>
+          <div class="mini"><h3>接管后做什么</h3><p>逐级降速 → 开双闪 → 引导靠边 → 切换人工；全程记录触发原因。</p></div>
+          <div class="mini"><h3>等级与依据</h3><p>关键安全需求按高安全等级设计：单点失效不应导致不可接受的安全风险。</p></div>
         </div>
       </div>
     </div>
@@ -681,8 +733,13 @@
         <div class="arw"></div>
         <div class="stp mini"><b>恢复</b><p>条件恢复后逐级回归，不跳档</p></div>
       </div>
+      <div class="mini callout" style="margin-top:10px">
+        <h3 style="color:#8f2f1d">分级后各保留什么</h3>
+        <p>受限档（150–300 毫秒）：保留冲突预警与路况提示；暂停绿波车速引导、信号优先申请。<br>
+        禁止档（超 300 毫秒持续 5 秒）：只保留本地安全预警（车端感知 + 减速提示），云端协同全部暂停。</p>
+      </div>
     </div>
-    <p class="sum">禁止档下只保留减速提示，不参与协同决策。</p>
+    <p class="sum">越界不是关系统，而是把「云端建议」逐项换成「本地能做的那一部分」。</p>
     <div class="pageno"></div>
   </section>
 
@@ -691,20 +748,7 @@
     <p class="kicker">场景 · 实例</p>
     <h1>45 秒实况：三次判断与一次降级</h1>
     <div class="body">
-      <div class="tl">
-        <div class="tl-track">
-          <div class="tp"><i></i><b>T0</b><p>公交请求优先<br>晚点 90 秒</p></div>
-          <div class="tp"><i></i><b>T0+2 秒</b><p>建议延长绿灯<br>6 秒</p></div>
-          <div class="tp"><i></i><b>T0+3 秒</b><p>电动车越线<br>冲突 2.1 秒</p></div>
-          <div class="tp"><i></i><b>T0+5 秒</b><p>时延升至 320 毫秒<br>丢包 8%</p></div>
-          <div class="tp"><i></i><b>T0+11 秒</b><p>劣化满 5 秒<br>降级切直连</p></div>
-          <div class="tp"><i></i><b>T0+14 秒</b><p>电动车退出<br>撤销让行</p></div>
-        </div>
-        <div class="cards" style="margin-top:26px">
-          <div class="card"><h3>系统做了什么</h3><p>先建议让行，再识别冲突降速；检测到超时即停发云端建议，切直连与本地闭环；冲突解除后逐级恢复。</p></div>
-          <div class="card hot"><h3>差点出什么事</h3><p>若建议在 T0+11 秒继续下发，公交会在延迟信息上加速；若 T0+14 秒未撤销，电动车仍在路口而公交已恢复加速。</p></div>
-        </div>
-      </div>
+      <div class="lane"><div class="lh hd">时刻</div><div class="c hd">T0</div><div class="c hd">T0+2 秒</div><div class="c hd">T0+3 秒</div><div class="c hd">T0+5 秒</div><div class="c hd">T0+11 秒</div><div class="c hd">T0+14 秒</div><div class="lh">事件</div><div class="c ev">公交请求优先<br>晚点 90 秒</div><div class="c ev">下发让行建议<br>延长绿灯 6 秒</div><div class="c ev">电动车越线<br>冲突 2.1 秒</div><div class="c ev">时延 320 毫秒<br>丢包 8%</div><div class="c ev">劣化满 5 秒<br>切直连降级</div><div class="c ev">电动车退出<br>撤销让行</div><div class="lh">系统动作</div><div class="c ac">接收请求并校验</div><div class="c ac">建议下发（人工确认）</div><div class="c ac">识别冲突、给降速提示</div><div class="c ac">暂停云端建议</div><div class="c ac">切换本地闭环</div><div class="c ac">逐级恢复并记录</div><div class="lh">风险点</div><div class="c rk">请求被无视<br>延误继续累积</div><div class="c rk">建议过早或过晚<br>司机误判</div><div class="c rk">车与非机动车<br>抢行</div><div class="c rk">建议基于<br>过期信息</div><div class="c rk">未降级则<br>持续下发</div><div class="c rk">撤销过早<br>二次加速</div><div class="lh">处置</div><div class="c fx">人工确认配时</div><div class="c fx">时效与签名校验</div><div class="c fx">独立安全监控</div><div class="c fx">降级到受限档</div><div class="c fx">记录触发原因</div><div class="c fx">恢复后复盘</div></div>
     </div>
     <p class="sum">整段过程没有一次人工干预，全部由降级策略接管。</p>
     <div class="pageno"></div>
@@ -719,48 +763,41 @@
         <div class="t">
           <table class="tbl">
             <tr><th style="width:14%">编号</th><th style="width:34%">情形</th><th style="width:16%">等级</th><th>处置</th></tr>
-            <tr><td>RS-01</td><td class="ex">建议未及时到达，公交与闯灯车辆冲突</td><td class="hot">不可接受</td><td class="ex">改由路侧本地闭环识别冲突</td></tr>
-            <tr><td>RS-05</td><td class="ex">逆光下逆行非机动车漏检</td><td class="hot">不可接受</td><td class="ex">增设非机动车检测并降速限速</td></tr>
+            <tr><td>RS-01</td><td class="ex">建议未及时到达，公交与闯灯车辆冲突</td><td class="hot">不可接受</td><td class="ex">改由路侧本地闭环识别</td></tr>
+            <tr><td>RS-05</td><td class="ex">逆光下逆行非机动车漏检</td><td class="hot">不可接受</td><td class="ex">增设非机动车检测与限速</td></tr>
             <tr><td>RS-02</td><td class="ex">建议到达时公交已进路口，制动不及</td><td>需缓解</td><td class="ex">引入最小剩余距离判据</td></tr>
-            <tr><td>RS-04</td><td class="ex">撤销过早，非机动车仍在路口</td><td>需缓解</td><td class="ex">撤销需侧与车侧双源确认</td></tr>
+            <tr><td>RS-04</td><td class="ex">撤销过早，非机动车仍在路口</td><td>需缓解</td><td class="ex">撤销需侧向+车侧双源确认</td></tr>
             <tr><td>RS-11</td><td class="ex">证据不完整，事后难以定责</td><td>可接受</td><td class="ex">纳入审计兜底</td></tr>
           </table>
-          <p class="tnote">其余 7 条：需缓解 4 · 需监控 2 · 可接受 1（RS-03/06/07/08/09/10/12）。</p>
+          
         </div>
-        <div class="m">
-          <div style="font-size:var(--d);color:var(--ink3)">严重度 × 暴露度</div>
-          <div class="mx">
-            <div class="r2">需监控</div><div class="r3">需缓解</div><div class="r4 hit">RS-01</div>
-            <div class="r1">可接受</div><div class="r2">需监控</div><div class="r4 hit">RS-05</div>
-            <div class="r1">可接受</div><div class="r1">可接受</div><div class="r3">需缓解</div>
-          </div>
-          <div class="tnote">两条不可接受均以设计变更处置，不以提示替代。</div>
-        </div>
+        <div class="mxl">
+  <div class="mhead"><div></div><div>曝光少</div><div>中</div><div>多</div></div>
+  <div class="mrow"><div class="srow">S4</div><div class="cell dim">—</div><div class="cell r4">RS-05</div><div class="cell r4">RS-01<br>RS-02</div></div>
+  <div class="mrow"><div class="srow">S3</div><div class="cell dim">—</div><div class="cell r3">RS-04<br>RS-06<br>RS-08<br>RS-12</div><div class="cell r4">RS-03</div></div>
+  <div class="mrow"><div class="srow">S2</div><div class="cell dim">—</div><div class="cell r2">RS-09<br>RS-10</div><div class="cell r3">RS-07</div></div>
+  <div class="mrow"><div class="srow">S1</div><div class="cell dim">—</div><div class="cell dim">—</div><div class="cell r1">RS-11</div></div>
+  <div class="mnote">S＝严重度（1 轻微 → 4 致命）；曝光＝同类情形频度（少/中/多）。<br>其余 7 条：需缓解 4 · 需监控 2 · 可接受 1。</div>
+</div>
       </div>
     </div>
-    <p class="sum">回到第 3 页：RS-01 就是那辆公交，RS-05 就是那辆逆光里的电动车。</p>
+    <p class="sum">回到第 3 页那个路口：四层防线各挡一次，才轮到最小风险状态。</p>
     <div class="pageno"></div>
   </section>
 
-  <!-- 28 追溯 -->
+  <!-- 23 章节 05 -->
+  <section class="slide" data-ch="5" data-title="十二条风险，一张表看完">
+    <p class="kicker">场景 · 风险一览</p>
+    <h1>十二条风险，一张表看完</h1>
+    <div class="body"><div style="display:flex;gap:16px;align-items:flex-start"><table class="tbl tight"><tr><th style="width:20%">编号</th><th>一句话描述</th><th style="width:22%">等级</th></tr><tr><td>RS-01</td><td>建议未及时到达，公交与闯灯电动自行车冲突</td><td class="no">不可接受</td></tr><tr><td>RS-02</td><td>建议到达时车已进路口，制动不及</td><td class="r3">需缓解</td></tr><tr><td>RS-03</td><td>通信劣化期间仍下发过期建议</td><td class="r3">需缓解</td></tr><tr><td>RS-04</td><td>撤销过早，非机动车仍在路口</td><td class="r3">需缓解</td></tr><tr><td>RS-05</td><td>逆光下逆行非机动车漏检</td><td class="no">不可接受</td></tr><tr><td>RS-06</td><td>优先相位未确认即生效</td><td class="r3">需缓解</td></tr></table><table class="tbl tight"><tr><th style="width:20%">编号</th><th>一句话描述</th><th style="width:22%">等级</th></tr><tr><td>RS-07</td><td>优先后未恢复原配时</td><td class="r2">需监控</td></tr><tr><td>RS-08</td><td>接管提示被导航语音掩蔽</td><td class="r3">需缓解</td></tr><tr><td>RS-09</td><td>双源判断冲突时无仲裁</td><td class="r2">需监控</td></tr><tr><td>RS-10</td><td>灰度版本不一致</td><td class="r2">需监控</td></tr><tr><td>RS-11</td><td>证据不完整，事后难定责</td><td class="">可接受</td></tr><tr><td>RS-12</td><td>指挥员界面信息过载</td><td class="r3">需缓解</td></tr></table></div></div>
+    <p class="sum">两条不可接受必须改设计；需缓解的进版本迭代清单，需监控的进运行指标。</p>
+    <div class="pageno"></div>
+  </section>
   <section class="slide">
     <p class="kicker">收口 · 追溯</p>
     <h1>追溯：任一要求可双向追到底</h1>
     <div class="body">
-      <div class="trace">
-        <div class="tr-row">
-          <div class="chip"><b>业务目标</b><span>少出事</span></div><div class="tr-arw"></div>
-          <div class="chip"><b>任务需求</b><span>冲突发现与预警</span></div><div class="tr-arw"></div>
-          <div class="chip"><b>相关方要求</b><span>识别率不低于 99%</span></div><div class="tr-arw"></div>
-          <div class="chip"><b>系统要求</b><span>场景库识别率</span></div><div class="tr-arw"></div>
-          <div class="chip"><b>安全要求</b><span>双源交叉校验</span></div><div class="tr-arw"></div>
-          <div class="chip risk"><b>风险场景</b><span>逆光漏检</span></div>
-        </div>
-        <div class="cards">
-          <div class="card"><h3>反向问法</h3><p>看到任一要求，问三句：谁提的、落在哪个组件、用什么方法验。答不上来即链条断裂。</p></div>
-          <div class="card"><h3>交付物</h3><p>四册文档，网页与 Word 双形态，统一编号，可折叠目录、可分享锚点、可打印。</p></div>
-        </div>
-      </div>
+      <div class="vtr"><div class="vcol"><div class="vnode"><b>业务目标</b><span>少出事</span></div><div class="varw">↓</div><div class="vnode"><b>任务需求</b><span>冲突发现与预警</span></div><div class="varw">↓</div><div class="vnode"><b>相关方要求</b><span>识别率不低于 99%</span></div><div class="varw">↓</div><div class="vnode"><b>系统要求</b><span>场景库识别率</span></div><div class="varw">↓</div><div class="vnode"><b>安全要求</b><span>双源交叉校验</span></div><div class="varw">↓</div><div class="vnode risk"><b>风险场景</b><span>逆光漏检</span></div></div><div class="vside"><div class="card"><h3>正向：为什么做</h3><p>从业务目标一路向下，每一环都能说出上一环要求了什么、这一环承诺了什么。</p></div><div class="card"><h3>反向：凭什么验</h3><p>从风险场景往回追，每一环都能指出谁提的、落在哪个组件、用什么方法验。</p></div><div class="card"><h3>交付物</h3><p>四册文档，网页与 Word 双形态，统一编号，可折叠目录、可分享锚点。</p></div></div></div>
     </div>
     <p class="sum">六类编号分属六类对象，跨册引用不重复编号。</p>
     <div class="pageno"></div>
@@ -792,7 +829,7 @@
       <table class="tbl">
         <tr><th style="width:15%">维度</th><th style="width:52%">结论</th><th>依据</th></tr>
         <tr><td>已完成</td><td>分层与四册文档可双向追溯，架构与安全分析可落地</td><td>编号互引，逐条可查</td></tr>
-        <tr><td>未完成</td><td>指标未经现场标定，缺硬件在环与外场试验</td><td>无实测数据</td></tr>
+        <tr><td>未完成</td><td>指标为设计目标值（100 / 300 毫秒、不低于 99%），待试点标定</td><td>设计目标，非实测</td></tr>
         <tr><td>下一步</td><td>试点标定指标、整改两条不可接受风险</td><td>试点区实测</td></tr>
       </table>
       <div class="cards" style="margin-top:6px">
