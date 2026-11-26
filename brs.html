@@ -145,14 +145,11 @@ h1{font-size:clamp(28px,3.6vw,44px);line-height:1.15;letter-spacing:-.02em;margi
 footer{margin-top:64px;border-top:1px solid var(--line);padding:26px 0 44px;color:var(--ink-3);font-size:13px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 /* badges-row */
-.top-actions{grid-template-columns:repeat(3,minmax(0,1fr))}
+.top-actions{grid-template-columns:repeat(4,minmax(0,1fr))}
 .qj{min-width:0}
 .qj .d{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.qj:nth-child(3) .no{background:var(--navy)}
-.qj:nth-child(3) .t{color:var(--navy)}
-@media(max-width:980px){.top-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1120px){.top-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.top-actions{grid-template-columns:1fr}}
-.tcap{margin:26px 0 -4px;font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.02em}
 </style>
 </head>
 <body>
@@ -164,6 +161,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <a href="./car-road-cloud.html">项目页</a>
       <a href="./brs-strs.html">BRS / StRS 分析</a>
       <a href="./strs.html">StRS 全文</a>
+      <a href="./scenario.html">场景与 ODD</a>
       <a href="./index.html">课程仓库</a>
     </nav>
   </div>
@@ -171,25 +169,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <main class="wrap">
     <div class="top-actions">
-    <a class="qj" href="./car-road-cloud.html#levels">
-      <span class="no">01</span>
-      <span class="tx"><span class="t">项目层级概述</span>
-      <span class="d">六层分解：任务 → 体系 → 整机 → 系统 → 子系统 → 模块</span></span>
-      <span class="go" aria-hidden="true">↓</span>
-    </a>
-    <a class="qj" href="./brs-strs.html">
-      <span class="no">02</span>
-      <span class="tx"><span class="t">BRS / StRS 分析</span>
-      <span class="d">两册需求文档的分册阅读入口 · 业务视角与相关方视角各一册</span></span>
-      <span class="go" aria-hidden="true">→</span>
-    </a>
-    <a class="qj" href="./syrs.html">
-      <span class="no">03</span>
-      <span class="tx"><span class="t">系统需求与安全分析</span>
-      <span class="d">SyRS · 初始架构 · 控制框图 · STPA 与 18 条安全需求</span></span>
-      <span class="go" aria-hidden="true">→</span>
-    </a>
-  </div>
+      <a class="qj" href="./car-road-cloud.html#levels"><span class="no">01</span><span class="tx"><span class="t">项目层级概述</span><span class="d">六层分解：任务 → 体系 → 整机 → 系统 → 子系统 → 模块</span></span><span class="go" aria-hidden="true">↓</span></a>
+      <a class="qj" href="./brs-strs.html"><span class="no">02</span><span class="tx"><span class="t">BRS / StRS 分析</span><span class="d">两册需求文档的分册阅读入口 · 业务视角与相关方视角各一册</span></span><span class="go" aria-hidden="true">→</span></a>
+      <a class="qj" href="./syrs.html"><span class="no">03</span><span class="tx"><span class="t">系统需求与安全分析</span><span class="d">SyRS · 初始架构 · 控制框图 · STPA 与 18 条安全需求</span></span><span class="go" aria-hidden="true">→</span></a>
+      <a class="qj" href="./scenario.html"><span class="no">04</span><span class="tx"><span class="t">场景与 ODD</span><span class="d">四层场景 · 运行设计条件与人员状态 · 12 条风险场景</span></span><span class="go" aria-hidden="true">→</span></a>
+    </div>
 
   <section class="hero">
     <p class="kicker">Complex Systems Engineering · 业务需求规格说明</p>
