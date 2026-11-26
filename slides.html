@@ -110,7 +110,7 @@
   .card.hot h3{color:#8f2f1d}
   .big{font-size:28px;line-height:1.5;color:var(--ink)}
   .concl{display:flex;flex-direction:column;gap:14px;justify-content:center;flex:1}
-  .concl .row{display:flex;gap:18px;align-items:flex-start}
+  .concl .row{display:flex;gap:18px;align-items:baseline}
   .concl .no{font-size:22px;font-weight:700;color:var(--accent);width:34px;flex:none;line-height:1.5}
   .concl .tx{font-size:28px;line-height:1.5;color:var(--navy)}
 
@@ -268,6 +268,23 @@
     .hint,.btns,#bar,#toc,#tag{display:none!important}
     @page{size:1280px 720px;margin:0}
   }
+.slide.cover{background:#132A4A!important}
+.slide:nth-of-type(5) .stp b{font-size:19px;line-height:1.3}
+  .slide:nth-of-type(5) .stp{padding:16px 11px}
+  .slide:nth-of-type(5) .flow{gap:4px}
+
+  .bars{display:flex;flex-direction:column;gap:18px;justify-content:center;flex:1}
+  .barrow{display:flex;align-items:center;gap:14px}
+  .blab{width:118px;text-align:right;font-size:20px;color:var(--ink2)}
+  .btrack{flex:1;height:56px;display:flex;gap:3px}
+  .seg{background:var(--navy3);color:#fff;font-size:19px;display:flex;align-items:center;justify-content:center;border-radius:3px}
+  .seg.ln{background:#a9bcd6;color:var(--navy)}
+  .btot{width:112px;font-size:22px;font-weight:700;color:var(--accent)}
+  .blegend{text-align:center;font-size:17px;color:var(--ink3)}
+.ladder .rung .lv{min-width:96px}
+  .slide:nth-of-type(14) .stp{min-width:0}
+  .slide:nth-of-type(14) .flow{align-items:flex-start}
+  .slide:nth-of-type(14) .arw{margin-top:104px;align-self:flex-start}
 </style>
 </head>
 <body>
@@ -279,44 +296,43 @@
   <section class="slide cover">
     <div class="ph"></div><div class="veil"></div>
     <div class="txt">
-      <div class="mark">CS</div>
+      
       <p class="k">COMPLEX SYSTEMS ENGINEERING · 2026</p>
       <h1>基于车路云系统的<br>未来城市交通规划</h1>
       <p class="sub">从任务到模块，从需求到风险</p>
     </div>
-    <p class="meta">课程汇报 · 复杂系统工程 2026<br>汇报人：胡珂嘉 · 2026-11-26 · 共 30 页</p>
+    <p class="meta">课程汇报 · 复杂系统工程 2026<br>汇报人：胡珂嘉 · 2026-11-26 · 共 32 页</p>
   </section>
 
   <!-- 2 结论前置 -->
   <section class="slide">
-    <p class="kicker">先说结论</p>
-    <h1>三句话讲完这套系统</h1>
+    <h1>这套系统是什么？</h1>
     <div class="body">
       <div class="concl">
         <div class="row"><div class="no">01</div><div class="tx">它是一个<b>车、路、云三域闭环</b>的系统：云做全局，路做兜底，车做执行。</div></div>
-        <div class="row"><div class="no">02</div><div class="tx">它被拆成<b>一百二十一条可验证的要求</b>：每条都追得到提出方、承载组件与验证方法。</div></div>
-        <div class="row"><div class="no">03</div><div class="tx">它识别出<b>十二条风险场景</b>：两条不可接受，只能改设计，不能加提示。</div></div>
+        <div class="row"><div class="no">02</div><div class="tx">它被拆成<b>一百二十一条可验证的要求</b>：每条都能追到谁提的、落在哪个组件、怎么验证。</div></div>
+        <div class="row"><div class="no">03</div><div class="tx">它识别出<b>十二条风险场景</b>：其中两条不可接受，必须改设计而不是加提示。</div></div>
       </div>
     </div>
-    <p class="sum">下面按「为什么做 — 怎么拆 — 怎么定 — 怎么搭 — 什么条件下用」五段给出证据。</p>
+    
     <div class="pageno"></div>
   </section>
 
   <!-- 3 目录 -->
   <section class="slide">
-    <p class="kicker">导览 · 全篇五段</p>
-    <h1>五段讲完：每段都有一份可交付的产出</h1>
+    <p class="kicker">导览 · 全篇结构</p>
+    <h1>五段结构，每段都有可交付的产出</h1>
     <div class="body">
       <table class="tbl">
-        <tr><th style="width:8%">段</th><th style="width:22%">主题</th><th style="width:44%">这一段回答什么</th><th>产出</th></tr>
-        <tr><td class="num">01</td><td>为什么做</td><td>一个晚高峰路口的 45 秒，暴露了哪些判断难点</td><td class="ex">痛点与目标</td></tr>
-        <tr><td class="num">02</td><td>系统怎么拆</td><td>任务到模块六层，每层交付什么、谁对它负责</td><td class="ex">六层分解表</td></tr>
-        <tr><td class="num">03</td><td>需求怎么定</td><td>业务、相关方、系统三册需求，121 条都可验证</td><td class="ex">需求册三本</td></tr>
-        <tr><td class="num">04</td><td>架构与安全</td><td>谁给谁下命令，什么条件下会出事，怎么兜底</td><td class="ex">架构册与安全分析</td></tr>
-        <tr><td class="num">05</td><td>场景与风险</td><td>什么条件下能用，45 秒实况，12 条风险怎么处置</td><td class="ex">场景册与风险清单</td></tr>
+        <tr><th style="width:26%">主题</th><th style="width:50%">这一段回答什么</th><th>产出</th></tr>
+        <tr><td>为什么做</td><td>一个晚高峰路口的 45 秒，暴露了哪些判断难点</td><td class="ex">痛点与目标</td></tr>
+        <tr><td>系统怎么拆</td><td>任务到模块六层，每层交付什么、谁对它负责</td><td class="ex">六层分解表</td></tr>
+        <tr><td>需求怎么定</td><td>业务、相关方、系统三册需求，121 条都可验证</td><td class="ex">需求册三本</td></tr>
+        <tr><td>架构与安全</td><td>谁给谁下命令，什么条件下会出事，怎么兜底</td><td class="ex">架构册与安全分析</td></tr>
+        <tr><td>场景与风险</td><td>什么条件下能用，45 秒实况，12 条风险怎么处置</td><td class="ex">场景册与风险清单</td></tr>
       </table>
     </div>
-    <p class="sum">五个问题一条线：为什么做 → 怎么拆 → 怎么定 → 怎么搭 → 什么条件下用。</p>
+    
     <div class="pageno"></div>
   </section>
 
@@ -328,34 +344,34 @@
       <div class="split">
         <div class="lft">
           <p class="big">晚高峰主干路交叉口，公交晚点 90 秒；右转电动自行车越过停止线，与公交的冲突时间约 2 秒。</p>
-          <p class="note">现状基线：晚高峰主干路平均延误约 90 秒，公交到站偏差约 90 秒（立项估值，基线待标定 TBD-1）。治理诉求是把「事后处置」前移到「事前预警」。</p>
+          <p class="note">现状基线：晚高峰主干路平均延误约 90 秒，公交到站偏差约 90 秒（立项估值，基线待首次标定）。治理诉求是把「事后处置」前移到「事前预警」。</p>
           <p class="big">此时通信往返时延由 40 毫秒升到 320 毫秒（这 0.32 秒里，一辆 40 公里时速的车已前进约 3.5 米）。</p>
           <p class="big">系统要在 15 秒内完成提示、降级与撤销三类动作，任何一步迟疑都会放大风险。</p>
         </div>
         <div class="rgt"><img src="deck-cover.jpg" alt="夜间路口"></div>
       </div>
     </div>
-    <p class="sum">这个路口之后还会出现两次：讲安全时，讲风险时。</p>
+    
     <div class="pageno"></div>
   </section>
 
   <!-- 4 六步 -->
   <section class="slide">
     <p class="kicker">为什么做 · 方法</p>
-    <h1>六步推进，每一步都有标准兜底</h1>
+    <h1>六步推进，每一步都有标准依赖</h1>
     <div class="body">
-      <p style="font-size:var(--b);color:var(--ink);line-height:1.5">从业务到验证，一条链路六步走完，每一步的产出都能被下一步直接引用。车路云是多主体、强实时、高安全等级的系统，仅靠经验式设计会出现责任模糊与风险漏判，因此每一步都要有标准与可交付产出。</p>
+      <p style="font-size:var(--b);color:var(--ink);line-height:1.5">车路云是多主体、强实时、高安全等级的系统，仅靠经验式设计会出现责任模糊与风险漏判，因此每一步都要有标准与可交付产出。</p>
       <div class="flow">
         <div class="stp" style="height:252px"><b>① 业务需求</b><p>业务为何存在</p><div class="ex">需求工程标准</div><div class="out">产出：业务册</div></div>
-        <div class="arw"></div>
+        <div class="arw" style="flex:0 0 30px"></div>
         <div class="stp" style="height:252px"><b>② 相关方需求</b><p>谁受影响、诉求依据</p><div class="ex">需求工程标准</div><div class="out">产出：相关方册</div></div>
-        <div class="arw"></div>
+        <div class="arw" style="flex:0 0 30px"></div>
         <div class="stp" style="height:252px"><b>③ 系统需求</b><p>输出什么、多少、怎么验</p><div class="ex">系统需求规格</div><div class="out">产出：系统册</div></div>
-        <div class="arw"></div>
+        <div class="arw" style="flex:0 0 30px"></div>
         <div class="stp" style="height:252px"><b>④ 架构取舍</b><p>由哪些部分组成、谁控制谁</p><div class="ex">生命周期标准</div><div class="out">产出：架构册</div></div>
-        <div class="arw"></div>
+        <div class="arw" style="flex:0 0 30px"></div>
         <div class="stp" style="height:252px"><b>⑤ 安全分析</b><p>什么动作会做出危险</p><div class="ex">安全分析方法</div><div class="out">产出：安全分析</div></div>
-        <div class="arw"></div>
+        <div class="arw" style="flex:0 0 30px"></div>
         <div class="stp" style="height:252px"><b>⑥ 场景与验证</b><p>什么条件下才算能用</p><div class="ex">场景标准</div><div class="out">产出：场景册</div></div>
       </div>
     </div>
@@ -380,15 +396,15 @@
     <div class="body">
       <div class="axis-note"><span>越往下越具体：可采购、可测试、可验收</span><span>越往上越抽象：定边界、定目标、定责任</span></div>
       <div class="ladder">
-        <div class="rung light" style="width:66%;background:#E7EDF6"><span class="lv">任务</span><span class="du">为城市交通治理设定目标与边界</span><span class="ex">例：事故率下降</span></div>
-        <div class="rung light" style="width:74%;background:#D3E0F0"><span class="lv">体系</span><span class="du">组织七个业务与一个共用底座</span><span class="ex">例：公交优先</span></div>
-        <div class="rung light" style="width:82%;background:#A9C2DF"><span class="lv">整车</span><span class="du">提供可交付的物理载体</span><span class="ex">例：路侧一体化整机</span></div>
-        <div class="rung dark" style="width:90%;background:var(--navy4)"><span class="lv">系统</span><span class="du">闭合感知、决策与执行</span><span class="ex">例：冲突预警</span></div>
-        <div class="rung dark" style="width:96%;background:var(--navy3)"><span class="lv">子系统</span><span class="du">十个可独立开发、独立验收的单元</span><span class="ex">例：路侧感知</span></div>
-        <div class="rung dark" style="width:100%;background:var(--navy)"><span class="lv">模块</span><span class="du">十六个可采购的最小单元</span><span class="ex">例：毫米波雷达</span></div>
+        <div class="rung light" style="width:66%;background:#E7EDF6"><span class="lv">任务</span><span class="du">为城市交通治理设定目标与边界</span><span class="ex">事故率下降</span></div>
+        <div class="rung light" style="width:74%;background:#D3E0F0"><span class="lv">体系</span><span class="du">组织七个业务与一个共用底座</span><span class="ex">公交优先</span></div>
+        <div class="rung light" style="width:82%;background:#A9C2DF"><span class="lv">整车</span><span class="du">提供可交付的物理载体</span><span class="ex">路侧一体化整机</span></div>
+        <div class="rung dark" style="width:90%;background:var(--navy4)"><span class="lv">系统</span><span class="du">闭合感知、决策与执行</span><span class="ex">冲突预警</span></div>
+        <div class="rung dark" style="width:96%;background:var(--navy3)"><span class="lv">子系统</span><span class="du">十个可独立开发、独立验收的单元</span><span class="ex">路侧感知</span></div>
+        <div class="rung dark" style="width:100%;background:var(--navy)"><span class="lv">模块</span><span class="du">十六个可采购的最小单元</span><span class="ex">毫米波雷达</span></div>
       </div>
     </div>
-    <p class="sum">层间只以接口契约衔接，跨层直接指挥即视为设计缺陷。</p>
+    
     <div class="pageno"></div>
   </section>
 
@@ -398,10 +414,10 @@
     <h1>任务层的四类目标相互制约</h1>
     <div class="body">
       <div class="quad">
-        <div class="q"><h3>安全</h3><p>降低事故率与严重度，优先保障弱势交通参与者。</p><div class="ex">例：冲突提前 2 秒预警。</div></div>
-        <div class="q"><h3>效率</h3><p>缩短主干路行程时间与路口延误，提升通行能力。</p><div class="ex">例：干线绿波协调。</div></div>
-        <div class="q"><h3>绿色</h3><p>降低单位里程能耗与排放，减少怠速与反复启停。</p><div class="ex">例：减少空放相位。</div></div>
-        <div class="q"><h3>可运营</h3><p>可复制、可运维、能按效果付费，避免一次性交付。</p><div class="ex">例：故障可远程诊断。</div></div>
+        <div class="q"><h3>安全</h3><p>降低事故率与严重度，优先保障弱势交通参与者。</p><div class="ex">冲突提前 2 秒预警。</div></div>
+        <div class="q"><h3>效率</h3><p>缩短主干路行程时间与路口延误，提升通行能力。</p><div class="ex">干线绿波协调。</div></div>
+        <div class="q"><h3>绿色</h3><p>降低单位里程能耗与排放，减少怠速与反复启停。</p><div class="ex">减少空放相位。</div></div>
+        <div class="q"><h3>可运营</h3><p>可复制、可运维、能按效果付费，避免一次性交付。</p><div class="ex">故障可远程诊断。</div></div>
       </div>
     </div>
     <p class="sum">四类目标不可同时取极值，冲突时按安全优先裁定。</p>
@@ -428,7 +444,7 @@
         <div class="base"><b>车路云底座</b><span>一张网（通信）</span><span>一张图（高精地图）</span><span>一套身份（认证与密钥）</span></div>
       </div>
     </div>
-    <p class="sum">底座不单列业务，否则投资与运维将缺少责任主体。</p>
+    
     <div class="pageno"></div>
   </section>
 
@@ -439,14 +455,14 @@
     <div class="body">
       <div class="split">
         <div class="lft" style="gap:9px">
-          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">车端 · 实时执行</h3><p style="font-size:20px;line-height:1.45">本地校验云端建议，必要时拒绝；接管提示与最小风险由车端落实。</p><div class="ex">例：前车急刹、近距离冲突——70 毫秒内本地闭环。</div></div>
-          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">路端 · 补盲与汇聚</h3><p style="font-size:20px;line-height:1.45">融合多源感知输出目标与事件；断网时维持区域自治。</p><div class="ex">例：路口冲突预警、越线识别——100 毫秒内完成。</div></div>
-          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">云端 · 全局优化</h3><p style="font-size:20px;line-height:1.45">跨路口协调、事件闭环与策略下发，只出建议不直接控制。</p><div class="ex">例：干线绿波、公交优先、车速引导——300 毫秒级。</div></div>
+          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">车端 · 实时执行</h3><p style="font-size:20px;line-height:1.45">本地校验云端建议，必要时拒绝；接管提示与最小风险由车端落实。</p><div class="ex">前车急刹、近距离冲突——70 毫秒内本地闭环。</div></div>
+          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">路端 · 补盲与汇聚</h3><p style="font-size:20px;line-height:1.45">融合多源感知输出目标与事件；断网时维持区域自治。</p><div class="ex">路口冲突预警、越线识别——100 毫秒内完成。</div></div>
+          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">云端 · 全局优化</h3><p style="font-size:20px;line-height:1.45">跨路口协调、事件闭环与策略下发，只出建议不直接控制。</p><div class="ex">干线绿波、公交优先、车速引导——300 毫秒级。</div></div>
         </div>
         <div class="rgt"><img src="deck-pole.jpg" alt="路侧杆件"></div>
       </div>
     </div>
-    <p class="sum">三域共用同一时空基准：时间误差不超过 1 微秒。</p>
+    <p class="sum">三域在同一时空基准下：时间误差不超过 1 微秒。</p>
     <div class="pageno"></div>
   </section>
 
@@ -456,15 +472,15 @@
     <h1>子系统层：十个可独立交付的单元</h1>
     <div class="body">
       <table class="tbl">
-        <tr><th style="width:20%">分组</th><th style="width:9%">数量</th><th style="width:33%">职责</th><th>具体实例</th></tr>
-        <tr><td>车端</td><td class="num">3</td><td>车载感知、车载通信、车载决策</td><td class="ex">识别前方闯红灯的非机动车</td></tr>
-        <tr><td>路端</td><td class="num">3</td><td>路侧感知、路侧通信、边缘计算</td><td class="ex">路口 150 米范围内目标融合</td></tr>
-        <tr><td>云端</td><td class="num">3</td><td>云控平台、高精地图、协同调度</td><td class="ex">相邻两个路口的绿波协调</td></tr>
-        <tr><td>全域安全</td><td class="num">1</td><td>身份认证、密钥与证书管理</td><td class="ex">消息验签与证书轮换</td></tr>
+        <tr><th style="width:22%">分组</th><th style="width:10%">数量</th><th>包含模块</th></tr>
+        <tr><td>车端</td><td class="num">3</td><td>车载感知、车载通信、车载决策</td></tr>
+        <tr><td>路端</td><td class="num">3</td><td>路侧感知、路侧通信、边缘计算</td></tr>
+        <tr><td>云端</td><td class="num">3</td><td>云控平台、高精地图、协同调度</td></tr>
+        <tr><td>全域安全</td><td class="num">1</td><td>身份认证、密钥与证书管理</td></tr>
       </table>
-      <p class="tnote">十个单元：车载感知、车载通信、车载决策；路侧感知、路侧通信、边缘计算；云控平台、高精地图、协同调度；全域安全。</p>
+      <p style="text-align:center;font-size:30px;line-height:1;color:#c3ccda;margin:2px 0 0">↓</p><p style="text-align:center;font-size:20px;color:var(--ink2);margin:0 0 8px">按职责拆到可独立交付，共十个单元</p><p class="tnote">十个单元：车载感知、车载通信、车载决策；路侧感知、路侧通信、边缘计算；云控平台、高精地图、协同调度；全域安全。</p>
     </div>
-    <p class="sum">划分标准是职责单一、接口清晰、可独立测试与验收。</p>
+    
     <div class="pageno"></div>
   </section>
 
@@ -474,14 +490,14 @@
     <h1>模块层：十六个可采购的最小单元</h1>
     <div class="body">
       <table class="tbl">
-        <tr><th style="width:17%">类别</th><th style="width:9%">数量</th><th style="width:36%">包含模块</th><th>具体实例与验收口径</th></tr>
-        <tr><td>感知</td><td class="num">4</td><td>摄像头、毫米波雷达、激光雷达、定位</td><td class="ex">毫米波雷达探测距离不小于 250 米</td></tr>
-        <tr><td>通信</td><td class="num">3</td><td>车载单元、路侧单元、5G 传输</td><td class="ex">空口时延不超过 10 毫秒</td></tr>
-        <tr><td>计算</td><td class="num">3</td><td>AI 融合计算、信号处理、存储</td><td class="ex">八路视频稳定推理，断网缓存 5 分钟</td></tr>
-        <tr><td>控制</td><td class="num">6</td><td>预警决策、信号联动、线控执行、供电、时钟、加密</td><td class="ex">制动指令响应不超过 100 毫秒</td></tr>
+        <tr><th style="width:18%">类别</th><th style="width:10%">数量</th><th>包含模块</th></tr>
+        <tr><td>感知</td><td class="num">4</td><td>摄像头、毫米波雷达、激光雷达、定位</td></tr>
+        <tr><td>通信</td><td class="num">3</td><td>车载单元、路侧单元、5G 传输</td></tr>
+        <tr><td>计算</td><td class="num">3</td><td>AI 融合计算、信号处理、存储</td></tr>
+        <tr><td>控制</td><td class="num">6</td><td>预警决策、信号联动、线控执行、供电、时钟、加密</td></tr>
       </table>
     </div>
-    <p class="sum">模块指标写入采购合同，故障可在子系统内隔离。</p>
+    <p class="sum">故障可在子系统内隔离。</p>
     <div class="pageno"></div>
   </section>
 
@@ -497,16 +513,16 @@
   <!-- 13 业务需求 -->
   <section class="slide">
     <p class="kicker">需求怎么定 · 业务需求</p>
-    <h1>业务需求：先讲清业务怎么运转</h1>
+    <h1>业务需求：业务如何运转</h1>
     <div class="body">
-      <div class="flow">
-        <div class="stp"><b>① 采集与生成</b><p>路侧与车辆数据汇聚，生成事件与路况。</p><div class="ex">例：检测到事故并定级</div></div>
-        <div class="arw"></div>
-        <div class="stp"><b>② 判定与派遣</b><p>按规则确认与定级，派单到对应处置方。</p><div class="ex">例：30 秒内向指挥中心告警</div></div>
-        <div class="arw"></div>
-        <div class="stp"><b>③ 协同与执行</b><p>信号、公交与应急联动，形成处置方案。</p><div class="ex">例：为救护车开通绿波</div></div>
-        <div class="arw"></div>
-        <div class="stp"><b>④ 复盘与结算</b><p>留存证据与指标，用于考核与按效付费。</p><div class="ex">例：处置时长纳入考核</div></div>
+      <div class="flow" style="gap:2px;flex-wrap:nowrap">
+        <div class="stp" style="text-align:center"><b>① 采集与生成</b><p>路侧与车辆数据汇聚，生成事件与路况。</p><div class="ex">检测到事故并定级</div></div>
+        <div class="arw" style="flex:0 0 30px"></div>
+        <div class="stp" style="text-align:center"><b>② 判定与派遣</b><p>按规则确认与定级，派单到对应处置方。</p><div class="ex">30 秒内向指挥中心告警</div></div>
+        <div class="arw" style="flex:0 0 30px"></div>
+        <div class="stp" style="text-align:center"><b>③ 协同与执行</b><p>信号、公交与应急联动，形成处置方案。</p><div class="ex">为救护车开通绿波</div></div>
+        <div class="arw" style="flex:0 0 30px"></div>
+        <div class="stp" style="text-align:center"><b>④ 复盘与结算</b><p>留存证据与指标，用于考核与按效付费。</p><div class="ex">处置时长纳入考核</div></div>
       </div>
     </div>
     <p class="sum">六条业务规则优先于功能：安全优先于效率。</p>
@@ -516,7 +532,7 @@
   <!-- 14 相关方 -->
   <section class="slide">
     <p class="kicker">需求怎么定 · 相关方需求</p>
-    <h1>相关方需求：五组人，各有所求</h1>
+    <h1>相关方需求：各有所求的相关方</h1>
     <div class="body">
       <table class="tbl">
         <tr><th style="width:18%">分组</th><th style="width:9%">数量</th><th style="width:33%">最在意的事</th><th>具体诉求实例</th></tr>
@@ -528,9 +544,9 @@
       </table>
       <div class="flow" style="flex:none;gap:8px;margin-top:10px;align-items:center;padding-top:0">
         <div class="stp mini"><b>安全优先</b><p>安全类要求高于效率与绿色类</p></div>
-        <div class="arw"></div>
+        <div class="arw" style="flex:0 0 30px"></div>
         <div class="stp mini"><b>同层裁定</b><p>运营方牵头，监管方裁定</p></div>
-        <div class="arw"></div>
+        <div class="arw" style="flex:0 0 30px"></div>
         <div class="stp mini"><b>回写留痕</b><p>结论更新进需求册并留追溯</p></div>
       </div>
     </div>
@@ -562,11 +578,7 @@
     <p class="kicker">需求怎么定 · 指标口径</p>
     <h1>三段时延共同构成端到端预算</h1>
     <div class="body">
-      <div class="wf-wrap">
-        <div class="wf">
-          <div class="hline" style="bottom:90px"></div><div class="hlabel" style="bottom:94px">端到端本地 100 毫秒</div><div class="tick" style="bottom:0px">0</div><div class="tick" style="bottom:45px">50</div><div class="tick" style="bottom:90px">100</div><div class="tick" style="bottom:135px">150</div><div class="tick" style="bottom:180px">200</div><div class="tick" style="bottom:225px">250</div><div class="tick" style="bottom:270px">300</div><div class="wbar" style="left:110px;bottom:0px;height:14px;background:var(--navy)"></div><div class="wtop" style="left:110px;bottom:20px">+15</div><div class="wlab" style="left:96px">路侧融合</div><div class="wbar" style="left:228px;bottom:14px;height:36px;background:var(--navy2)"></div><div class="wtop" style="left:228px;bottom:56px">+40</div><div class="wlab" style="left:214px">上行</div><div class="wbar" style="left:346px;bottom:50px;height:72px;background:var(--navy3)"></div><div class="wtop" style="left:346px;bottom:128px">+80</div><div class="wlab" style="left:332px">云端决策</div><div class="wbar" style="left:464px;bottom:122px;height:27px;background:var(--navy4)"></div><div class="wtop" style="left:464px;bottom:155px">+30</div><div class="wlab" style="left:450px">下发</div><div class="wbar" style="left:582px;bottom:148px;height:27px;background:#6f8fb8"></div><div class="wtop" style="left:582px;bottom:181px">+30</div><div class="wlab" style="left:568px">车端执行</div><div class="wbar" style="left:700px;bottom:176px;height:94px;background:#9db2cd"></div><div class="wtop" style="left:700px;bottom:276px">+105</div><div class="wlab" style="left:686px">余量</div>
-        </div>
-      </div>
+      <div class="bars"><div class="barrow"><div class="blab">车端闭环</div><div class="btrack"><div class="seg" style="width:82px">30</div><div class="seg" style="width:55px">20</div><div class="seg" style="width:55px">20</div></div><div class="btot">70 毫秒</div></div><div class="barrow"><div class="blab">端到端本地</div><div class="btrack"><div class="seg" style="width:191px">车端 70</div><div class="seg" style="width:55px">20</div><div class="seg ln" style="width:27px"></div></div><div class="btot">100 毫秒</div></div><div class="barrow"><div class="blab">云端协同</div><div class="btrack"><div class="seg" style="width:41px"></div><div class="seg" style="width:109px">上行 40</div><div class="seg" style="width:219px">决策 80</div><div class="seg" style="width:82px">下发 30</div><div class="seg" style="width:82px">车端 30</div><div class="seg ln" style="width:287px">余量 105</div></div><div class="btot">300 毫秒</div></div></div><div class="blegend">色块宽度按时延等比：浅色为余量，留给抖动与重传。</div>
     </div>
     <p class="sum">任一段超限，该条建议即判定失效，不得继续下发。</p>
     <div class="pageno"></div>
@@ -587,16 +599,22 @@
     <p class="kicker">架构 · 总图</p>
     <h1>三层一底座：云做全局，路做兜底，车做执行</h1>
     <div class="body">
-      <div class="bigfig"><img src="fig-architecture.png" alt="初始系统架构"></div>
+      <table class="tbl">
+        <tr><th style="width:16%">层次</th><th style="width:44%">职责</th><th>主要组成</th></tr>
+        <tr><td><b>云端</b></td><td>做全局：跨路口协调、事件闭环、策略下发，只出建议</td><td>交通态势服务、事件中心、协同决策器、信号优化建议、地图与定位、安全认证、运维、数据与评价</td></tr>
+        <tr><td><b>路侧</b></td><td>做兜底：本地感知融合、区域自治、断网不瘫</td><td>感知融合一体机、边缘计算 MEC、路侧单元 RSU、杆件与供电、边缘网关</td></tr>
+        <tr><td><b>车端</b></td><td>做执行：校验建议、必要时拒绝、随时可接管</td><td>车载单元 OBU、协同驾驶域控、独立安全监控、提示单元、执行器接口</td></tr>
+        <tr><td><b>底座</b></td><td>三项公共能力，三域共用</td><td>通信（直连 + 5G + 光纤）、时间（统一时钟）、安全（证书与验签）</td></tr>
+      </table>
     </div>
-    <p class="sum">看图顺序：外部系统 → 云控八项服务 → 通信底座 → 路侧四项 → 车端五项。</p>
+    <p class="sum">三层职责不重叠：云不直控、路可自治、车保留最终校验权。</p>
     <div class="pageno"></div>
   </section>
 
   <!-- 19 三个决策 -->
   <section class="slide">
     <p class="kicker">架构 · 决策</p>
-    <h1>三个关键决策决定了责任边界</h1>
+    <h1>决策决定责任边界</h1>
     <div class="body">
       <table class="tbl">
         <tr><th style="width:31%">决策</th><th style="width:15%">备选方案</th><th style="width:26%">取舍理由</th><th>具体实例</th></tr>
@@ -614,16 +632,23 @@
     <p class="kicker">架构 · 控制结构</p>
     <h1>控制结构：五个控制器，三个受控过程</h1>
     <div class="body">
-      <div class="bigfig"><img src="fig-control-structure.png" alt="系统控制框图"></div>
+      <table class="tbl">
+        <tr><th style="width:16%">控制器</th><th style="width:34%">控制动作</th><th style="width:34%">反馈</th><th>受控过程</th></tr>
+        <tr><td><b>C5 交管</b></td><td>确认或否决配时、发布管控、调度应急</td><td>路口排队、事件态势</td><td>信号配时</td></tr>
+        <tr><td><b>C1 云控</b></td><td>下发全局策略、下发或撤销建议、更新运行条件、请求降级</td><td>路段状态、执行回执、事件闭环</td><td>车辆运动、设施状态</td></tr>
+        <tr><td><b>C2 路侧</b></td><td>下发局部建议、广播路面状态、执行降级、请求接管</td><td>目标列表、路侧在线状态、车辆响应</td><td>车辆运动、设施状态</td></tr>
+        <tr><td><b>C3 车端</b></td><td>采纳或拒绝建议、输出纵向与横向请求、进入最小风险</td><td>车辆状态、驾驶员状态、执行器回执</td><td>车辆运动</td></tr>
+        <tr><td><b>C4 驾驶员</b></td><td>接管、忽略提示、手动驾驶</td><td>提示与车辆行为</td><td>车辆运动</td></tr>
+      </table>
     </div>
-    <p class="sum">看图顺序：C5 交管 → C1 云控 → C2 路侧 → C3 车端 → C4 驾驶员；虚线是回执。</p>
+    <p class="sum">五个控制器里，人类只在 C4 与 C5 两处；其余三处都必须可被接管。</p>
     <div class="pageno"></div>
   </section>
 
   <!-- 21 因果链 -->
   <section class="slide">
     <p class="kicker">安全 · 第一步与第二步</p>
-    <h1>危险多源于控制动作缺失或时机不当</h1>
+    <h1>危险来源与分析</h1>
     <div class="body">
       <div class="chain">
         <div class="col"><h4>不安全的控制动作</h4>
@@ -657,7 +682,7 @@
   <!-- 22 四层防线 -->
   <section class="slide">
     <p class="kicker">安全 · 第三步</p>
-    <h1>安全需求：四层防线加一条独立通道</h1>
+    <h1>安全需求：四层防线 + 独立通道</h1>
     <div class="body">
       <div class="defs">
         <div class="lft">
@@ -692,21 +717,12 @@
     <p class="kicker">场景 · 分层</p>
     <h1>四层场景：任务、功能、逻辑、具体</h1>
     <div class="body">
-      <div class="split">
-        <div class="lft" style="gap:14px">
-          <div><p style="font-size:var(--b);color:var(--ink)"><b>任务场景 6 个</b>　组织层要办成什么事</p><p class="tnote" style="margin-top:2px">例：干线协调、事故处置、公交优先</p></div>
-          <div><p style="font-size:var(--b);color:var(--ink)"><b>功能场景 12 个</b>　系统要输出什么能力</p><p class="tnote" style="margin-top:2px">例：冲突预警、建议让行</p></div>
-          <div><p style="font-size:var(--b);color:var(--ink)"><b>逻辑场景 6 个</b>　把要素写成参数区间</p><p class="tnote" style="margin-top:2px">例：流量 600–2400 辆/时，往返时延 30–500 毫秒</p></div>
-          <div><p style="font-size:var(--b);color:var(--ink)"><b>具体场景 3 个</b>　参数取定值，可回放可打分</p><p class="tnote" style="margin-top:2px">例：晚高峰路口、雨雾路口、施工绕行</p></div>
-        </div>
-        <div class="rgt" style="flex-direction:.95;align-items:stretch">
-          <div class="nest" style="width:100%">
-            <div class="n1"><b>任务场景 · 6</b></div>
-            <div class="n2"><b>功能场景 · 12</b></div>
-            <div class="n3"><b>逻辑场景 · 6</b></div>
-            <div class="n4"><b>具体场景 · 3</b></div>
-          </div>
-        </div>
+      <div class="axis-note"><span>越往下越具体：参数取定值，可回放可打分</span><span>越往上越抽象：只取任务与环境</span></div>
+      <div class="ladder">
+        <div class="rung light" style="width:100%;background:#E7EDF6;justify-content:flex-start;padding-left:30px"><span class="lv">任务场景</span><span class="du">组织层要办成什么事</span><span class="ex">干线协调、事故处置、公交优先（6 个）</span></div>
+        <div class="rung light" style="width:90%;background:#D3E0F0;justify-content:flex-start;padding-left:30px"><span class="lv">功能场景</span><span class="du">系统要输出什么能力</span><span class="ex">冲突预警、建议让行（12 个）</span></div>
+        <div class="rung light" style="width:80%;background:#A9C2DF;justify-content:flex-start;padding-left:30px"><span class="lv">逻辑场景</span><span class="du">把要素写成参数区间</span><span class="ex">流量 600–2400 辆/时，时延 30–500 毫秒（6 个）</span></div>
+        <div class="rung dark" style="width:70%;background:var(--navy);justify-content:flex-start;padding-left:30px"><span class="lv">具体场景</span><span class="du">参数取定值，可回放可打分</span><span class="ex">晚高峰路口、雨雾路口、施工绕行（3 个）</span></div>
       </div>
     </div>
     <p class="sum">八类要素各层取值不同：上层只取任务与环境。</p>
@@ -716,7 +732,7 @@
   <!-- 25 运行条件 -->
   <section class="slide">
     <p class="kicker">场景 · 运行条件</p>
-    <h1>运行条件：三条硬线决定能不能开</h1>
+    <h1>运行条件：外部条件下的分级运行</h1>
     <div class="body">
       <table class="tbl">
         <tr><th style="width:18%">条件</th><th style="width:26%">允许</th><th style="width:26%">受限</th><th>禁止</th></tr>
@@ -726,11 +742,11 @@
       </table>
       <div class="flow" style="flex:none;gap:8px;margin-top:4px;align-items:center;padding-top:0">
         <div class="stp mini"><b>越界识别</b><p>1 秒内识别，2 秒内告知驾驶员</p></div>
-        <div class="arw"></div>
+        <div class="arw" style="flex:0 0 30px"></div>
         <div class="stp mini"><b>触发降级</b><p>进受限或禁止档，停发新建议</p></div>
-        <div class="arw"></div>
+        <div class="arw" style="flex:0 0 30px"></div>
         <div class="stp mini"><b>车端接管</b><p>切本地闭环，必要时进入最小风险</p></div>
-        <div class="arw"></div>
+        <div class="arw" style="flex:0 0 30px"></div>
         <div class="stp mini"><b>恢复</b><p>条件恢复后逐级回归，不跳档</p></div>
       </div>
       <div class="mini callout" style="margin-top:10px">
@@ -739,7 +755,7 @@
         禁止档（超 300 毫秒持续 5 秒）：只保留本地安全预警（车端感知 + 减速提示），云端协同全部暂停。</p>
       </div>
     </div>
-    <p class="sum">越界不是关系统，而是把「云端建议」逐项换成「本地能做的那一部分」。</p>
+    
     <div class="pageno"></div>
   </section>
 
@@ -748,7 +764,7 @@
     <p class="kicker">场景 · 实例</p>
     <h1>45 秒实况：三次判断与一次降级</h1>
     <div class="body">
-      <div class="lane"><div class="lh hd">时刻</div><div class="c hd">T0</div><div class="c hd">T0+2 秒</div><div class="c hd">T0+3 秒</div><div class="c hd">T0+5 秒</div><div class="c hd">T0+11 秒</div><div class="c hd">T0+14 秒</div><div class="lh">事件</div><div class="c ev">公交请求优先<br>晚点 90 秒</div><div class="c ev">下发让行建议<br>延长绿灯 6 秒</div><div class="c ev">电动车越线<br>冲突 2.1 秒</div><div class="c ev">时延 320 毫秒<br>丢包 8%</div><div class="c ev">劣化满 5 秒<br>切直连降级</div><div class="c ev">电动车退出<br>撤销让行</div><div class="lh">系统动作</div><div class="c ac">接收请求并校验</div><div class="c ac">建议下发（人工确认）</div><div class="c ac">识别冲突、给降速提示</div><div class="c ac">暂停云端建议</div><div class="c ac">切换本地闭环</div><div class="c ac">逐级恢复并记录</div><div class="lh">风险点</div><div class="c rk">请求被无视<br>延误继续累积</div><div class="c rk">建议过早或过晚<br>司机误判</div><div class="c rk">车与非机动车<br>抢行</div><div class="c rk">建议基于<br>过期信息</div><div class="c rk">未降级则<br>持续下发</div><div class="c rk">撤销过早<br>二次加速</div><div class="lh">处置</div><div class="c fx">人工确认配时</div><div class="c fx">时效与签名校验</div><div class="c fx">独立安全监控</div><div class="c fx">降级到受限档</div><div class="c fx">记录触发原因</div><div class="c fx">恢复后复盘</div></div>
+      <div class="lane" style="margin:0 auto;width:100%;max-width:1160px"><div class="lh hd">时刻</div><div class="c hd">T0</div><div class="c hd">T0+2 秒</div><div class="c hd">T0+3 秒</div><div class="c hd">T0+5 秒</div><div class="c hd">T0+11 秒</div><div class="c hd">T0+14 秒</div><div class="lh">事件</div><div class="c ev">公交请求优先<br>晚点 90 秒</div><div class="c ev">下发让行建议<br>延长绿灯 6 秒</div><div class="c ev">电动车越线<br>冲突 2.1 秒</div><div class="c ev">时延 320 毫秒<br>丢包 8%</div><div class="c ev">劣化满 5 秒<br>切直连降级</div><div class="c ev">电动车退出<br>撤销让行</div><div class="lh">系统动作</div><div class="c ac">接收请求并校验</div><div class="c ac">建议下发（人工确认）</div><div class="c ac">识别冲突、给降速提示</div><div class="c ac">暂停云端建议</div><div class="c ac">切换本地闭环</div><div class="c ac">逐级恢复并记录</div><div class="lh">风险点</div><div class="c rk">请求被无视<br>延误继续累积</div><div class="c rk">建议过早或过晚<br>司机误判</div><div class="c rk">车与非机动车<br>抢行</div><div class="c rk">建议基于<br>过期信息</div><div class="c rk">未降级则<br>持续下发</div><div class="c rk">撤销过早<br>二次加速</div><div class="lh">处置</div><div class="c fx">人工确认配时</div><div class="c fx">时效与签名校验</div><div class="c fx">独立安全监控</div><div class="c fx">降级到受限档</div><div class="c fx">记录触发原因</div><div class="c fx">恢复后复盘</div></div>
     </div>
     <p class="sum">整段过程没有一次人工干预，全部由降级策略接管。</p>
     <div class="pageno"></div>
@@ -757,7 +773,7 @@
   <!-- 27 风险 -->
   <section class="slide">
     <p class="kicker">场景 · 风险清单</p>
-    <h1>风险清单：十二条，两条不可接受</h1>
+    <h1>风险清单：风险分级处理</h1>
     <div class="body">
       <div class="risk">
         <div class="t">
@@ -797,16 +813,29 @@
     <p class="kicker">收口 · 追溯</p>
     <h1>追溯：任一要求可双向追到底</h1>
     <div class="body">
-      <div class="vtr"><div class="vcol"><div class="vnode"><b>业务目标</b><span>少出事</span></div><div class="varw">↓</div><div class="vnode"><b>任务需求</b><span>冲突发现与预警</span></div><div class="varw">↓</div><div class="vnode"><b>相关方要求</b><span>识别率不低于 99%</span></div><div class="varw">↓</div><div class="vnode"><b>系统要求</b><span>场景库识别率</span></div><div class="varw">↓</div><div class="vnode"><b>安全要求</b><span>双源交叉校验</span></div><div class="varw">↓</div><div class="vnode risk"><b>风险场景</b><span>逆光漏检</span></div></div><div class="vside"><div class="card"><h3>正向：为什么做</h3><p>从业务目标一路向下，每一环都能说出上一环要求了什么、这一环承诺了什么。</p></div><div class="card"><h3>反向：凭什么验</h3><p>从风险场景往回追，每一环都能指出谁提的、落在哪个组件、用什么方法验。</p></div><div class="card"><h3>交付物</h3><p>四册文档，网页与 Word 双形态，统一编号，可折叠目录、可分享锚点。</p></div></div></div>
+      <div style="display:flex;gap:22px;align-items:flex-start">
+      <table class="tbl" style="flex:1">
+        <tr><th style="width:20%">环节</th><th style="width:20%">本系统编号</th><th>这一环回答什么</th></tr>
+        <tr><td>业务目标</td><td><b>OBJ-01</b></td><td>为什么做：少出什么事</td></tr>
+        <tr><td>任务需求</td><td><b>MR-01</b></td><td>要办成什么：冲突发现与预警</td></tr>
+        <tr><td>相关方要求</td><td><b>SR-17</b></td><td>谁提的、什么条件下算接受</td></tr>
+        <tr><td>系统要求</td><td><b>SY-P-06</b></td><td>系统输出什么、拿什么验</td></tr>
+        <tr><td>安全要求</td><td><b>SAF-08</b></td><td>哪个动作会出错、怎么兜住</td></tr>
+        <tr><td>风险场景</td><td><b>RS-05</b></td><td>在什么条件下会真出事</td></tr>
+      </table>
+      <div style="width:300px;display:flex;flex-direction:column;gap:8px">
+        <div class="card"><b>正向：为什么做</b><p>从业务目标往下走，每一环都能说出上一环要求了什么、这一环承诺什么。</p></div>
+        <div class="card"><b>反向：凭什么验</b><p>从风险场景往回追，每一环都能指出谁提的、落在哪个组件、用什么方法验。</p></div>
+        <div class="card hot"><b>断链即返工</b><p>任一环答不上来，说明这条需求缺依据或缺落地路径，退回上游重定。</p></div>
+      </div>
     </div>
     <p class="sum">六类编号分属六类对象，跨册引用不重复编号。</p>
-    <div class="pageno"></div>
-  </section>
+    </section>
 
   <!-- 29 我做了什么 -->
   <section class="slide">
     <p class="kicker">收口 · 工作量</p>
-    <h1>这些结论是这样做出来的</h1>
+    <h1>内容产出</h1>
     <div class="body">
       <table class="tbl">
         <tr><th style="width:22%">产出</th><th style="width:12%">数量</th><th style="width:32%">内容</th><th>可查位置</th></tr>
