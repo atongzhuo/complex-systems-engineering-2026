@@ -12,52 +12,54 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:#0d1520;font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink)}
-  #stage{position:relative;width:1280px;height:720px;margin:0 auto;background:var(--bg);overflow:hidden;
-         transform-origin:top center}
-  .slide{position:absolute;inset:0;padding:50px 64px 42px;display:none;flex-direction:column}
+  #stage{position:relative;width:1280px;height:720px;margin:0 auto;background:var(--bg);overflow:hidden;transform-origin:top center}
+  .slide{position:absolute;inset:0;padding:46px 64px 40px;display:none;flex-direction:column}
   .slide.on{display:flex}
-  .slide::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--accent)}
-  .kicker{font-size:var(--d);color:var(--ink3);letter-spacing:.03em}
-  h1{font-size:var(--t);line-height:1.3;font-weight:700;margin:8px 0 16px;color:var(--navy)}
-  .body{flex:1;display:flex;flex-direction:column;gap:12px;min-height:0}
-  .sum{margin-top:8px;font-size:var(--d);color:var(--ink2);line-height:1.45}
-  .pageno{position:absolute;right:64px;bottom:14px;font-size:var(--d);color:var(--ink3)}
+  .slide::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--navy)}
+  .kicker{font-size:var(--d);color:var(--ink3);letter-spacing:.02em}
+  h1{font-size:var(--t);line-height:1.32;font-weight:700;margin:8px 0 14px;color:var(--navy)}
+  .body{flex:1;display:flex;flex-direction:column;gap:12px;min-height:0;margin-top:4px}
+  .sum{margin-top:8px;padding-top:9px;border-top:1px solid var(--line);font-size:var(--d);color:var(--ink2);line-height:1.45}
+  .pageno{position:absolute;right:60px;bottom:10px;font-size:var(--d);color:#7a8798;font-variant-numeric:tabular-nums}
+  #tag{position:absolute;right:64px;top:52px;font-size:var(--d);color:#9aa6b6}
 
-  /* 封面 */
-  .cover{padding:0;background:var(--navy);border:0}
+  .cover{padding:0;background:var(--navy)}
   .cover::before{display:none}
-  .cover .ph{position:absolute;right:0;top:0;width:640px;height:720px;background:url(deck-cover.jpg) center/cover}
-  .cover .veil{position:absolute;right:0;top:0;width:640px;height:720px;background:linear-gradient(90deg,rgba(19,42,74,.92),rgba(19,42,74,.35))}
-  .cover .txt{position:relative;z-index:2;padding:96px 0 0 72px;width:700px;color:#fff}
+  .cover .ph{position:absolute;right:0;top:0;width:620px;height:720px;background:url(deck-cover.jpg) center/cover}
+  .cover .veil{position:absolute;right:0;top:0;width:620px;height:720px;
+    background:linear-gradient(90deg,rgba(19,42,74,.97) 0%,rgba(19,42,74,.55) 42%,rgba(19,42,74,.18) 100%)}
+  .cover .txt{position:relative;z-index:2;padding:92px 0 0 72px;width:660px;color:#fff}
   .cover .mark{width:64px;height:64px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;
-               color:var(--navy);font-weight:700;font-size:22px;letter-spacing:.06em;margin-bottom:44px}
+               color:var(--navy);font-weight:700;font-size:22px;letter-spacing:.06em;margin-bottom:40px}
   .cover .k{font-size:var(--d);letter-spacing:.14em;color:rgba(255,255,255,.62)}
-  .cover h1{font-size:42px;line-height:1.34;color:#fff;margin:16px 0 18px;max-width:600px}
+  .cover h1{font-size:42px;line-height:1.34;color:#fff;margin:14px 0 16px;max-width:580px}
   .cover .sub{font-size:24px;color:rgba(255,255,255,.86)}
-  .cover .meta{position:absolute;left:72px;bottom:52px;font-size:var(--d);color:rgba(255,255,255,.66);line-height:1.7}
+  .cover .meta{position:absolute;left:72px;bottom:48px;font-size:var(--d);color:rgba(255,255,255,.66);line-height:1.7}
 
-  /* 章节页 */
-  .chapter{background:var(--navy);border:0;padding:0}
+  .chapter{background:var(--navy);padding:0}
   .chapter::before{display:none}
-  .chapter .num{position:absolute;left:72px;top:150px;font-size:112px;font-weight:700;color:rgba(255,255,255,.15);line-height:1}
-  .chapter .in{position:absolute;left:76px;top:266px;width:560px;color:#fff}
-  .chapter h1{color:#fff;font-size:38px;margin:0 0 18px}
+  .chapter .num{position:absolute;left:72px;top:148px;font-size:112px;font-weight:700;color:rgba(255,255,255,.15);line-height:1}
+  .chapter .in{position:absolute;left:76px;top:262px;width:540px;color:#fff}
+  .chapter h1{color:#fff;font-size:38px;margin:0 0 16px}
   .chapter .lead{font-size:24px;line-height:1.6;color:rgba(255,255,255,.8)}
-  .chapter .list{position:absolute;right:80px;top:250px;width:360px}
-  .chapter .list p{font-size:var(--d);color:rgba(255,255,255,.55);margin-bottom:14px;letter-spacing:.08em}
-  .chapter .list li{list-style:none;font-size:24px;color:rgba(255,255,255,.9);line-height:1.9}
-  .chapter .list li span{color:var(--accent);margin-right:10px;font-size:var(--d)}
+  .chapter .list{position:absolute;right:80px;top:246px;width:340px}
+  .chapter .list p{font-size:var(--d);color:rgba(255,255,255,.5);margin-bottom:12px;letter-spacing:.08em}
+  .chapter .list li{list-style:none;font-size:var(--d);color:rgba(255,255,255,.9);line-height:2.1}
+  .chapter .list li span{color:var(--accent);margin-right:10px}
 
-  /* 通用卡片 */
   .cards{display:flex;gap:14px}
   .card{flex:1;border:1px solid var(--line);border-radius:10px;background:#fff;padding:16px 18px}
   .card h3{font-size:var(--c);color:var(--navy);margin-bottom:10px}
   .card p{font-size:21px;line-height:1.55;color:var(--ink2)}
   .card .ex{margin-top:8px;font-size:var(--d);color:var(--ink3)}
-  .card.hot{background:var(--accent-soft);border-color:#eec2b8}
+  .card.hot{background:#fff;border-left:4px solid var(--accent);padding-left:18px}
   .card.hot h3{color:#8f2f1d}
+  .big{font-size:28px;line-height:1.5;color:var(--ink)}
+  .concl{display:flex;flex-direction:column;gap:14px;justify-content:center;flex:1}
+  .concl .row{display:flex;gap:18px;align-items:flex-start}
+  .concl .no{font-size:22px;font-weight:700;color:var(--accent);width:34px;flex:none;line-height:1.5}
+  .concl .tx{font-size:28px;line-height:1.5;color:var(--navy)}
 
-  /* 阶梯 */
   .ladder{display:flex;flex-direction:column;gap:7px;align-items:center;justify-content:center;flex:1}
   .rung{display:flex;align-items:center;gap:14px;height:56px;border-radius:8px;padding:0 16px}
   .rung .lv{font-size:var(--c);font-weight:700;white-space:nowrap;width:82px}
@@ -67,90 +69,79 @@
   .rung.light{color:var(--navy)}.rung.light .du{color:var(--ink2)}.rung.light .ex{color:var(--ink3)}
   .axis-note{display:flex;justify-content:space-between;font-size:var(--d);color:var(--ink3)}
 
-  /* 四象限 */
   .quad{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px}
   .q{border:1px solid var(--line);border-radius:10px;background:#fff;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
   .q h3{font-size:var(--c);color:var(--navy)}
   .q p{font-size:20px;line-height:1.5;color:var(--ink2)}
   .q .ex{font-size:var(--d);color:var(--ink3);margin-top:auto}
 
-  /* 7+1 */
   .stack{flex:1;display:flex;flex-direction:column;gap:10px;justify-content:center}
   .row7{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
   .biz{border:1px solid var(--line);border-radius:8px;background:#fff;padding:12px 8px;text-align:center}
   .biz b{display:block;font-size:20px;color:var(--navy)}
   .biz i{display:block;font-style:normal;font-size:var(--e);color:var(--ink3);margin-top:6px;line-height:1.35}
-  .base{border:0;border-radius:10px;background:var(--navy);color:#fff;padding:14px 20px;display:flex;gap:36px;align-items:center}
+  .base{border-radius:10px;background:var(--navy);color:#fff;padding:14px 20px;display:flex;gap:34px;align-items:center}
   .base b{font-size:22px}
   .base span{font-size:20px;color:rgba(255,255,255,.85)}
   .band{display:flex;align-items:center;gap:10px;font-size:var(--d);color:var(--ink3)}
   .band .ln{flex:1;height:1px;background:#c9d2df}
 
-  /* 三域循环 */
-  .cycle{flex:1;position:relative;display:flex;align-items:center;justify-content:center}
-  .cyc-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%}
-  .dom{border:1px solid var(--line);border-radius:10px;background:#fff;padding:16px 18px}
-  .dom h3{font-size:var(--c);color:var(--navy);margin-bottom:8px}
-  .dom p{font-size:20px;color:var(--ink2);line-height:1.5}
-  .dom .ex{font-size:var(--d);color:var(--ink3);margin-top:8px}
-  .cyc-mid{margin:10px 0;border:1px dashed #c9d2df;border-radius:10px;padding:10px 16px;text-align:center;
-           font-size:20px;color:var(--ink2)}
-  .cyc-mid b{color:var(--navy)}
+  .split{flex:1;display:flex;gap:24px;min-height:0}
+  .split .lft{flex:1.15;display:flex;flex-direction:column;justify-content:flex-start;gap:16px}
+  .split .rgt{flex:.85;display:flex;align-items:center}
+  .split .rgt img{width:100%;max-height:372px;object-fit:cover;border-radius:10px}
 
-  /* 表格 */
-  table.tbl{width:100%;border-collapse:collapse;border:1px solid var(--line);font-size:var(--d)}
-  table.tbl th{background:var(--navy);color:#fff;font-size:22px;font-weight:600;text-align:left;padding:12px 14px}
+  table.tbl{width:100%;border-collapse:collapse;border:1px solid var(--line);font-size:var(--d);background:#fff}
+  table.tbl th{background:#EEF2F8;color:var(--navy);font-size:21px;font-weight:600;text-align:left;
+    padding:13px 14px;border-bottom:2px solid var(--navy)}
   table.tbl td{padding:13px 14px;border-top:1px solid var(--line);line-height:1.4;vertical-align:middle}
-  table.tbl tr:first-child td{border-top:0}
   table.tbl td.num{text-align:right;font-size:var(--c);color:var(--navy);font-weight:600;font-variant-numeric:tabular-nums}
   table.tbl td.ex{color:var(--ink2)}
   table.tbl td.hot{color:#8f2f1d;font-weight:600}
+  .tnote{font-size:var(--d);color:var(--ink2);line-height:1.5}
 
-  /* 流程 */
-  .flow{flex:1;display:flex;align-items:center;gap:8px}
-  .stp{flex:1;border:1px solid var(--line);border-radius:10px;background:#fff;padding:16px 14px;min-height:150px}
-  .stp b{display:block;font-size:var(--c);color:var(--navy);margin-bottom:8px}
-  .stp p{font-size:20px;color:var(--ink2);line-height:1.5}
-  .stp .ex{font-size:var(--d);color:var(--ink3);margin-top:8px}
-  .arw{width:30px;height:2px;background:#c3ccda;position:relative;flex:none}
-  .arw::after{content:"";position:absolute;right:-1px;top:-5px;border-left:10px solid #c3ccda;
+  .flow{flex:1;display:flex;align-items:flex-start;justify-content:center;gap:6px;padding-top:14px}
+  .stp{flex:1;border:1px solid var(--line);border-radius:10px;background:#fff;padding:14px 12px;min-height:0;height:226px;display:flex;flex-direction:column;justify-content:center}
+  .stp b{display:block;font-size:21px;color:var(--navy);margin-bottom:8px}
+  .stp p{font-size:19px;color:var(--ink2);line-height:1.45}
+  .stp .ex{font-size:var(--e);color:var(--ink3);margin-top:8px;line-height:1.4}
+  .stp .out{margin-top:auto;padding-top:10px;font-size:var(--e);color:#8f9aa8;border-top:1px dashed #dfe5ee}
+  .arw{width:18px;height:2px;background:#c3ccda;position:relative;flex:none;align-self:center}
+  .arw::after{content:"";position:absolute;right:-1px;top:-5px;border-left:9px solid #c3ccda;
     border-top:6px solid transparent;border-bottom:6px solid transparent}
 
-  /* 堆叠条 */
   .chart{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center}
-  .grid{position:absolute;left:224px;right:106px;top:4px;bottom:46px;
+  .grid{position:absolute;left:224px;right:106px;top:0;bottom:40px;
         background:repeating-linear-gradient(to right,rgba(19,42,74,.1) 0 1px,transparent 1px 135px);
         border-bottom:1px solid #c9d2df}
-  .bars{position:relative;z-index:2;display:flex;flex-direction:column;gap:34px}
+  .bars{position:relative;z-index:2;display:flex;flex-direction:column;gap:32px}
   .bar-row{display:flex;align-items:flex-start;gap:14px}
-  .bar-lab{width:196px;flex:none;font-size:22px;font-weight:700;color:var(--navy);text-align:right;padding-top:20px}
-  .bar-wrap{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
-  .bar{display:flex;gap:6px;height:60px}
+  .bar-lab{width:196px;flex:none;font-size:22px;font-weight:700;color:var(--navy);text-align:right;padding-top:18px}
+  .bar-wrap{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+  .bar{display:flex;gap:6px;height:58px}
   .seg{border-radius:5px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:var(--e)}
-  .total{flex:none;width:108px;text-align:right;font-size:var(--c);font-weight:700;color:var(--accent);padding-top:18px}
+  .total{flex:none;width:108px;text-align:right;font-size:var(--c);font-weight:700;color:var(--accent);padding-top:16px}
   .legend{font-size:var(--d);color:var(--ink2)}
   .legend b{color:var(--navy)}
-  .xaxis{position:relative;height:24px;margin:4px 106px 0 224px}
+  .xaxis{position:relative;height:24px;margin:2px 106px 0 224px}
   .xaxis span{position:absolute;top:0;transform:translateX(-50%);font-size:var(--d);color:var(--ink2)}
 
-  /* 大图 */
   .bigfig{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
   .bigfig img{max-width:100%;max-height:100%;object-fit:contain}
 
-  /* 因果链 */
   .chain{display:flex;align-items:center;gap:10px;flex:1;min-height:0}
   .col{flex:1;display:flex;flex-direction:column;gap:8px;justify-content:center}
   .col h4{font-size:var(--d);color:var(--ink3);text-align:center;margin-bottom:2px}
   .node{border-radius:8px;border:1px solid var(--line);background:#fff;padding:7px 10px;text-align:center}
   .node .n{font-size:20px;font-weight:600;line-height:1.25;color:var(--navy)}
   .node .e{font-size:var(--e);color:var(--ink2);margin-top:2px}
-  .node.act{background:var(--accent-soft);border-color:#eec2b8}.node.act .n{color:#8f2f1d}
+  .node.act{background:#fff;border-left:4px solid var(--accent);text-align:left}
+  .node.act .n{color:#8f2f1d}
   .node.haz{background:#eef2f8;border-color:#d6dfee}
   .arrowcol{width:32px;height:2px;background:#c3ccda;position:relative;flex:none}
   .arrowcol::after{content:"";position:absolute;right:-1px;top:-5px;border-left:10px solid #c3ccda;
     border-top:6px solid transparent;border-bottom:6px solid transparent}
 
-  /* 四层防线 */
   .defs{flex:1;display:flex;gap:16px;min-height:0}
   .defs .lft{flex:1.35;display:flex;flex-direction:column;gap:9px;justify-content:center}
   .layer{border-radius:8px;padding:12px 16px;display:flex;align-items:center;gap:14px}
@@ -159,10 +150,10 @@
   .defs .rgt{flex:1;display:flex;flex-direction:column;gap:10px}
   .mini{border:1px solid var(--line);border-radius:10px;background:#fff;padding:12px 14px}
   .mini h3{font-size:22px;color:var(--navy);margin-bottom:6px}
-  .mini p{font-size:20px;color:var(--ink2);line-height:1.45}
+  .mini p{font-size:19px;color:var(--ink2);line-height:1.45}
+  .mini.callout{border:1px solid #eec2b8;border-left:4px solid var(--accent);background:#fff}
 
-  /* 时间轴 */
-  .tl{flex:1;display:flex;flex-direction:column;justify-content:center;gap:0}
+  .tl{flex:1;display:flex;flex-direction:column;justify-content:center}
   .tl-track{position:relative;display:grid;grid-template-columns:repeat(6,1fr);padding-top:16px}
   .tl-track::before{content:"";position:absolute;left:4%;right:4%;top:26px;height:2px;background:#c9d2df}
   .tp{position:relative;text-align:center}
@@ -170,9 +161,8 @@
   .tp b{display:block;font-size:20px;color:var(--navy)}
   .tp p{font-size:var(--e);color:var(--ink2);line-height:1.4;margin-top:4px}
 
-  /* 风险页 */
   .risk{flex:1;display:flex;gap:16px;min-height:0}
-  .risk .t{flex:1.55}
+  .risk .t{flex:1.62;display:flex;flex-direction:column;gap:8px}
   .risk .m{flex:1;display:flex;flex-direction:column;gap:10px}
   .mx{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:6px;flex:1}
   .mx div{border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:var(--e);color:#fff;text-align:center;padding:6px}
@@ -180,51 +170,54 @@
   .mx .r4{background:var(--accent)}
   .mx .hit{outline:3px solid var(--navy);outline-offset:-3px;font-weight:700}
 
-  /* 追溯 */
   .trace{flex:1;display:flex;flex-direction:column;justify-content:center;gap:16px}
   .tr-row{display:flex;align-items:center;gap:6px}
   .chip{flex:1;border:1px solid var(--line);border-radius:8px;background:#fff;padding:12px 10px;text-align:center}
   .chip b{display:block;font-size:20px;color:var(--navy)}
   .chip span{display:block;font-size:var(--e);color:var(--ink2);margin-top:4px}
-  .tr-arw{width:24px;height:2px;background:#c3ccda;position:relative;flex:none}
+  .chip.risk{border:1px solid #eec2b8;border-left:4px solid var(--accent)}
+  .tr-arw{width:22px;height:2px;background:#c3ccda;position:relative;flex:none}
   .tr-arw::after{content:"";position:absolute;right:-1px;top:-5px;border-left:9px solid #c3ccda;
     border-top:6px solid transparent;border-bottom:6px solid transparent}
 
-  /* 谢谢 */
-  .end{background:var(--navy);border:0;align-items:center;justify-content:center;text-align:center}
+  .nest{display:flex;flex-direction:column;justify-content:center;flex:1}
+  .nest .n1{background:#E7EDF6;border-radius:10px;padding:16px 18px}
+  .nest .n2{background:#D3E0F0;border-radius:10px;padding:14px 16px;margin:8px 0 0 26px}
+  .nest .n3{background:#A9C2DF;border-radius:10px;padding:12px 16px;margin:8px 0 0 26px}
+  .nest .n4{background:var(--navy);border-radius:10px;padding:12px 16px;margin:8px 0 0 26px;color:#fff}
+  .nest b{font-size:20px}
+
+  .end{background:var(--navy);align-items:center;justify-content:center;text-align:center}
   .end::before{display:none}
-  .end h1{color:#fff;font-size:52px;margin:0 0 20px}
+  .end h1{color:#fff;font-size:52px;margin:0 0 18px}
   .end p{font-size:24px;color:rgba(255,255,255,.75);line-height:1.8}
 
-  /* 目录浮层 */
   #toc{position:fixed;inset:0;background:#0d1520;display:none;z-index:9;padding:72px 72px 48px;overflow:auto}
   #toc.open{display:block}
   #toc h2{color:#fff;font-size:26px;margin-bottom:24px;letter-spacing:.04em}
   #toc ol{columns:2;column-gap:48px}
-  #toc li{list-style:none;color:rgba(255,255,255,.8);font-size:18px;line-height:2;cursor:pointer}
+  #toc li{list-style:none;color:rgba(255,255,255,.8);font-size:18px;line-height:2.05;cursor:pointer}
   #toc li:hover{color:var(--accent)}
   #toc li b{display:inline-block;width:44px;color:rgba(255,255,255,.45)}
   #bar{position:fixed;left:0;top:0;height:3px;background:var(--accent);z-index:10;width:0}
   .hint{position:fixed;left:16px;bottom:12px;color:rgba(255,255,255,.4);font-size:13px}
   .btns{position:fixed;right:16px;bottom:12px;display:flex;gap:8px}
   .btns button{background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:6px;padding:6px 12px;font-size:14px;cursor:pointer}
+  :fullscreen .btns,:fullscreen .hint,:fullscreen #bar{display:none!important}
   @media print{
     html,body{background:#fff}
-    #stage{width:1280px;height:auto;transform:none!important}
+    #stage{width:1280px;height:auto;transform:none!important;margin:0!important}
     .slide{position:relative;display:flex!important;width:1280px;height:720px;break-after:page;page-break-after:always}
-    .slide:not(.on){display:flex!important}
-    .hint,.btns,#bar,#toc{display:none!important}
+    .hint,.btns,#bar,#toc,#tag{display:none!important}
     @page{size:1280px 720px;margin:0}
   }
 </style>
 </head>
 <body>
 <div id="bar"></div>
-<div id="toc"><h2>目录</h2><ol id="toclist"></ol></div>
-<div class="hint">← → 翻页 · T 目录 · F 全屏</div>
-<div class="btns"><button onclick="prev()">上一页</button><button onclick="next()">下一页</button><button onclick="togToc()">目录</button><button onclick="full()">全屏</button></div>
-
 <div id="stage">
+  <div id="tag"></div>
+
   <!-- 1 封面 -->
   <section class="slide cover">
     <div class="ph"></div><div class="veil"></div>
@@ -237,61 +230,61 @@
     <p class="meta">课程汇报 · 复杂系统工程 2026<br>汇报人：胡珂嘉 · 2026-11-26 · 共 30 页</p>
   </section>
 
-  <!-- 2 四个问题 -->
+  <!-- 2 结论前置 -->
   <section class="slide">
-    <p class="kicker">引言</p>
-    <h1>本报告回答四个问题</h1>
+    <p class="kicker">先说结论</p>
+    <h1>三句话讲完这套系统</h1>
     <div class="body">
-      <div class="cards">
-        <div class="card"><h3>解决什么问题</h3><p>路口冲突、事件响应与跨路口协同，哪些靠设备、哪些靠算法、哪些必须靠人。</p><div class="ex">例：公交晚点时，是否给优先通行。</div></div>
-        <div class="card"><h3>怎么分层拆解</h3><p>从任务到模块共六层，上层定目标与边界，下层定实现与验收。</p><div class="ex">例：任务层的"少出事"落到模块层的毫米波雷达。</div></div>
-      </div>
-      <div class="cards">
-        <div class="card"><h3>需求与架构怎么对应</h3><p>每条要求都能追到提出方、承载组件与验证方法，不留悬空条目。</p><div class="ex">例：识别率要求对应感知子系统与场景回放。</div></div>
-        <div class="card"><h3>什么条件下可用</h3><p>运行条件的允许、受限与禁止三档，以及越界后的降级路径。</p><div class="ex">例：通信中断超过 5 分钟即退出协同。</div></div>
+      <div class="concl">
+        <div class="row"><div class="no">01</div><div class="tx">它是一个<b>车、路、云三域闭环</b>的系统：云做全局，路做兜底，车做执行。</div></div>
+        <div class="row"><div class="no">02</div><div class="tx">它被拆成<b>一百二十一条可验证的要求</b>：每条都追得到提出方、承载组件与验证方法。</div></div>
+        <div class="row"><div class="no">03</div><div class="tx">它识别出<b>十二条风险场景</b>：两条不可接受，只能改设计，不能加提示。</div></div>
       </div>
     </div>
-    <p class="sum">四个问题对应四册文档，后文按此顺序展开。</p>
-    <div class="pageno">2 / 30</div>
+    <p class="sum">下面按「为什么做 — 怎么拆 — 怎么定 — 怎么搭 — 什么条件下用」五段给出证据。</p>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 3 场景 -->
+  <!-- 3 路口 -->
   <section class="slide">
     <p class="kicker">为什么做 · 一个真实的路口</p>
     <h1>一个路口的 45 秒，暴露了系统的全部难点</h1>
-    <div class="body" style="display:flex;flex-direction:row;gap:24px">
-      <div style="flex:1.05;display:flex;flex-direction:column;justify-content:flex-start;gap:18px;padding-top:8px">
-        <p style="font-size:var(--b);line-height:1.5;color:var(--ink)">晚高峰主干路交叉口，公交晚点 90 秒；右转电动自行车越过停止线，与公交的冲突时间约 2 秒。</p>
-        <p style="font-size:var(--b);line-height:1.5;color:var(--ink)">此时通信往返时延由 40 毫秒升至 320 毫秒（这 0.32 秒里，一辆 40 公里时速的车已前进约 3.5 米）。</p>
-        <p style="font-size:var(--b);line-height:1.5;color:var(--ink)">系统要在 15 秒内完成提示、降级与撤销三类动作，任何一步迟疑都会放大风险。</p>
-      </div>
-      <div style="flex:1;display:flex;align-items:center;justify-content:center">
-        <img src="deck-cover.jpg" alt="夜间路口" style="width:100%;max-height:430px;object-fit:cover;border-radius:10px">
+    <div class="body">
+      <div class="split">
+        <div class="lft">
+          <p class="big">晚高峰主干路交叉口，公交晚点 90 秒；右转电动自行车越过停止线，与公交的冲突时间约 2 秒。</p>
+          <p class="big">此时通信往返时延由 40 毫秒升到 320 毫秒（这 0.32 秒里，一辆 40 公里时速的车已前进约 3.5 米）。</p>
+          <p class="big">系统要在 15 秒内完成提示、降级与撤销三类动作，任何一步迟疑都会放大风险。</p>
+        </div>
+        <div class="rgt"><img src="deck-cover.jpg" alt="夜间路口"></div>
       </div>
     </div>
-    <p class="sum">一个路口，足以说明这套系统的全部判断难点。</p>
-    <div class="pageno">3 / 30</div>
+    <p class="sum">这个路口之后还会出现两次：讲安全时，讲风险时。</p>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 4 五步 -->
+  <!-- 4 六步 -->
   <section class="slide">
     <p class="kicker">为什么做 · 方法</p>
-    <h1>五个步骤推进，每一步都有标准依据</h1>
+    <h1>六步推进，每一步都有标准兜底</h1>
     <div class="body">
+      <p style="font-size:var(--b);color:var(--ink);line-height:1.5">从业务到验证，一条链路六步走完；每一步的产出都能被下一步直接引用。</p>
       <div class="flow">
-        <div class="stp"><b>① 业务需求</b><p>业务为何存在、要什么结果</p><div class="ex">依据 29148 表 4-1</div></div>
+        <div class="stp" style="height:252px"><b>① 业务需求</b><p>业务为何存在</p><div class="ex">需求工程标准</div><div class="out">产出：业务册</div></div>
         <div class="arw"></div>
-        <div class="stp"><b>② 相关方需求</b><p>谁受影响、凭什么判断达成</p><div class="ex">依据 29148 表 4-5</div></div>
+        <div class="stp" style="height:252px"><b>② 相关方需求</b><p>谁受影响、凭什么判断</p><div class="ex">需求工程标准</div><div class="out">产出：相关方册</div></div>
         <div class="arw"></div>
-        <div class="stp"><b>③ 系统需求</b><p>系统输出什么、多少、怎么验</p><div class="ex">依据 29148 表 5-1</div></div>
+        <div class="stp" style="height:252px"><b>③ 系统需求</b><p>输出什么、多少、怎么验</p><div class="ex">系统需求规格</div><div class="out">产出：系统册</div></div>
         <div class="arw"></div>
-        <div class="stp"><b>④ 架构</b><p>由哪些部分组成、谁控制谁</p><div class="ex">依据 15288</div></div>
+        <div class="stp" style="height:252px"><b>④ 架构取舍</b><p>由哪些部分组成、谁控制谁</p><div class="ex">生命周期标准</div><div class="out">产出：架构册</div></div>
         <div class="arw"></div>
-        <div class="stp"><b>⑤ 安全与场景</b><p>什么条件下会出事、怎么兜住</p><div class="ex">依据 STPA、34501</div></div>
+        <div class="stp" style="height:252px"><b>⑤ 安全分析</b><p>什么动作会做出危险</p><div class="ex">安全分析方法</div><div class="out">产出：安全分析</div></div>
+        <div class="arw"></div>
+        <div class="stp" style="height:252px"><b>⑥ 场景与验证</b><p>什么条件下才算能用</p><div class="ex">场景标准</div><div class="out">产出：场景册</div></div>
       </div>
     </div>
-    <p class="sum">五步各有标准，结论可逐条回溯，不靠经验拍板。</p>
-    <div class="pageno">4 / 30</div>
+    <p class="sum">六步各有标准，结论可逐条回溯，不靠经验拍板。</p>
+    <div class="pageno"></div>
   </section>
 
   <!-- 5 章节 02 -->
@@ -300,8 +293,8 @@
     <div class="in"><h1>系统怎么拆</h1><p class="lead">同一个系统，六种问法。越往上问「为什么」，越往下问「怎么实现、怎么验」。</p></div>
     <div class="list"><p>本章内容</p><ul>
       <li><span>01</span>六层分解</li><li><span>02</span>任务层的四类目标</li>
-      <li><span>03</span>体系层的七个业务</li><li><span>04</span>整车、系统与子系统</li>
-      <li><span>05</span>十六个模块</li></ul></div>
+      <li><span>03</span>体系层的七个业务</li><li><span>04</span>三类载体与三域分工</li>
+      <li><span>05</span>十个子系统、十六个模块</li></ul></div>
   </section>
 
   <!-- 6 六层 -->
@@ -320,7 +313,7 @@
       </div>
     </div>
     <p class="sum">层间只以接口契约衔接，跨层直接指挥即视为设计缺陷。</p>
-    <div class="pageno">6 / 30</div>
+    <div class="pageno"></div>
   </section>
 
   <!-- 7 任务层 -->
@@ -336,7 +329,7 @@
       </div>
     </div>
     <p class="sum">四类目标不可同时取极值，冲突时按安全优先裁定。</p>
-    <div class="pageno">7 / 30</div>
+    <div class="pageno"></div>
   </section>
 
   <!-- 8 体系层 -->
@@ -360,68 +353,52 @@
       </div>
     </div>
     <p class="sum">底座不单列业务，否则投资与运维将缺少责任主体。</p>
-    <div class="pageno">8 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 9 整车层 -->
+  <!-- 9 载体与三域 -->
   <section class="slide">
-    <p class="kicker">系统怎么拆 · 整车层</p>
-    <h1>整车层：三类物理载体</h1>
+    <p class="kicker">系统怎么拆 · 整车与系统层</p>
+    <h1>三类载体，按时间尺度分工</h1>
     <div class="body">
-      <div class="cards" style="flex:1;align-items:stretch">
-        <div class="card"><h3>智能网联整车</h3><p>车载单元、协同域控与提示单元，负责执行与本地校验。</p><div class="ex">例：车端 70 毫秒内完成校验并决定是否采纳建议。</div></div>
-        <div class="card"><h3>路侧一体化整机</h3><p>感知融合、边缘计算与路侧通信，负责补盲与区域决策。</p><div class="ex">例：单杆覆盖 150 米，断网仍可自治 5 分钟。</div></div>
-        <div class="card"><h3>云端整机</h3><p>服务器与算力设备、机房配套，负责全局优化与事件闭环。</p><div class="ex">例：跨路口协同决策在 300 毫秒内完成。</div></div>
-      </div>
-    </div>
-    <p class="sum">三类载体分别按车规与工业级设计，故障导向安全。</p>
-    <div class="pageno">9 / 30</div>
-  </section>
-
-  <!-- 10 系统层 -->
-  <section class="slide">
-    <p class="kicker">系统怎么拆 · 系统层</p>
-    <h1>系统层：车、路、云按时间尺度分工</h1>
-    <div class="body">
-      <div class="cycle">
-        <div style="width:100%">
-          <div class="cyc-row">
-            <div class="dom"><h3>车端 · 实时执行</h3><p>本地校验云端建议，必要时拒绝；接管提示与最小风险状态由车端落实。</p><div class="ex">例：建议过期即丢弃，改按感知结果行驶。</div></div>
-            <div class="dom"><h3>路端 · 补盲与汇聚</h3><p>融合多源感知，输出目标与事件；断网时维持区域自治。</p><div class="ex">例：遮挡场景下由路侧补足盲区目标。</div></div>
-            <div class="dom"><h3>云端 · 全局优化</h3><p>跨路口协调、事件闭环与策略下发，只出建议不直接控制。</p><div class="ex">例：相邻路口绿灯延长 6 秒。</div></div>
-          </div>
-          <div class="cyc-mid">三域共用同一<b>时空基准</b>：时间同步误差不超过 1 微秒，坐标与地图版本一致</div>
+      <div class="split">
+        <div class="lft" style="gap:9px">
+          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">车端 · 实时执行</h3><p style="font-size:20px;line-height:1.45">本地校验云端建议，必要时拒绝；接管提示与最小风险由车端落实。</p><div class="ex">例：建议过期即丢弃。</div></div>
+          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">路端 · 补盲与汇聚</h3><p style="font-size:20px;line-height:1.45">融合多源感知输出目标与事件；断网时维持区域自治。</p><div class="ex">例：单杆覆盖 150 米，断网自治 5 分钟。</div></div>
+          <div class="card" style="padding:11px 15px"><h3 style="margin-bottom:4px">云端 · 全局优化</h3><p style="font-size:20px;line-height:1.45">跨路口协调、事件闭环与策略下发，只出建议不直接控制。</p><div class="ex">例：相邻路口绿灯延长 6 秒。</div></div>
         </div>
+        <div class="rgt"><img src="deck-pole.jpg" alt="路侧杆件"></div>
       </div>
     </div>
-    <p class="sum">分域的目的是把不可控的网络时延挡在控制回路之外。</p>
-    <div class="pageno">10 / 30</div>
+    <p class="sum">三域共用同一时空基准：时间误差不超过 1 微秒。</p>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 11 子系统 -->
+  <!-- 10 子系统 -->
   <section class="slide">
     <p class="kicker">系统怎么拆 · 子系统层</p>
     <h1>子系统层：十个可独立交付的单元</h1>
     <div class="body">
       <table class="tbl">
-        <tr><th style="width:22%">分组</th><th style="width:10%">数量</th><th style="width:34%">职责</th><th>具体实例</th></tr>
+        <tr><th style="width:20%">分组</th><th style="width:9%">数量</th><th style="width:33%">职责</th><th>具体实例</th></tr>
         <tr><td>车端</td><td class="num">3</td><td>车载感知、车载通信、车载决策</td><td class="ex">识别前方闯红灯的非机动车</td></tr>
         <tr><td>路端</td><td class="num">3</td><td>路侧感知、路侧通信、边缘计算</td><td class="ex">路口 150 米范围内目标融合</td></tr>
         <tr><td>云端</td><td class="num">3</td><td>云控平台、高精地图、协同调度</td><td class="ex">相邻两个路口的绿波协调</td></tr>
         <tr><td>全域安全</td><td class="num">1</td><td>身份认证、密钥与证书管理</td><td class="ex">消息验签与证书轮换</td></tr>
       </table>
+      <p class="tnote">十个单元：车载感知、车载通信、车载决策；路侧感知、路侧通信、边缘计算；云控平台、高精地图、协同调度；全域安全。</p>
     </div>
     <p class="sum">划分标准是职责单一、接口清晰、可独立测试与验收。</p>
-    <div class="pageno">11 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 12 模块 -->
+  <!-- 11 模块 -->
   <section class="slide">
     <p class="kicker">系统怎么拆 · 模块层</p>
     <h1>模块层：十六个可采购的最小单元</h1>
     <div class="body">
       <table class="tbl">
-        <tr><th style="width:18%">类别</th><th style="width:10%">数量</th><th style="width:36%">包含模块</th><th>具体实例与验收口径</th></tr>
+        <tr><th style="width:17%">类别</th><th style="width:9%">数量</th><th style="width:36%">包含模块</th><th>具体实例与验收口径</th></tr>
         <tr><td>感知</td><td class="num">4</td><td>摄像头、毫米波雷达、激光雷达、定位</td><td class="ex">毫米波雷达探测距离不小于 250 米</td></tr>
         <tr><td>通信</td><td class="num">3</td><td>车载单元、路侧单元、5G 传输</td><td class="ex">空口时延不超过 10 毫秒</td></tr>
         <tr><td>计算</td><td class="num">3</td><td>AI 融合计算、信号处理、存储</td><td class="ex">八路视频稳定推理，断网缓存 5 分钟</td></tr>
@@ -429,10 +406,10 @@
       </table>
     </div>
     <p class="sum">模块指标写入采购合同，故障可在子系统内隔离。</p>
-    <div class="pageno">12 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 13 章节 03 -->
+  <!-- 12 章节 03 -->
   <section class="slide chapter">
     <p class="num">03</p>
     <div class="in"><h1>需求怎么定</h1><p class="lead">先把业务讲清楚，再把相关方的诉求摊开，最后翻译成可验证的系统要求。</p></div>
@@ -441,7 +418,7 @@
       <li><span>03</span>一百二十一条系统要求</li><li><span>04</span>三段时延的拆分</li></ul></div>
   </section>
 
-  <!-- 14 业务需求 -->
+  <!-- 13 业务需求 -->
   <section class="slide">
     <p class="kicker">需求怎么定 · 业务需求</p>
     <h1>业务需求：先讲清业务怎么运转</h1>
@@ -453,20 +430,20 @@
         <div class="arw"></div>
         <div class="stp"><b>③ 协同与执行</b><p>信号、公交与应急联动，形成处置方案。</p><div class="ex">例：为救护车开通绿波</div></div>
         <div class="arw"></div>
-        <div class="stp"><b>④ 复盘与结算</b><p>留存证据与指标，用于考核与按效付费。</p><div class="ex">例：事件处置时长纳入考核</div></div>
+        <div class="stp"><b>④ 复盘与结算</b><p>留存证据与指标，用于考核与按效付费。</p><div class="ex">例：处置时长纳入考核</div></div>
       </div>
     </div>
     <p class="sum">六条业务规则优先于功能：安全优先于效率。</p>
-    <div class="pageno">14 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 15 相关方 -->
+  <!-- 14 相关方 -->
   <section class="slide">
     <p class="kicker">需求怎么定 · 相关方需求</p>
     <h1>相关方需求：五组人，各有所求</h1>
     <div class="body">
       <table class="tbl">
-        <tr><th style="width:20%">分组</th><th style="width:10%">数量</th><th style="width:34%">最在意的事</th><th>具体诉求实例</th></tr>
+        <tr><th style="width:18%">分组</th><th style="width:9%">数量</th><th style="width:33%">最在意的事</th><th>具体诉求实例</th></tr>
         <tr><td>政府与监管</td><td class="num">5</td><td>安全与效率可量化、合规不越权</td><td class="ex">事件证据可用于事后定责</td></tr>
         <tr><td>运营方</td><td class="num">8</td><td>少误报、故障可定位、责任边界清楚</td><td class="ex">设备掉线 3 分钟内可定位到杆</td></tr>
         <tr><td>使用者</td><td class="num">3</td><td>提示可信不干扰、隐私不被侵犯</td><td class="ex">提示每小时不超过 5 条</td></tr>
@@ -475,10 +452,10 @@
       </table>
     </div>
     <p class="sum">共 24 类、25 条要求，冲突按优先级与授权层级裁定。</p>
-    <div class="pageno">15 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 16 系统需求表 -->
+  <!-- 15 系统需求表 -->
   <section class="slide">
     <p class="kicker">需求怎么定 · 系统需求</p>
     <h1>系统需求：一百二十一条，分十三类</h1>
@@ -494,10 +471,10 @@
       </table>
     </div>
     <p class="sum">分类的意义在于验证方式不同，不能一律用演示代替。</p>
-    <div class="pageno">16 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 17 时延 -->
+  <!-- 16 时延 -->
   <section class="slide">
     <p class="kicker">需求怎么定 · 指标口径</p>
     <h1>三段时延共同构成端到端预算</h1>
@@ -510,14 +487,14 @@
               <div class="seg" style="width:81px;background:var(--navy)">30</div>
               <div class="seg" style="width:54px;background:var(--navy2)">20</div>
               <div class="seg" style="width:54px;background:var(--navy3)">20</div>
-            </div><p class="legend"><b>感知 30</b> · 决策 20 · 执行 20</p></div>
+            </div><p class="legend" style="color:var(--ink3)">感知 · 决策 · 执行，全部在车端完成，不依赖网络</p></div>
             <div class="total">70 毫秒</div></div>
           <div class="bar-row"><div class="bar-lab">端到端本地</div>
             <div class="bar-wrap"><div class="bar">
               <div class="seg" style="width:189px;background:var(--navy)">车端 70</div>
               <div class="seg" style="width:54px;background:var(--navy2)">20</div>
               <div class="seg" style="width:27px;background:#8fa6c4"></div>
-            </div><p class="legend"><b>车端 70</b> · 融合 20 · 余量 10</p></div>
+            </div><p class="legend" style="color:var(--ink3)">车端 + 路侧融合 + 余量，用于吸收传感器抖动</p></div>
             <div class="total">100 毫秒</div></div>
           <div class="bar-row"><div class="bar-lab">云端协同</div>
             <div class="bar-wrap"><div class="bar">
@@ -538,10 +515,10 @@
       </div>
     </div>
     <p class="sum">任一段超限，该条建议即判定失效，不得继续下发。</p>
-    <div class="pageno">17 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 18 章节 04 -->
+  <!-- 17 章节 04 -->
   <section class="slide chapter">
     <p class="num">04</p>
     <div class="in"><h1>架构与安全</h1><p class="lead">先画清组件与接口，再画清谁给谁下命令，最后问「什么条件下的命令会出事」。</p></div>
@@ -551,18 +528,18 @@
       <li><span>05</span>安全需求的四层防线</li></ul></div>
   </section>
 
-  <!-- 19 架构图 -->
+  <!-- 18 架构图 -->
   <section class="slide">
     <p class="kicker">架构 · 总图</p>
     <h1>三层一底座：云做全局，路做兜底，车做执行</h1>
     <div class="body">
       <div class="bigfig"><img src="fig-architecture.png" alt="初始系统架构"></div>
     </div>
-    <p class="sum">云只出建议，路侧可自治，车端保留最终校验权。</p>
-    <div class="pageno">19 / 30</div>
+    <p class="sum">看图顺序：外部系统 → 云控八项服务 → 通信底座 → 路侧四项 → 车端五项。</p>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 20 三个决策 -->
+  <!-- 19 三个决策 -->
   <section class="slide">
     <p class="kicker">架构 · 决策</p>
     <h1>三个关键决策决定了责任边界</h1>
@@ -575,21 +552,21 @@
       </table>
     </div>
     <p class="sum">三个决策共同回答：出问题时，谁负责、谁兜底。</p>
-    <div class="pageno">20 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 21 控制结构 -->
+  <!-- 20 控制结构 -->
   <section class="slide">
     <p class="kicker">架构 · 控制结构</p>
     <h1>控制结构：五个控制器，三个受控过程</h1>
     <div class="body">
       <div class="bigfig"><img src="fig-control-structure.png" alt="系统控制框图"></div>
     </div>
-    <p class="sum">实线是下发，虚线是回执；缺任一条回执，回路即不完整。</p>
-    <div class="pageno">21 / 30</div>
+    <p class="sum">看图顺序：C5 交管 → C1 云控 → C2 路侧 → C3 车端 → C4 驾驶员；虚线是回执。</p>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 22 因果链 -->
+  <!-- 21 因果链 -->
   <section class="slide">
     <p class="kicker">安全 · 第一步与第二步</p>
     <h1>危险多源于控制动作缺失或时机不当</h1>
@@ -620,10 +597,10 @@
       </div>
     </div>
     <p class="sum">十四类动作中过半并非硬件故障，而是逻辑未覆盖。</p>
-    <div class="pageno">22 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 23 四层防线 -->
+  <!-- 22 四层防线 -->
   <section class="slide">
     <p class="kicker">安全 · 第三步</p>
     <h1>安全需求：四层防线加一条独立通道</h1>
@@ -636,17 +613,17 @@
           <div class="layer" style="background:var(--navy4)"><b>恢复</b><p>原始帧、决策输入与人工操作留存并防篡改；灰度变更可一键回滚。</p></div>
         </div>
         <div class="rgt">
-          <div class="mini" style="border-color:#eec2b8;background:var(--accent-soft)"><h3 style="color:#8f2f1d">独立安全通道</h3><p>安全监控单元用独立单片机、独立电源与独立时钟，与协同域控物理隔离。</p></div>
-          <div class="mini"><h3>为什么必须独立</h3><p>共因失效时，主链路越"智能"，越需要一条只会喊停的旁路。</p></div>
+          <div class="mini callout"><h3 style="color:#8f2f1d">独立安全通道</h3><p>安全监控单元用独立单片机、独立电源与独立时钟，与协同域控物理隔离。</p></div>
+          <div class="mini"><h3>为什么必须独立</h3><p>共因失效时，主链路越「智能」，越需要一条只会喊停的旁路。</p></div>
           <div class="mini"><h3>等级与依据</h3><p>关键安全需求按高安全等级设计，单点失效不得直接导致伤亡。</p></div>
         </div>
       </div>
     </div>
-    <p class="sum">重点不在哪层最强，而在每层都留了下一层。</p>
-    <div class="pageno">23 / 30</div>
+    <p class="sum">回到第 3 页那个路口：四层防线各挡一次，才轮到最小风险状态。</p>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 24 章节 05 -->
+  <!-- 23 章节 05 -->
   <section class="slide chapter">
     <p class="num">05</p>
     <div class="in"><h1>场景与风险</h1><p class="lead">需求说「要做什么」，场景说「在什么条件下做」。条件写不清，验收就说不清。</p></div>
@@ -655,45 +632,58 @@
       <li><span>03</span>晚高峰路口的 45 秒</li><li><span>04</span>十二条风险场景</li></ul></div>
   </section>
 
-  <!-- 25 四层场景 -->
+  <!-- 24 四层场景 -->
   <section class="slide">
     <p class="kicker">场景 · 分层</p>
     <h1>四层场景：任务、功能、逻辑、具体</h1>
-    <div class="body" style="display:flex;flex-direction:row;gap:26px">
-      <div style="flex:1.05;display:flex;flex-direction:column;justify-content:flex-start;gap:16px;padding-top:10px">
-        <div><p style="font-size:var(--b);color:var(--ink)"><b>任务场景 6 个</b>　组织层要办成什么事</p><p style="font-size:var(--d);color:var(--ink3);margin-top:2px">例：干线协调、事故处置、公交优先</p></div>
-        <div><p style="font-size:var(--b);color:var(--ink)"><b>功能场景 12 个</b>　系统要输出什么能力</p><p style="font-size:var(--d);color:var(--ink3);margin-top:2px">例：冲突预警、建议让行</p></div>
-        <div><p style="font-size:var(--b);color:var(--ink)"><b>逻辑场景 6 个</b>　把要素写成参数区间</p><p style="font-size:var(--d);color:var(--ink3);margin-top:2px">例：流量 600–2400 辆/时，往返时延 30–500 毫秒</p></div>
-        <div><p style="font-size:var(--b);color:var(--ink)"><b>具体场景 3 个</b>　参数取定值，可回放可打分</p><p style="font-size:var(--d);color:var(--ink3);margin-top:2px">例：晚高峰路口、雨雾路口、施工绕行</p></div>
-      </div>
-      <div style="flex:.95;display:flex;flex-direction:column;justify-content:center;gap:8px">
-        <div style="background:#E7EDF6;border-radius:8px;padding:16px 18px;font-size:20px;color:var(--navy)"><b>任务场景 · 6</b></div>
-        <div style="background:#D3E0F0;border-radius:8px;padding:16px 18px;margin-left:26px;font-size:20px;color:var(--navy)"><b>功能场景 · 12</b></div>
-        <div style="background:#A9C2DF;border-radius:8px;padding:16px 18px;margin-left:52px;font-size:20px;color:var(--navy)"><b>逻辑场景 · 6</b></div>
-        <div style="background:var(--accent);border-radius:8px;padding:16px 18px;margin-left:78px;font-size:20px;color:#fff"><b>具体场景 · 3</b></div>
+    <div class="body">
+      <div class="split">
+        <div class="lft" style="gap:14px">
+          <div><p style="font-size:var(--b);color:var(--ink)"><b>任务场景 6 个</b>　组织层要办成什么事</p><p class="tnote" style="margin-top:2px">例：干线协调、事故处置、公交优先</p></div>
+          <div><p style="font-size:var(--b);color:var(--ink)"><b>功能场景 12 个</b>　系统要输出什么能力</p><p class="tnote" style="margin-top:2px">例：冲突预警、建议让行</p></div>
+          <div><p style="font-size:var(--b);color:var(--ink)"><b>逻辑场景 6 个</b>　把要素写成参数区间</p><p class="tnote" style="margin-top:2px">例：流量 600–2400 辆/时，往返时延 30–500 毫秒</p></div>
+          <div><p style="font-size:var(--b);color:var(--ink)"><b>具体场景 3 个</b>　参数取定值，可回放可打分</p><p class="tnote" style="margin-top:2px">例：晚高峰路口、雨雾路口、施工绕行</p></div>
+        </div>
+        <div class="rgt" style="flex-direction:.95;align-items:stretch">
+          <div class="nest" style="width:100%">
+            <div class="n1"><b>任务场景 · 6</b></div>
+            <div class="n2"><b>功能场景 · 12</b></div>
+            <div class="n3"><b>逻辑场景 · 6</b></div>
+            <div class="n4"><b>具体场景 · 3</b></div>
+          </div>
+        </div>
       </div>
     </div>
     <p class="sum">八类要素各层取值不同：上层只取任务与环境。</p>
-    <div class="pageno">25 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 26 运行条件 -->
+  <!-- 25 运行条件 -->
   <section class="slide">
     <p class="kicker">场景 · 运行条件</p>
     <h1>运行条件：三条硬线决定能不能开</h1>
     <div class="body">
       <table class="tbl">
-        <tr><th style="width:20%">条件</th><th style="width:26%">允许</th><th style="width:26%">受限</th><th>禁止</th></tr>
+        <tr><th style="width:18%">条件</th><th style="width:26%">允许</th><th style="width:26%">受限</th><th>禁止</th></tr>
         <tr><td>道路与设施</td><td>主干路、已布设路侧设备</td><td class="ex">设施覆盖不连续</td><td class="hot">无路侧设备的路段</td></tr>
         <tr><td>气象与光照</td><td>无雨或小雨、照度充足</td><td class="ex">中雨、低照度限速</td><td class="hot">能见度低于 30 米</td></tr>
         <tr><td>通信与时间</td><td>往返时延不高于 150 毫秒</td><td class="ex">150–300 毫秒只读建议</td><td class="hot">超 300 毫秒持续 5 秒</td></tr>
       </table>
+      <div class="flow" style="flex:none;gap:8px;margin-top:4px">
+        <div class="stp" style="min-height:0;padding:12px 14px;display:flex;flex-direction:column;justify-content:center"><b>越界识别</b><p>1 秒内识别，2 秒内告知驾驶员</p></div>
+        <div class="arw"></div>
+        <div class="stp" style="min-height:0;padding:12px 14px;display:flex;flex-direction:column;justify-content:center"><b>触发降级</b><p>进受限或禁止档，停发新建议</p></div>
+        <div class="arw"></div>
+        <div class="stp" style="min-height:0;padding:12px 14px;display:flex;flex-direction:column;justify-content:center"><b>车端接管</b><p>切本地闭环，必要时进入最小风险</p></div>
+        <div class="arw"></div>
+        <div class="stp" style="min-height:0;padding:12px 14px;display:flex;flex-direction:column;justify-content:center"><b>恢复</b><p>条件恢复后逐级回归，不跳档</p></div>
+      </div>
     </div>
     <p class="sum">禁止档下只保留减速提示，不参与协同决策。</p>
-    <div class="pageno">26 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 27 时间轴 -->
+  <!-- 26 时间轴 -->
   <section class="slide">
     <p class="kicker">场景 · 实例</p>
     <h1>45 秒实况：三次判断与一次降级</h1>
@@ -708,16 +698,16 @@
           <div class="tp"><i></i><b>T0+14 秒</b><p>电动车退出<br>撤销让行</p></div>
         </div>
         <div class="cards" style="margin-top:26px">
-          <div class="card"><h3>系统做了什么</h3><p>先建议让行，再识别冲突降速；检测到超时即停发云端建议，切直连与本地闭环；冲突解除后逐步恢复。</p></div>
+          <div class="card"><h3>系统做了什么</h3><p>先建议让行，再识别冲突降速；检测到超时即停发云端建议，切直连与本地闭环；冲突解除后逐级恢复。</p></div>
           <div class="card hot"><h3>差点出什么事</h3><p>若建议在 T0+11 秒继续下发，公交会在延迟信息上加速；若 T0+14 秒未撤销，电动车仍在路口而公交已恢复加速。</p></div>
         </div>
       </div>
     </div>
     <p class="sum">整段过程没有一次人工干预，全部由降级策略接管。</p>
-    <div class="pageno">27 / 30</div>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 28 风险 -->
+  <!-- 27 风险 -->
   <section class="slide">
     <p class="kicker">场景 · 风险清单</p>
     <h1>风险清单：十二条，两条不可接受</h1>
@@ -729,9 +719,10 @@
             <tr><td>RS-01</td><td class="ex">建议未及时到达，公交与闯灯车辆冲突</td><td class="hot">不可接受</td><td class="ex">改由路侧本地闭环识别冲突</td></tr>
             <tr><td>RS-05</td><td class="ex">逆光下逆行非机动车漏检</td><td class="hot">不可接受</td><td class="ex">增设非机动车检测并降速限速</td></tr>
             <tr><td>RS-02</td><td class="ex">建议到达时公交已进路口，制动不及</td><td>需缓解</td><td class="ex">引入最小剩余距离判据</td></tr>
-            <tr><td>RS-04</td><td class="ex">撤销过早，非机动车仍在路口</td><td>需缓解</td><td class="ex">撤销售侧与车侧双源确认</td></tr>
+            <tr><td>RS-04</td><td class="ex">撤销过早，非机动车仍在路口</td><td>需缓解</td><td class="ex">撤销需侧与车侧双源确认</td></tr>
             <tr><td>RS-11</td><td class="ex">证据不完整，事后难以定责</td><td>可接受</td><td class="ex">纳入审计兜底</td></tr>
           </table>
+          <p class="tnote">其余 7 条：需缓解 4 · 需监控 2 · 可接受 1（RS-03/06/07/08/09/10/12）。</p>
         </div>
         <div class="m">
           <div style="font-size:var(--d);color:var(--ink3)">严重度 × 暴露度</div>
@@ -740,15 +731,15 @@
             <div class="r1">可接受</div><div class="r2">需监控</div><div class="r4 hit">RS-05</div>
             <div class="r1">可接受</div><div class="r1">可接受</div><div class="r3">需缓解</div>
           </div>
-          <div style="font-size:var(--d);color:var(--ink2)">两条不可接受均以设计变更处置，不以提示替代。</div>
+          <div class="tnote">两条不可接受均以设计变更处置，不以提示替代。</div>
         </div>
       </div>
     </div>
-    <p class="sum">其余七条按需缓解、需监控、可接受三档纳入迭代清单。</p>
-    <div class="pageno">28 / 30</div>
+    <p class="sum">回到第 3 页：RS-01 就是那辆公交，RS-05 就是那辆逆光里的电动车。</p>
+    <div class="pageno"></div>
   </section>
 
-  <!-- 29 追溯 -->
+  <!-- 28 追溯 -->
   <section class="slide">
     <p class="kicker">收口 · 追溯</p>
     <h1>追溯：任一要求可双向追到底</h1>
@@ -760,7 +751,7 @@
           <div class="chip"><b>相关方要求</b><span>识别率不低于 99%</span></div><div class="tr-arw"></div>
           <div class="chip"><b>系统要求</b><span>场景库识别率</span></div><div class="tr-arw"></div>
           <div class="chip"><b>安全要求</b><span>双源交叉校验</span></div><div class="tr-arw"></div>
-          <div class="chip" style="border-color:#eec2b8;background:var(--accent-soft)"><b>风险场景</b><span>逆光加逆行漏检</span></div>
+          <div class="chip risk"><b>风险场景</b><span>逆光加逆行漏检</span></div>
         </div>
         <div class="cards">
           <div class="card"><h3>反向问法</h3><p>看到任一要求，问三句：谁提的、落在哪个组件、用什么方法验。答不上来即链条断裂。</p></div>
@@ -769,7 +760,25 @@
       </div>
     </div>
     <p class="sum">六类编号分属六类对象，跨册引用不重复编号。</p>
-    <div class="pageno">29 / 30</div>
+    <div class="pageno"></div>
+  </section>
+
+  <!-- 29 我做了什么 -->
+  <section class="slide">
+    <p class="kicker">收口 · 工作量</p>
+    <h1>这些结论是这样做出来的</h1>
+    <div class="body">
+      <table class="tbl">
+        <tr><th style="width:22%">产出</th><th style="width:12%">数量</th><th style="width:32%">内容</th><th>可查位置</th></tr>
+        <tr><td>需求文档</td><td class="num">2 册</td><td>业务需求、相关方需求</td><td class="ex">brs.html、strs.html</td></tr>
+        <tr><td>系统需求与架构</td><td class="num">2 册</td><td>系统需求、架构与安全分析</td><td class="ex">sys-req.html、sys-arch.html</td></tr>
+        <tr><td>场景文档</td><td class="num">1 册</td><td>四层场景、运行条件、风险清单</td><td class="ex">scenario.html</td></tr>
+        <tr><td>网页与文档</td><td class="num">9 页</td><td>项目页、四个分册页、首页等</td><td class="ex">仓库根目录</td></tr>
+        <tr><td>图表</td><td class="num">3 张</td><td>架构图、控制结构图、安全架构图</td><td class="ex">fig-*.png</td></tr>
+      </table>
+    </div>
+    <p class="sum">每册都有 Word 与网页两个形态，编号互通。</p>
+    <div class="pageno"></div>
   </section>
 
   <!-- 30 结论 -->
@@ -789,8 +798,8 @@
         <div class="card"><h3>建议的</h3><p>先在一个行政区标定，再谈规模复制与按效付费。</p></div>
       </div>
     </div>
-    <p class="sum">以上结论对应四册文档与全部图表，编号统一，可逐页回溯。</p>
-    <div class="pageno">30 / 30</div>
+    <p class="sum">这四册文档对得上，才敢说结论成立。</p>
+    <div class="pageno"></div>
   </section>
 
   <!-- 31 谢谢 -->
@@ -800,15 +809,32 @@
   </section>
 </div>
 
+<div id="toc"><h2>目录</h2><ol id="toclist"></ol></div>
+<div class="hint">← → 翻页 · T 目录 · F 全屏</div>
+<div class="btns"><button onclick="prev()">上一页</button><button onclick="next()">下一页</button><button onclick="togToc()">目录</button><button onclick="full()">全屏</button></div>
+
 <script>
   const slides=[...document.querySelectorAll('.slide')];
   const total=slides.length;
   let cur=0;
-  const NAMES={0:'引言与场景',1:'系统怎么拆',2:'需求怎么定',3:'架构与安全',4:'场景与风险',5:'收口'};
+  // 页码与页眉自动填充
+  slides.forEach((s,i)=>{
+    const p=s.querySelector('.pageno');
+    if(p) p.textContent=(i+1)+' / '+(total-1);
+  });
+  function chapterOf(i){
+    for(let k=i;k>=0;k--){ if(slides[k].classList.contains('chapter')) {
+      const n=slides[k].querySelector('.num')?.textContent.trim()||'';
+      const t=slides[k].querySelector('h1')?.textContent.trim()||'';
+      return (n?n+' ':'')+t;
+    }}
+    return '';
+  }
   function show(n){
     cur=Math.max(0,Math.min(total-1,n));
     slides.forEach((s,k)=>s.classList.toggle('on',k===cur));
     document.getElementById('bar').style.width=((cur+1)/total*100)+'%';
+    document.getElementById('tag').textContent=chapterOf(cur);
     history.replaceState(null,'','#p'+(cur+1));
   }
   function next(){show(cur+1);} function prev(){show(cur-1);}
@@ -817,6 +843,7 @@
   (function buildToc(){
     const ol=document.getElementById('toclist');
     slides.forEach((s,i)=>{
+      if(s.classList.contains('end')) return;
       const h=s.querySelector('h1');
       const t=h?h.textContent.trim():'第 '+(i+1)+' 页';
       const li=document.createElement('li');
@@ -834,6 +861,7 @@
     else if(e.key==='Escape'){document.getElementById('toc').classList.remove('open');}
   });
   document.getElementById('stage').addEventListener('click',e=>{
+    if(e.target.closest('a,button')) return;
     const r=e.currentTarget.getBoundingClientRect();
     (e.clientX-r.left>r.width/2)?next():prev();
   });
