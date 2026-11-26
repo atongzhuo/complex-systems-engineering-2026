@@ -245,7 +245,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <p class="tcap">表 4-2</p><div class="table-wrap"><table><thead><tr><th>编号</th><th>规则</th><th>说明</th></tr></thead><tbody><tr><td>SR-R-01</td><td>安全相关动作必须&quot;建议—确认—执行&quot;三段式</td><td>系统不得直接下发可能引发风险的强制控制</td></tr><tr><td>SR-R-02</td><td>ODD 判定优先于协同决策</td><td>ODD 不满足时，一律降级并告知</td></tr><tr><td>SR-R-03</td><td>单一数据源原则</td><td>时空基准、路网、事件状态各只有一处权威来源</td></tr><tr><td>SR-R-04</td><td>接口版本兼容</td><td>主版本内保持向后兼容，破坏性变更需提前 6 个月公告</td></tr><tr><td>SR-R-05</td><td>降级可预期</td><td>每类失效都有预设的降级动作与告知对象</td></tr><tr><td>SR-R-06</td><td>全链路留痕</td><td>消息、决策、人工操作均可追溯到时间、来源、版本</td></tr></tbody></table></div>
       <h3 class="sec" id="strs-4.3">4.3 系统运行约束</h3>
       <ul>
-      <li>时延：车端闭环 70 ms（感知 30 + 决策 20 + 执行 20；端到端本地 100 ms = 70 + 融合 20 + 余量 10）；云端协同闭环 ≤ 300 ms（含路侧融合 15、云端决策与下发 150）。</li>
+      <li>时延：车端闭环 70 ms（感知 30 + 决策 20 + 执行 20；端到端本地 100 ms = 70 + 融合 20 + 余量 10）；云端协同闭环 ≤ 300 ms（路侧融合 15 + 上行 40 + 决策 80 + 下发 30 + 车端执行 30 + 余量 105）。</li>
       <li>时间同步：车—路—云 ≤ 1 μs；坐标基准 CGCS2000。</li>
       <li>通信：PC5 直连用于低时延本地协同；5G Uu 用于广域与云端交互。</li>
       <li>供电与防护：车端 IP67、路端 ≥ IP65、云端 IP20；路端整机功耗 ≤ 300 W。</li>
