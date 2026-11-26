@@ -208,8 +208,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <a href="#diagram">架构图</a>
       <a href="#trace">追溯</a>
       <a href="#degrade">降级</a>
-      <a href="./brs-strs.html">BRS/StRS</a>
-      <a href="./syrs.html">需求与安全</a>
+      <a href="./brs-strs.html">BRS / StRS 分析</a>
+      <a href="./syrs.html">SyRS 与安全</a>
       <a href="./scenario.html">场景与 ODD</a>
       <a href="./index.html">课程仓库</a>
     </nav>
@@ -218,7 +218,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <main class="wrap">
     <div class="top-actions">
-      <a class="qj" href="./car-road-cloud.html#levels"><span class="no">01</span><span class="tx"><span class="t">项目层级概述</span><span class="d">六层分解：任务 → 体系 → 整机 → 系统 → 子系统 → 模块</span></span><span class="go" aria-hidden="true">↓</span></a>
+      <a class="qj" href="./car-road-cloud.html#levels"><span class="no">01</span><span class="tx"><span class="t">项目层级概述</span><span class="d">六层分解：任务 → 体系 → 整机 → 系统 → 子系统 → 模块</span></span><span class="go" aria-hidden="true">→</span></a>
       <a class="qj" href="./brs-strs.html"><span class="no">02</span><span class="tx"><span class="t">BRS / StRS 分析</span><span class="d">两册需求文档的分册阅读入口 · 业务视角与相关方视角各一册</span></span><span class="go" aria-hidden="true">→</span></a>
       <a class="qj" href="./syrs.html"><span class="no">03</span><span class="tx"><span class="t">系统需求与安全分析</span><span class="d">SyRS · 初始架构 · 控制框图 · STPA 与 18 条安全需求</span></span><span class="go" aria-hidden="true">→</span></a>
       <a class="qj" href="./scenario.html"><span class="no">04</span><span class="tx"><span class="t">场景与 ODD</span><span class="d">四层场景 · 运行设计条件与人员状态 · 12 条风险场景</span></span><span class="go" aria-hidden="true">→</span></a>
@@ -266,7 +266,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <tr><td>01 任务 Mission</td><td>构建安全、高效、绿色的智能网联交通体系，把城市治理诉求转写为可分解的技术目标，并分三阶段推进。</td><td>亿车公里事故率下降 ≥ 30%；路网平均行程速度提升 ≥ 15%</td></tr>
           <tr><td>02 体系 SoS</td><td>7 个业务系统 + 1 个车路云使能底座协同：交通管理、公交运营、应急救援、设施运维、能源充电、停车管理、货运物流。</td><td>接口契约测试通过率 100%；跨系统事件响应 ≤ 5 s</td></tr>
           <tr><td>03 整机 Hardware</td><td>车端、路端、云端三类可交付整机，加上杆件、供电与机房等配套设施。</td><td>车端 MTBF ≥ 50 000 h；云端单机 ≥ 8 路视频实时推理</td></tr>
-          <tr><td>04 系统 Systems</td><td>车路云一体化系统：实现车、路、云之间的感知互通、信息交互与协同决策，并定义 ODD 与降级策略。</td><td>冲突场景识别率 ≥ 99%；本地闭环 ≤ 70 ms</td></tr>
+          <tr><td>04 系统 Systems</td><td>车路云一体化系统：实现车、路、云之间的感知互通、信息交互与协同决策，并定义 ODD 与降级策略。</td><td>冲突场景识别率 ≥ 99%；车端闭环 ≤ 70 ms，端到端本地 ≤ 100 ms</td></tr>
           <tr><td>05 子系统 Sub-systems</td><td>车端 3、路端 3、云端 3、全域安全 1，共 10 个子系统，按职责单一、接口清晰拆分。</td><td>路侧融合精度横向 ≤ 0.3 m；消息验签 ≤ 2 ms</td></tr>
           <tr><td>06 模块 Modules</td><td>16 个基础模块，归入感知、通信、计算、控制、支撑五组，可采购、可测试。</td><td>摄像头 ≥ 8 MP / 30 FPS；时钟同步 ≤ 1 μs</td></tr>
         </tbody>
@@ -596,7 +596,7 @@ const LEVELS = [
       ["安全性","功能安全（ASIL B）与信息安全双重保障，异常可降级。"]
     ],
     metrics:[
-      ["车端本地闭环时延","≤ 70 ms（感知 30 + 决策 20 + 执行 20）","打点与硬件在环"],
+      ["车端闭环时延","≤ 70 ms（感知 30 + 决策 20 + 执行 20）","打点与硬件在环"],
       ["云端协同闭环时延","≤ 300 ms（含路侧融合 15、云端决策与下发 150）","端到端打点"],
       ["冲突场景识别率","≥ 99%（分母：场景库标注冲突 1,200 例）","场景库回放"],
       ["单路口并发车辆","≥ 200 辆","压测"],

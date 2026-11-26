@@ -167,7 +167,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <main class="wrap">
     <div class="top-actions">
-      <a class="qj" href="./car-road-cloud.html#levels"><span class="no">01</span><span class="tx"><span class="t">项目层级概述</span><span class="d">六层分解：任务 → 体系 → 整机 → 系统 → 子系统 → 模块</span></span><span class="go" aria-hidden="true">↓</span></a>
+      <a class="qj" href="./car-road-cloud.html#levels"><span class="no">01</span><span class="tx"><span class="t">项目层级概述</span><span class="d">六层分解：任务 → 体系 → 整机 → 系统 → 子系统 → 模块</span></span><span class="go" aria-hidden="true">→</span></a>
       <a class="qj" href="./brs-strs.html"><span class="no">02</span><span class="tx"><span class="t">BRS / StRS 分析</span><span class="d">两册需求文档的分册阅读入口 · 业务视角与相关方视角各一册</span></span><span class="go" aria-hidden="true">→</span></a>
       <a class="qj" href="./syrs.html"><span class="no">03</span><span class="tx"><span class="t">系统需求与安全分析</span><span class="d">SyRS · 初始架构 · 控制框图 · STPA 与 18 条安全需求</span></span><span class="go" aria-hidden="true">→</span></a>
       <a class="qj" href="./scenario.html"><span class="no">04</span><span class="tx"><span class="t">场景与 ODD</span><span class="d">四层场景 · 运行设计条件与人员状态 · 12 条风险场景</span></span><span class="go" aria-hidden="true">→</span></a>
@@ -208,6 +208,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <table>
         <thead><tr><th>前缀</th><th>含义</th><th>所在分册</th><th>示例</th></tr></thead>
         <tbody>
+          <tr><td>G</td><td>业务目的（Goals，业务层价值目标；一个 G 由多条 OBJ 细化）</td><td>BRS</td><td>G-01 降低事故严重度与事故率</td></tr>
           <tr><td>OBJ</td><td>业务目标</td><td>BRS</td><td>OBJ-01 事故率下降</td></tr>
           <tr><td>MR</td><td>任务（使命）需求</td><td>BRS</td><td>MR-02 30 s 事件告警</td></tr>
           <tr><td>BR / BP / BC</td><td>业务需求 / 业务过程 / 业务能力</td><td>BRS</td><td>BR-04 分期建设</td></tr>
@@ -221,6 +222,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </tbody>
       </table>
     </div>
+    <p class="lede">说明：BRS 的 MR / BR 追溯列会同时引 G（业务目的）与 OBJ（业务目标）——G 回答「为什么做」，OBJ 回答「做到什么程度」，两者是目的与目标的两级，不可互相替代。</p>
   </section>
 
   <section class="hub-sec">

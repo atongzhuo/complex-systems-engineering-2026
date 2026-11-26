@@ -8,7 +8,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="场景分层、运行设计条件与典型场景风险分析 · 基于车路云系统的未来城市交通规划">
 <meta property="og:description" content="基于车路云系统的未来城市交通规划 · 四层场景、ODD 与人员状态、风险场景清单">
-<meta property="og:image" content="https://atongzhuo.github.io/complex-systems-engineering-2026/fig-safety-arch.png">
+<meta property="og:image" content="https://atongzhuo.github.io/complex-systems-engineering-2026/scenario-cover.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://atongzhuo.github.io/complex-systems-engineering-2026/scenario.html">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23132a4a'/%3E%3Ctext x='32' y='42' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ECS%3C/text%3E%3C/svg%3E">
@@ -170,7 +170,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <span class="no">01</span>
       <span class="tx"><span class="t">项目层级概述</span>
       <span class="d">六层分解：任务 → 体系 → 整机 → 系统 → 子系统 → 模块</span></span>
-      <span class="go" aria-hidden="true">↓</span>
+      <span class="go" aria-hidden="true">→</span>
     </a>
     <a class="qj" href="./brs-strs.html">
       <span class="no">02</span>
@@ -257,6 +257,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <h3 class="sec" id="scen-3.1">3.1 运行设计范围（ODD）</h3>
 <p class="tcap">表 3-1</p>
 <div class="table-wrap"><table><thead><tr><th>维度</th><th>允许（MODE-1）</th><th>受限（MODE-2）</th><th>禁止（退出/不启用）</th></tr></thead><tbody><tr><td>道路</td><td>城市主干路、快速路、隧道与匝道、信号控制交叉口</td><td>无信号控制的支路交叉口、临时改道</td><td>无路侧设施的乡村道路、非铺装路面</td></tr><tr><td>设施</td><td>RSU 与感知覆盖连续、杆件与供电正常、时钟同步 ≤ 1 μs</td><td>覆盖断点 ≤ 200 m、单侧感知失效</td><td>覆盖断点 &gt; 200 m、连续 2 个路口无 RSU</td></tr><tr><td>交通</td><td>机动车为主，非机动车/行人密度 ≤ 中</td><td>机非混行密集、大型活动管控区外围</td><td>人车密集混行且无物理隔离的商圈核心</td></tr><tr><td>气象</td><td>无雨～小雨（≤ 10 mm/h）、无雪无结冰</td><td>中雨（10～25 mm/h）、团雾能见度 200～500 m</td><td>暴雨（&gt; 25 mm/h）、能见度 &lt; 100 m、积水与结冰</td></tr><tr><td>光照</td><td>白天～夜间，路面照度 ≥ 50 lx</td><td>逆光、隧道进出口 200 m 过渡段</td><td>无照明且无夜间补光的道路</td></tr><tr><td>车速</td><td>快速路 0～80 km/h、路口 0～60 km/h</td><td>施工区限速段</td><td>超过设计速度 20% 的持续超速流</td></tr><tr><td>通信</td><td>5G RTT ≤ 150 ms、丢包 ≤ 3%、PC5 ≤ 10 ms</td><td>RTT 150～300 ms、丢包 3%～8%</td><td>RTT &gt; 300 ms 持续 5 s 或 PC5 中断</td></tr><tr><td>地图与证书</td><td>地图版本 ≤ 7 天、证书有效</td><td>地图 7～14 天、证书剩余 &lt; 7 天</td><td>地图 &gt; 14 天、证书过期或验签失败</td></tr></tbody></table></div>
+<p><strong>注</strong>：通信档里的 300 ms 是<strong>网络准入门槛</strong>（超过即判 ODD 越界并进入降级），与 SyRS SY-P-02 的<strong>端到端时延预算 300 ms</strong> 同值不同义，两者不可互推——前者判「还能不能用云端协同」，后者判「一次协同决策从路侧感知到车端执行总共用了多久」。</p>
 <p><strong>排除场景</strong>：施工改造期临时交通组织变更、无路侧设施路段、警车与救护车执行紧急任务的现场（转由人工指挥）。</p>
 <h3 class="sec" id="scen-3.2">3.2 系统状态与 ODD 的对应</h3>
 <p class="tcap">表 3-2</p>

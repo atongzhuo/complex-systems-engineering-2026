@@ -169,7 +169,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <main class="wrap">
     <div class="top-actions">
-      <a class="qj" href="./car-road-cloud.html#levels"><span class="no">01</span><span class="tx"><span class="t">项目层级概述</span><span class="d">六层分解：任务 → 体系 → 整机 → 系统 → 子系统 → 模块</span></span><span class="go" aria-hidden="true">↓</span></a>
+      <a class="qj" href="./car-road-cloud.html#levels"><span class="no">01</span><span class="tx"><span class="t">项目层级概述</span><span class="d">六层分解：任务 → 体系 → 整机 → 系统 → 子系统 → 模块</span></span><span class="go" aria-hidden="true">→</span></a>
       <a class="qj" href="./brs-strs.html"><span class="no">02</span><span class="tx"><span class="t">BRS / StRS 分析</span><span class="d">两册需求文档的分册阅读入口 · 业务视角与相关方视角各一册</span></span><span class="go" aria-hidden="true">→</span></a>
       <a class="qj" href="./syrs.html"><span class="no">03</span><span class="tx"><span class="t">系统需求与安全分析</span><span class="d">SyRS · 初始架构 · 控制框图 · STPA 与 18 条安全需求</span></span><span class="go" aria-hidden="true">→</span></a>
       <a class="qj" href="./scenario.html"><span class="no">04</span><span class="tx"><span class="t">场景与 ODD</span><span class="d">四层场景 · 运行设计条件与人员状态 · 12 条风险场景</span></span><span class="go" aria-hidden="true">→</span></a>
@@ -226,6 +226,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <li><strong>被忽略的风险点</strong>：SH-23（施工养护）常被漏掉，但施工区的 ODD 变化会直接导致系统误判，必须纳入 ODD 管理与事件流程。</li>
       </ul>
       <h2 class="chapter" id="strs-2">2 参考</h2>
+<p class="no-tbl">（本章以文字条款呈现，无表格。）</p>
       <p>同 BRS 第 2 章；补充：ISO 9241-210（以人为中心的交互设计）、GB/T 22239-2019（网络安全等级保护基本要求）。</p>
       <h2 class="chapter" id="strs-3">3 业务管理需求</h2>
       <p>本章与 BRS 第 3 章一致，不重复展开。差异在于视角：BRS 从组织出发陈述&quot;业务要什么&quot;，本章从相关方出发确认&quot;这些业务要求是否被各方接受&quot;。确认结论：</p>
@@ -244,7 +245,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <p class="tcap">表 4-2</p><div class="table-wrap"><table><thead><tr><th>编号</th><th>规则</th><th>说明</th></tr></thead><tbody><tr><td>SR-R-01</td><td>安全相关动作必须&quot;建议—确认—执行&quot;三段式</td><td>系统不得直接下发可能引发风险的强制控制</td></tr><tr><td>SR-R-02</td><td>ODD 判定优先于协同决策</td><td>ODD 不满足时，一律降级并告知</td></tr><tr><td>SR-R-03</td><td>单一数据源原则</td><td>时空基准、路网、事件状态各只有一处权威来源</td></tr><tr><td>SR-R-04</td><td>接口版本兼容</td><td>主版本内保持向后兼容，破坏性变更需提前 6 个月公告</td></tr><tr><td>SR-R-05</td><td>降级可预期</td><td>每类失效都有预设的降级动作与告知对象</td></tr><tr><td>SR-R-06</td><td>全链路留痕</td><td>消息、决策、人工操作均可追溯到时间、来源、版本</td></tr></tbody></table></div>
       <h3 class="sec" id="strs-4.3">4.3 系统运行约束</h3>
       <ul>
-      <li>时延：车端本地闭环 ≤ 70 ms（感知 30 + 决策 20 + 执行 20）；云端协同闭环 ≤ 300 ms（含路侧融合 15、云端决策与下发 150）。</li>
+      <li>时延：车端闭环 70 ms（感知 30 + 决策 20 + 执行 20；端到端本地 100 ms = 70 + 融合 20 + 余量 10）；云端协同闭环 ≤ 300 ms（含路侧融合 15、云端决策与下发 150）。</li>
       <li>时间同步：车—路—云 ≤ 1 μs；坐标基准 CGCS2000。</li>
       <li>通信：PC5 直连用于低时延本地协同；5G Uu 用于广域与云端交互。</li>
       <li>供电与防护：车端 IP67、路端 ≥ IP65、云端 IP20；路端整机功耗 ≤ 300 W。</li>
@@ -313,6 +314,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <h3 class="sec" id="strs-6.6">6.6 弃置概念</h3>
       <p>设备按资产类别回收：杆件与机房优先复用，RSU/MEC 降级用于次干路或教学，电池与线缆按环保要求处置；数据按留存期限销毁并出具销毁记录；算法模型与配置归档，保证历史事件可复算。</p>
       <h2 class="chapter" id="strs-7">7 项目约束</h2>
+<p class="no-tbl">（本章以文字条款呈现，无表格。）</p>
       <p>同 BRS 第 7 章，并补充 StRS 特有约束：</p>
       <ul>
       <li>相关方确认：每条 SR 必须有明确的相关方确认人，未确认的需求不得进入基线；</li>
