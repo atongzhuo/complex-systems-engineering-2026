@@ -40,6 +40,17 @@ li{margin:5px 0}
 .card{border:1px solid #e6e9f2;border-radius:10px;padding:16px 18px;background:#fbfcfe}
 .card h3{margin:0 0 6px;font-size:15px}
 .card p{margin:0;color:#5b6580;font-size:14px}
+.deck{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px 20px;
+  background:var(--navy,#132a4a);color:#fff;border-radius:12px;padding:16px 22px;margin:0 0 16px;
+  text-decoration:none;transition:transform .15s,box-shadow .15s;
+  box-shadow:0 10px 24px -18px rgba(19,42,74,.7)}
+.deck:hover{transform:translateY(-2px);box-shadow:0 14px 28px -18px rgba(19,42,74,.85);text-decoration:none;color:#fff}
+.deck .d-tag{grid-column:1;grid-row:1;font-size:10.5px;letter-spacing:.18em;color:rgba(255,255,255,.55)}
+.deck .d-title{grid-column:2;grid-row:1;font-size:18px;font-weight:700}
+.deck .d-desc{grid-column:2;grid-row:2;font-size:13px;color:rgba(255,255,255,.7);line-height:1.5}
+.deck .d-go{grid-column:3;grid-row:1 / span 2;background:#c2452c;padding:9px 16px;border-radius:9px;
+  font-size:13.5px;font-weight:600;white-space:nowrap}
+@media(max-width:760px){.deck{grid-template-columns:1fr}.deck .d-go{grid-row:3;grid-column:1;justify-self:start;margin-top:6px}}
 a.card{display:block;color:inherit;transition:border-color .15s,box-shadow .15s,transform .15s}
 a.card:hover{text-decoration:none;border-color:#b9c6dc;box-shadow:0 8px 20px -14px rgba(19,42,74,.45);transform:translateY(-2px)}
 a.card:hover h3{color:#2563eb}
@@ -82,6 +93,12 @@ footer{color:#8892ab;font-size:13px;text-align:center;margin-top:36px}
 
 <section>
 <h2>项目展示</h2>
+<a class="deck" href="./slides.html">
+  <span class="d-tag">COURSE REPORT</span>
+  <span class="d-title">课程汇报 · 30 页幻灯片</span>
+  <span class="d-desc">从晚高峰路口的 45 秒讲到 121 条需求、三层一底座与 12 条风险场景，一条线讲完整个项目</span>
+  <span class="d-go">开始放映 →</span>
+</a>
 <div class="grid">
 <a class="card" href="./car-road-cloud.html"><h3>基于车路云系统的未来城市交通规划</h3><p>六层分解：任务 Mission → 体系 SoS → 整机 Hardware → 系统 Systems → 子系统 Sub-systems → 模块 Modules。<span class="more">打开交互页面 →</span></p></a>
 <a class="card" href="./syrs.html"><h3>系统需求与安全分析</h3><p>SyRS（ISO/IEC/IEEE 29148 表 5-1，121 条需求）、初始系统架构、系统控制框图、STPA 安全需求与安全架构，附 DOCX 下载。<span class="more">阅读全文 →</span></p></a>
