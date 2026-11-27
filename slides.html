@@ -311,6 +311,18 @@
   .seg.tiny{font-size:17px}
   .chain .node{font-size:18px}
   .chain .col{font-size:18px}
+
+  .bars{display:flex;flex-direction:column;gap:6px;justify-content:center;flex:1}
+  .brow{display:flex;align-items:center;gap:14px}
+  .blab{width:108px;text-align:right;font-size:20px;color:var(--ink2);flex:0 0 auto}
+  .btrack{display:flex;gap:3px;height:52px;flex:0 0 auto}
+  .bleg{margin-left:122px;font-size:18px;color:var(--ink3);line-height:1.3;margin-bottom:10px}
+  .blegend{text-align:center;font-size:17px;color:var(--ink3)}
+
+  .tbl.compact td{padding:8px 12px;font-size:19px;line-height:1.35}
+  .tbl.compact th{padding:8px 12px}
+  .plist{font-size:18px;color:var(--ink2);line-height:1.6;margin:2px 0 0}
+  .plist b{color:var(--navy)}
 </style>
 </head>
 <body>
@@ -336,8 +348,8 @@
     <div class="body">
       <div class="concl">
         <div class="row"><div class="no">01</div><div class="tx">它是一个<b>车、路、云三域闭环</b>的系统：云做全局，路做兜底，车做执行。</div></div>
-        <div class="row"><div class="no">02</div><div class="tx">它被拆成<b>一百二十一条可验证的要求</b>：每条都能追到谁提的、落在哪个组件、怎么验证。</div></div>
-        <div class="row"><div class="no">03</div><div class="tx">它识别出<b>十二条风险场景</b>：其中两条不可接受，必须改设计而不是加提示。</div></div>
+        <div class="row"><div class="no">02</div><div class="tx">它是<b>一百二十一条可验证的要求</b>：系统需求，安全分析，场景应用。</div></div>
+        <div class="row"><div class="no">03</div><div class="tx">它是<b>十二条风险场景下的更优方案</b>：减少事故，规避风险。</div></div>
       </div>
     </div>
     
@@ -347,7 +359,7 @@
   <!-- 3 目录 -->
   <section class="slide">
     <p class="kicker">导览 · 全篇结构</p>
-    <h1>五段结构，每段都有可交付的产出</h1>
+    <h1>五个方面拆解系统</h1>
     <div class="body">
       <table class="tbl">
         <tr><th style="width:26%">主题</th><th style="width:50%">这一段回答什么</th><th>产出</th></tr>
@@ -504,7 +516,7 @@
         <tr><td>云端</td><td class="num">3</td><td>云控平台、高精地图、协同调度</td></tr>
         <tr><td>全域安全</td><td class="num">1</td><td>身份认证、密钥与证书管理</td></tr>
       </table>
-      <p style="text-align:center;font-size:30px;line-height:1;color:#c3ccda;margin:2px 0 0">↓</p><p style="text-align:center;font-size:20px;color:var(--ink2);margin:0 0 8px">按职责拆到可独立交付，共十个单元</p><p class="tnote">十个单元：车载感知、车载通信、车载决策；路侧感知、路侧通信、边缘计算；云控平台、高精地图、协同调度；全域安全。</p>
+      
     </div>
     
     <div class="pageno"></div>
@@ -602,7 +614,15 @@
     <p class="kicker">需求怎么定 · 指标口径</p>
     <h1>三段时延共同构成端到端预算</h1>
     <div class="body">
-      <div class="bars"><div class="barrow"><div class="blab">车端闭环</div><div class="btrack"><div class="seg" style="width:82px">30</div><div class="seg" style="width:55px">20</div><div class="seg" style="width:55px">20</div></div><div class="btot">70 毫秒</div></div><div class="barrow"><div class="blab">端到端本地</div><div class="btrack"><div class="seg" style="width:191px">车端 70</div><div class="seg" style="width:55px">20</div><div class="seg ln" style="width:27px"></div></div><div class="btot">100 毫秒</div></div><div class="barrow"><div class="blab">云端协同</div><div class="btrack"><div class="seg tiny" style="width:41px">15</div><div class="seg" style="width:109px">上行 40</div><div class="seg" style="width:219px">决策 80</div><div class="seg" style="width:82px">下发 30</div><div class="seg" style="width:82px">车端 30</div><div class="seg ln" style="width:287px">余量 105</div></div><div class="btot">300 毫秒</div></div></div><div class="blegend">色块宽度按时延等比：浅色为余量，留给抖动与重传。</div>
+      <div class="bars">
+        <div class="brow"><div class="blab">车端闭环</div><div class="btrack"><div class="seg" style="width:82px">30</div><div class="seg" style="width:55px">20</div><div class="seg" style="width:55px">20</div></div></div>
+        <div class="bleg">感知 30 · 决策 20 · 执行 20　＝ 70 毫秒</div>
+        <div class="brow"><div class="blab">端到端本地</div><div class="btrack"><div class="seg" style="width:191px">车端 70</div><div class="seg" style="width:55px">20</div><div class="seg ln" style="width:27px"></div></div></div>
+        <div class="bleg">车端 70 · 融合 20 · 余量 10　＝ 100 毫秒</div>
+        <div class="brow"><div class="blab">云端协同</div><div class="btrack"><div class="seg tiny" style="width:41px">15</div><div class="seg" style="width:109px">上行 40</div><div class="seg" style="width:219px">决策 80</div><div class="seg" style="width:82px">下发 30</div><div class="seg" style="width:82px">车端 30</div><div class="seg ln" style="width:287px">余量 105</div></div></div>
+        <div class="bleg">路侧融合 15 · 上行 40 · 决策 80 · 下发 30 · 车端执行 30 · 余量 105　＝ 300 毫秒</div>
+      </div>
+      <p class="blegend">色块宽度按时延等比；浅色为余量，留给抖动与重传。</p>
     </div>
     <p class="sum">任一段超限，该条建议即判定失效，不得继续下发。</p>
     <div class="pageno"></div>
@@ -656,16 +676,20 @@
     <p class="kicker">架构 · 控制结构</p>
     <h1>控制结构：五个控制器，三个受控过程</h1>
     <div class="body">
-      <table class="tbl">
-        <tr><th style="width:16%">控制器</th><th style="width:34%">控制动作</th><th style="width:34%">反馈</th><th>受控过程</th></tr>
-        <tr><td><b>C5 交管</b></td><td>确认或否决配时、发布管控、调度应急</td><td>路口排队、事件态势</td><td>信号配时</td></tr>
-        <tr><td><b>C1 云控</b></td><td>下发全局策略、下发或撤销建议、更新运行条件、请求降级</td><td>路段状态、执行回执、事件闭环</td><td>车辆运动、设施状态</td></tr>
-        <tr><td><b>C2 路侧</b></td><td>下发局部建议、广播路面状态、执行降级、请求接管</td><td>目标列表、路侧在线状态、车辆响应</td><td>车辆运动、设施状态</td></tr>
-        <tr><td><b>C3 车端</b></td><td>采纳或拒绝建议、输出纵向与横向请求、进入最小风险</td><td>车辆状态、驾驶员状态、执行器回执</td><td>车辆运动</td></tr>
-        <tr><td><b>C4 驾驶员</b></td><td>接管、忽略提示、手动驾驶</td><td>提示与车辆行为</td><td>车辆运动</td></tr>
+      <table class="tbl compact">
+        <tr><th style="width:18%">控制器</th><th style="width:46%">控制动作（下发）</th><th>反馈（回执）</th></tr>
+        <tr><td><b>C5 交管指挥中心</b></td><td>确认或否决配时；发布管控；调度应急</td><td>路口排队、事件态势、执行效果</td></tr>
+        <tr><td><b>C1 云控协同决策器</b></td><td>下发全局策略；建议下发或撤销；更新运行条件；请求降级</td><td>路段状态、事件闭环、执行回执</td></tr>
+        <tr><td><b>C2 路侧边缘控制器</b></td><td>下发局部建议；广播路面状态；执行降级；请求接管</td><td>目标列表、在线与标定、数据质量</td></tr>
+        <tr><td><b>C3 车端协同域控</b></td><td>采纳或拒绝建议；输出纵向与横向请求；触发最小风险</td><td>车辆状态、执行回执、驾驶员状态</td></tr>
+        <tr><td><b>C4 驾驶员</b></td><td>接管；忽略提示；手动驾驶</td><td>提示响应、接管动作</td></tr>
+        <tr><td><b>SSM 独立安全监控</b></td><td>独立 MCU、电源、时钟，越过 C1–C3 直接触发降级</td><td>心跳、审计日志</td></tr>
+        <tr><td><b>MRM 最小风险状态</b></td><td>减速、靠边、安全停车（C3 触发或 SSM 强制）</td><td>车辆状态、停车结果</td></tr>
       </table>
+      <p class="plist"><b>受控过程</b>　P1 车辆运动（位置、速度、加速度、航向）　·　P2 信号配时（相位、绿信比、优先执行）　·　P3 路侧设施状态（在线、标定、标牌显示）</p>
+      <p class="plist"><b>外部输入</b>　天气、施工、遮挡、非车行为　　　<b>图例</b>　实线＝控制动作（下发），虚线＝回执（上报）</p>
     </div>
-    <p class="sum">五个控制器里，人类只在 C4 与 C5 两处；其余三处都必须可被接管。</p>
+    <p class="sum">人类只在 C4 与 C5 两处；其余三处都必须可被接管，且 SSM 可越过它们直接降级。</p>
     <div class="pageno"></div>
   </section>
 
@@ -826,7 +850,7 @@
   </section>
   <section class="slide">
     <p class="kicker">收口 · 追溯</p>
-    <h1>追溯：任一要求可双向追到底</h1>
+    <h1>回顾需求</h1>
     <div class="body">
       <div style="display:flex;gap:22px;align-items:flex-start">
       <table class="tbl" style="flex:1">
