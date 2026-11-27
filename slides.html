@@ -323,6 +323,10 @@
   .tbl.compact th{padding:8px 12px}
   .plist{font-size:18px;color:var(--ink2);line-height:1.6;margin:2px 0 0}
   .plist b{color:var(--navy)}
+
+  .bnames{display:flex;gap:3px;margin-left:122px;margin-bottom:12px;font-size:15px;color:var(--ink3);align-items:baseline}
+  .bnames span{text-align:center;flex:0 0 auto;white-space:nowrap}
+  .bnames .bsum{margin-left:26px;color:var(--accent);font-weight:600;font-size:17px}
 </style>
 </head>
 <body>
@@ -616,11 +620,11 @@
     <div class="body">
       <div class="bars">
         <div class="brow"><div class="blab">车端闭环</div><div class="btrack"><div class="seg" style="width:82px">30</div><div class="seg" style="width:55px">20</div><div class="seg" style="width:55px">20</div></div></div>
-        <div class="bleg">感知 30 · 决策 20 · 执行 20　＝ 70 毫秒</div>
-        <div class="brow"><div class="blab">端到端本地</div><div class="btrack"><div class="seg" style="width:191px">车端 70</div><div class="seg" style="width:55px">20</div><div class="seg ln" style="width:27px"></div></div></div>
-        <div class="bleg">车端 70 · 融合 20 · 余量 10　＝ 100 毫秒</div>
-        <div class="brow"><div class="blab">云端协同</div><div class="btrack"><div class="seg tiny" style="width:41px">15</div><div class="seg" style="width:109px">上行 40</div><div class="seg" style="width:219px">决策 80</div><div class="seg" style="width:82px">下发 30</div><div class="seg" style="width:82px">车端 30</div><div class="seg ln" style="width:287px">余量 105</div></div></div>
-        <div class="bleg">路侧融合 15 · 上行 40 · 决策 80 · 下发 30 · 车端执行 30 · 余量 105　＝ 300 毫秒</div>
+        <div class="bnames"><span style="width:82px">感知</span><span style="width:55px">决策</span><span style="width:55px">执行</span><span class="bsum">＝ 70 毫秒</span></div>
+        <div class="brow"><div class="blab">端到端本地</div><div class="btrack"><div class="seg" style="width:191px">70</div><div class="seg" style="width:55px">20</div><div class="seg ln tiny" style="width:27px">10</div></div></div>
+        <div class="bnames"><span style="width:191px">车端</span><span style="width:55px">融合</span><span style="width:27px">余量</span><span class="bsum">＝ 100 毫秒</span></div>
+        <div class="brow"><div class="blab">云端协同</div><div class="btrack"><div class="seg tiny" style="width:41px">15</div><div class="seg" style="width:109px">40</div><div class="seg" style="width:219px">80</div><div class="seg" style="width:82px">30</div><div class="seg" style="width:82px">30</div><div class="seg ln" style="width:287px">105</div></div></div>
+        <div class="bnames"><span style="width:41px">融合</span><span style="width:109px">上行</span><span style="width:219px">决策</span><span style="width:82px">下发</span><span style="width:82px">车端</span><span style="width:287px">余量</span><span class="bsum">＝ 300 毫秒</span></div>
       </div>
       <p class="blegend">色块宽度按时延等比；浅色为余量，留给抖动与重传。</p>
     </div>
@@ -676,6 +680,7 @@
     <p class="kicker">架构 · 控制结构</p>
     <h1>控制结构：五个控制器，三个受控过程</h1>
     <div class="body">
+      <p class="plist" style="margin-bottom:2px"><b>外部输入</b>　天气、施工、遮挡、非车行为</p>
       <table class="tbl compact">
         <tr><th style="width:18%">控制器</th><th style="width:46%">控制动作（下发）</th><th>反馈（回执）</th></tr>
         <tr><td><b>C5 交管指挥中心</b></td><td>确认或否决配时；发布管控；调度应急</td><td>路口排队、事件态势、执行效果</td></tr>
@@ -687,7 +692,6 @@
         <tr><td><b>MRM 最小风险状态</b></td><td>减速、靠边、安全停车（C3 触发或 SSM 强制）</td><td>车辆状态、停车结果</td></tr>
       </table>
       <p class="plist"><b>受控过程</b>　P1 车辆运动（位置、速度、加速度、航向）　·　P2 信号配时（相位、绿信比、优先执行）　·　P3 路侧设施状态（在线、标定、标牌显示）</p>
-      <p class="plist"><b>外部输入</b>　天气、施工、遮挡、非车行为　　　<b>图例</b>　实线＝控制动作（下发），虚线＝回执（上报）</p>
     </div>
     <p class="sum">人类只在 C4 与 C5 两处；其余三处都必须可被接管，且 SSM 可越过它们直接降级。</p>
     <div class="pageno"></div>
