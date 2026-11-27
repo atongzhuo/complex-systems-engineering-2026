@@ -327,6 +327,18 @@
   .bnames{display:flex;gap:3px;margin-left:122px;margin-bottom:12px;font-size:15px;color:var(--ink3);align-items:baseline}
   .bnames span{text-align:center;flex:0 0 auto;white-space:nowrap}
   .bnames .bsum{margin-left:26px;color:var(--accent);font-weight:600;font-size:17px}
+
+  .bars{display:flex;flex-direction:column;gap:4px;justify-content:center;flex:1}
+  .brow{display:grid;grid-template-columns:108px 820px auto;gap:14px;align-items:center}
+  .blab{text-align:right;font-size:20px;color:var(--ink2)}
+  .btrack{display:flex;gap:3px;height:52px}
+  .btot{font-size:20px;font-weight:700;color:var(--accent);white-space:nowrap}
+  .bnames{display:flex;gap:3px;margin-left:122px;margin-bottom:10px;font-size:15px;color:var(--ink3)}
+  .bnames span{text-align:center;flex:0 0 auto;white-space:nowrap}
+  .baxis{display:flex;justify-content:space-between;margin-left:122px;width:820px;font-size:16px;color:var(--ink3);border-top:1px solid var(--line);padding-top:6px}
+  .body + .sum{margin-top:14px;border-top-color:#cfd8e5}
+  .plab{display:inline-block;width:78px;color:var(--navy)}
+  .slide:nth-of-type(21) .sum{margin-top:24px}
 </style>
 </head>
 <body>
@@ -619,14 +631,15 @@
     <h1>三段时延共同构成端到端预算</h1>
     <div class="body">
       <div class="bars">
-        <div class="brow"><div class="blab">车端闭环</div><div class="btrack"><div class="seg" style="width:82px">30</div><div class="seg" style="width:55px">20</div><div class="seg" style="width:55px">20</div></div></div>
-        <div class="bnames"><span style="width:82px">感知</span><span style="width:55px">决策</span><span style="width:55px">执行</span><span class="bsum">＝ 70 毫秒</span></div>
-        <div class="brow"><div class="blab">端到端本地</div><div class="btrack"><div class="seg" style="width:191px">70</div><div class="seg" style="width:55px">20</div><div class="seg ln tiny" style="width:27px">10</div></div></div>
-        <div class="bnames"><span style="width:191px">车端</span><span style="width:55px">融合</span><span style="width:27px">余量</span><span class="bsum">＝ 100 毫秒</span></div>
-        <div class="brow"><div class="blab">云端协同</div><div class="btrack"><div class="seg tiny" style="width:41px">15</div><div class="seg" style="width:109px">40</div><div class="seg" style="width:219px">80</div><div class="seg" style="width:82px">30</div><div class="seg" style="width:82px">30</div><div class="seg ln" style="width:287px">105</div></div></div>
-        <div class="bnames"><span style="width:41px">融合</span><span style="width:109px">上行</span><span style="width:219px">决策</span><span style="width:82px">下发</span><span style="width:82px">车端</span><span style="width:287px">余量</span><span class="bsum">＝ 300 毫秒</span></div>
+        <div class="brow"><div class="blab">车端闭环</div><div class="btrack"><div class="seg" style="width:82px">30</div><div class="seg" style="width:55px">20</div><div class="seg" style="width:55px">20</div></div><div class="btot">70 毫秒</div></div>
+        <div class="bnames"><span style="width:82px">感知</span><span style="width:55px">决策</span><span style="width:55px">执行</span></div>
+        <div class="brow"><div class="blab">端到端本地</div><div class="btrack"><div class="seg" style="width:191px">70</div><div class="seg" style="width:55px">20</div><div class="seg ln tiny" style="width:27px">10</div></div><div class="btot">100 毫秒</div></div>
+        <div class="bnames"><span style="width:191px">车端</span><span style="width:55px">融合</span><span style="width:27px">余量</span></div>
+        <div class="brow"><div class="blab">云端协同</div><div class="btrack"><div class="seg tiny" style="width:41px">15</div><div class="seg" style="width:109px">40</div><div class="seg" style="width:219px">80</div><div class="seg" style="width:82px">30</div><div class="seg" style="width:82px">30</div><div class="seg ln" style="width:287px">105</div></div><div class="btot">300 毫秒</div></div>
+        <div class="bnames"><span style="width:41px">融合</span><span style="width:109px">上行</span><span style="width:219px">决策</span><span style="width:82px">下发</span><span style="width:82px">车端</span><span style="width:287px">余量</span></div>
+        <div class="baxis"><span>0</span><span>50</span><span>100</span><span>150</span><span>200</span><span>250</span><span>300</span></div>
       </div>
-      <p class="blegend">色块宽度按时延等比；浅色为余量，留给抖动与重传。</p>
+      <p class="blegend">单位毫秒；色块宽度按时延等比，浅色为余量，留给抖动与重传。</p>
     </div>
     <p class="sum">任一段超限，该条建议即判定失效，不得继续下发。</p>
     <div class="pageno"></div>
@@ -691,7 +704,9 @@
         <tr><td><b>SSM 独立安全监控</b></td><td>独立 MCU、电源、时钟，越过 C1–C3 直接触发降级</td><td>心跳、审计日志</td></tr>
         <tr><td><b>MRM 最小风险状态</b></td><td>减速、靠边、安全停车（C3 触发或 SSM 强制）</td><td>车辆状态、停车结果</td></tr>
       </table>
-      <p class="plist"><b>受控过程</b>　P1 车辆运动（位置、速度、加速度、航向）　·　P2 信号配时（相位、绿信比、优先执行）　·　P3 路侧设施状态（在线、标定、标牌显示）</p>
+      <p class="plist"><b class="plab">受控过程</b>P1 车辆运动（位置、速度、加速度、航向）</p>
+      <p class="plist"><b class="plab">　</b>P2 信号配时（相位、绿信比、优先执行）</p>
+      <p class="plist"><b class="plab">　</b>P3 路侧设施状态（在线、标定、标牌显示）</p>
     </div>
     <p class="sum">人类只在 C4 与 C5 两处；其余三处都必须可被接管，且 SSM 可越过它们直接降级。</p>
     <div class="pageno"></div>
